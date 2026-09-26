@@ -1,0 +1,18 @@
+prj/
+
+# Vivado配套常用忽略项（顺便一起加上，推荐）
+*.jou
+*.log
+*.str
+*.rpt
+*.bit
+*.bin
+*.hw
+*.xci
+*.xci.status
+*.ip_user_files
+*.sim
+*.srcs
+*.runs
+*.cache
+*.hw_user_files

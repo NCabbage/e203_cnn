@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include "hbird_sdk_soc.h"
+
+#define LED_PIN     (0)  // gpioA_0
+
+void delay_ms(uint32_t ms)
+{
+    uint32_t i,j;
+    for(i=0; i<ms; i++)
+        for(j=0;j<12000;j++);
+}
+
+int main(void)
+{
+    int i = 0;
+    // PADDIR：把gpioA_0设置成输出
+    GPIOA->PADDIR |= (1 << LED_PIN);
+
+    while(1)
+    {
+        printf("%d: Hello Zynq7010, LED0 toggle\r\n",i);
+        i++;
+        // 翻转PADOUT寄存器的bit0，控制gpioA_0电平
+        GPIOA->PADOUT = (1 << LED_PIN);
+        delay_ms(5000);
+    }
+    return 0;
+}

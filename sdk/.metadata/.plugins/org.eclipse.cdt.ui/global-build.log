@@ -1,0 +1,925 @@
+20:36:55 **** Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c
+ 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+../application/main.c: In function 'main':
+../application/main.c:16:10: error: 'GPIO_TypeDef' has no member named 'DIR'
+   16 |     GPIOA->DIR |= (1 << LED_PIN); // 设置gpioA_0为输出模�?
+      |          ^~
+../application/main.c:22:14: error: 'GPIO_TypeDef' has no member named 'OUT'
+   22 |         GPIOA->OUT ^= (1 << LED_PIN); // 翻转电平
+      |              ^~
+make: *** [application/subdir.mk:20: application/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+20:39:21 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+../application/main.c:2:10: fatal error: hbird.h: No such file or directory
+    2 | #include "hbird.h"
+      |          ^~~~~~~~~
+compilation terminated.
+make: *** [application/subdir.mk:20: application/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+20:39:47 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+12:01:40 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+12:01:44 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+15:32:23 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+15:43:00 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+17:43:39 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+17:45:43 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+17:51:11 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+17:51:14 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+17:57:05 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+18:01:15 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:07:45 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:10:44 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:10:51 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:11:11 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:11:23 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:11:55 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:12:11 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7864	    116	   2356	  10336	   2860	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:13:11 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7868	    116	   2356	  10340	   2864	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:14:49 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+../application/main.c: In function 'main':
+../application/main.c:24:25: error: wrong type argument to bit-complement
+   24 |         GPIOA->PADOUT = ~(GPIOA);
+      |                         ^
+make: *** [application/subdir.mk:20: application/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:14:54 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+../application/main.c: In function 'main':
+../application/main.c:24:25: error: wrong type argument to bit-complement
+   24 |         GPIOA->PADOUT = ~(GPIOA);
+      |                         ^
+make: *** [application/subdir.mk:20: application/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:15:10 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:15:14 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:15:28 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Building file: ../application/main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRD -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\hello_test\application" -std=gnu11 -MMD -MP -MF"application/main.d" -MT"application/main.o" -c -o "application/main.o" "../application/main.c"
+Finished building: ../application/main.c
+ 
+Building target: hello_test.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\hello_test\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"hello_test.map" --specs=nano.specs --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "hello_test.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/main.o   -lstdc++
+Finished building target: hello_test.elf
+ 
+make --no-print-directory post-build
+riscv-nuclei-elf-objcopy -O verilog "hello_test.elf" "hello_test.verilog";sed -i 's/@800/@000/g' "hello_test.verilog"; sed -i 's/@00002FB8/@00002000/g' "hello_test.verilog";
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "hello_test.elf"  "hello_test.hex"
+Finished building: hello_test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "hello_test.elf" > "hello_test.lst"
+Finished building: hello_test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+23:15:31 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:10:30 **** Build of configuration Debug for project coremark ****
+make all 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.S
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.c
+ 
+Building file: ../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.d" -MT"hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o" -c -o "hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o" "../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c"
+Finished building: ../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c
+ 
+Building file: ../application/core_list_join.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_list_join.d" -MT"application/core_list_join.o" -c -o "application/core_list_join.o" "../application/core_list_join.c"
+Finished building: ../application/core_list_join.c
+ 
+Building file: ../application/core_main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_main.d" -MT"application/core_main.o" -c -o "application/core_main.o" "../application/core_main.c"
+Finished building: ../application/core_main.c
+ 
+Building file: ../application/core_matrix.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_matrix.d" -MT"application/core_matrix.o" -c -o "application/core_matrix.o" "../application/core_matrix.c"
+Finished building: ../application/core_matrix.c
+ 
+Building file: ../application/core_portme.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_portme.d" -MT"application/core_portme.o" -c -o "application/core_portme.o" "../application/core_portme.c"
+Finished building: ../application/core_portme.c
+ 
+Building file: ../application/core_state.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_state.d" -MT"application/core_state.o" -c -o "application/core_state.o" "../application/core_state.c"
+Finished building: ../application/core_state.c
+ 
+Building file: ../application/core_util.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -DFLAGS_STR=\""-O2 -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -fno-common -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4"\" -DITERATIONS=500 -DPERFORMANCE_RUN=1 -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_zynq\sdk\coremark\application" -std=gnu11 -MMD -MP -MF"application/core_util.d" -MT"application/core_util.o" -c -o "application/core_util.o" "../application/core_util.c"
+Finished building: ../application/core_util.c
+ 
+Building target: coremark.elf
+Invoking: GNU RISC-V Cross C++ Linker
+riscv-nuclei-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -funroll-all-loops -finline-limit=600 -ftree-dominator-opts -fno-if-conversion2 -fselective-scheduling -fno-code-hoisting -funroll-loops -finline-functions -falign-functions=4 -falign-jumps=4 -falign-loops=4 -O2 -ffunction-sections -fdata-sections -fno-common  -g -T "D:\fpgafile\e203_zynq\sdk\coremark\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Source\GCC\gcc_hbirdv2_ilm.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"coremark.map" --specs=nano.specs -u _printf_float --specs=nosys.specs -u _isatty -u _write -u _sbrk -u _read -u _close -u _fstat -u _lseek -o "coremark.elf"  ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_getres.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_gettime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/clock_settime.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/execve.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/exit.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fork.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/getpid.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/gettimeofday.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/kill.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/link.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/open.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/stat.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/times.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/unlink.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/wait.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_i2c.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_pwm.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_spi.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/htif.o  ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o  ./application/core_list_join.o ./application/core_main.o ./application/core_matrix.o ./application/core_portme.o ./application/core_state.o ./application/core_util.o   -lstdc++
+Finished building target: coremark.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-nuclei-elf-objcopy -O ihex "coremark.elf"  "coremark.hex"
+Finished building: coremark.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-nuclei-elf-objdump --source --all-headers --demangle --line-numbers --wide "coremark.elf" > "coremark.lst"
+Finished building: coremark.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:11:46 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:12:03 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:12:26 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:13:36 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:15:19 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+09:21:24 **** Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:21:39 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:26:10 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:26:38 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:27:42 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:28:04 **** Incremental Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 
+09:29:00 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:21:00 **** Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:21:03 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:21:37 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:23:27 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:24:44 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:25:45 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:26:14 **** Incremental Build of configuration Debug for project coremark ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "coremark.elf"
+   text	   data	    bss	    dec	    hex	filename
+  45448	    572	   2390	  48410	   bd1a	coremark.elf
+Finished building: coremark.siz
+ 
+21:26:42 **** Build of configuration Debug for project hello_test ****
+make all 
+Invoking: GNU RISC-V Cross Print Size
+riscv-nuclei-elf-size --format=berkeley "hello_test.elf"
+   text	   data	    bss	    dec	    hex	filename
+   7884	    116	   2356	  10356	   2874	hello_test.elf
+Finished building: hello_test.siz
+ 

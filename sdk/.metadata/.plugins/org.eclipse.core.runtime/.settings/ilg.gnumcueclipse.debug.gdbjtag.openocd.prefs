@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+gdb.client.commands=set mem inaccessible-by-default off\r\nset remotetimeout 250\r\nset arch riscv\:rv32
+gdb.client.doStart=true
+gdb.client.executable=${cross_prefix}gdb${cross_suffix}
+gdb.client.other=
+gdb.openocd.doDebugInRam=true
+gdb.openocd.doInitialReset=false
+gdb.openocd.doPreRunReset=true
+gdb.openocd.enableSemihosting=false
+gdb.openocd.init.other=
+gdb.openocd.initialReset.type=init
+gdb.openocd.preRun.other=
+gdb.openocd.preRunReset.type=halt
+gdb.server.doStart=true
+gdb.server.executable=${openocd_path}/${openocd_executable}
+gdb.server.other=-f "hbird_sdk/SoC/hbirdv2/Board/ddr200t/openocd_hbirdv2.cfg"
