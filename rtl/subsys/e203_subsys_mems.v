@@ -469,49 +469,110 @@ sirv_gnrl_icb2axi # (
     .rst_n         (bus_rst_n) 
   );
 
-sirv_expl_axi_slv # (
-  .AW   (32),
-  .DW   (`E203_XLEN) 
-) u_perips_expl_axi_slv (
-    .axi_arvalid   (expl_axi_arvalid),
-    .axi_arready   (expl_axi_arready),
-    .axi_araddr    (expl_axi_araddr ),
-    .axi_arcache   (expl_axi_arcache),
-    .axi_arprot    (expl_axi_arprot ),
-    .axi_arlock    (expl_axi_arlock ),
-    .axi_arburst   (expl_axi_arburst),
-    .axi_arlen     (expl_axi_arlen  ),
-    .axi_arsize    (expl_axi_arsize ),
+// sirv_expl_axi_slv # (
+//   .AW   (32),
+//   .DW   (`E203_XLEN) 
+// ) u_perips_expl_axi_slv (
+//     .axi_arvalid   (expl_axi_arvalid),
+//     .axi_arready   (expl_axi_arready),
+//     .axi_araddr    (expl_axi_araddr ),
+//     .axi_arcache   (expl_axi_arcache),
+//     .axi_arprot    (expl_axi_arprot ),
+//     .axi_arlock    (expl_axi_arlock ),
+//     .axi_arburst   (expl_axi_arburst),
+//     .axi_arlen     (expl_axi_arlen  ),
+//     .axi_arsize    (expl_axi_arsize ),
 
-    .axi_awvalid   (expl_axi_awvalid),
-    .axi_awready   (expl_axi_awready),
-    .axi_awaddr    (expl_axi_awaddr ),
-    .axi_awcache   (expl_axi_awcache),
-    .axi_awprot    (expl_axi_awprot ),
-    .axi_awlock    (expl_axi_awlock ),
-    .axi_awburst   (expl_axi_awburst),
-    .axi_awlen     (expl_axi_awlen  ),
-    .axi_awsize    (expl_axi_awsize ),
+//     .axi_awvalid   (expl_axi_awvalid),
+//     .axi_awready   (expl_axi_awready),
+//     .axi_awaddr    (expl_axi_awaddr ),
+//     .axi_awcache   (expl_axi_awcache),
+//     .axi_awprot    (expl_axi_awprot ),
+//     .axi_awlock    (expl_axi_awlock ),
+//     .axi_awburst   (expl_axi_awburst),
+//     .axi_awlen     (expl_axi_awlen  ),
+//     .axi_awsize    (expl_axi_awsize ),
   
-    .axi_rvalid    (expl_axi_rvalid ),
-    .axi_rready    (expl_axi_rready ),
-    .axi_rdata     (expl_axi_rdata  ),
-    .axi_rresp     (expl_axi_rresp  ),
-    .axi_rlast     (expl_axi_rlast  ),
+//     .axi_rvalid    (expl_axi_rvalid ),
+//     .axi_rready    (expl_axi_rready ),
+//     .axi_rdata     (expl_axi_rdata  ),
+//     .axi_rresp     (expl_axi_rresp  ),
+//     .axi_rlast     (expl_axi_rlast  ),
 
-    .axi_wvalid    (expl_axi_wvalid ),
-    .axi_wready    (expl_axi_wready ),
-    .axi_wdata     (expl_axi_wdata  ),
-    .axi_wstrb     (expl_axi_wstrb  ),
-    .axi_wlast     (expl_axi_wlast  ),
+//     .axi_wvalid    (expl_axi_wvalid ),
+//     .axi_wready    (expl_axi_wready ),
+//     .axi_wdata     (expl_axi_wdata  ),
+//     .axi_wstrb     (expl_axi_wstrb  ),
+//     .axi_wlast     (expl_axi_wlast  ),
  
-    .axi_bvalid    (expl_axi_bvalid ),
-    .axi_bready    (expl_axi_bready ),
-    .axi_bresp     (expl_axi_bresp  ),
+//     .axi_bvalid    (expl_axi_bvalid ),
+//     .axi_bready    (expl_axi_bready ),
+//     .axi_bresp     (expl_axi_bresp  ),
 
-    .clk           (clk  ),
-    .rst_n         (rst_n) 
-  );
+//     .clk           (clk  ),
+//     .rst_n         (rst_n) 
+//   );
 
+wire    [31:0]                o_ctrl_wr_addr          ;
+wire                          o_ctrl_wr_en            ;
+wire    [`E203_XLEN-1:0]      o_ctrl_wr_data          ;
+wire    [(`E203_XLEN/8)-1:0]  o_ctrl_wr_mask          ;
+wire    [31:0]                o_ctrl_rd_addr          ;
+wire    [`E203_XLEN-1:0]      i_ctrl_rd_data          ;
+
+Axi4_lite_slave # (
+  .AW   (32         ),
+  .DW   (`E203_XLEN ) 
+) u_axi_lite_slave
+(
+  .i_s_axi_aclk            (clk             ),
+  .i_s_axi_aresetn         (bus_rst_n       ),
+  .i_s_axi_awaddr          (expl_axi_awaddr ),
+  .i_s_axi_awprot          (expl_axi_awprot  ),
+  .i_s_axi_awvalid         (expl_axi_awvalid ),
+  .o_s_axi_awready         (expl_axi_awready ),
+  .i_s_axi_wdata           (expl_axi_wdata   ),
+  .i_s_axi_wstrb           (expl_axi_wstrb   ),
+  .i_s_axi_wvalid          (expl_axi_wvalid  ),
+  .o_s_axi_wready          (expl_axi_wready  ),
+
+  .o_s_axi_bresp           (expl_axi_bresp   ),
+  .o_s_axi_bvalid          (expl_axi_bvalid  ),
+  .i_s_axi_bready          (expl_axi_bready  ),
+
+  .i_s_axi_araddr          (expl_axi_araddr  ),
+  .i_s_axi_arprot          (expl_axi_arprot  ),
+  .i_s_axi_arvalid         (expl_axi_arvalid ),
+  .o_s_axi_arready         (expl_axi_arready ),
+  .o_s_axi_rdata           (expl_axi_rdata   ),
+  .o_s_axi_rresp           (expl_axi_rresp   ),
+  .o_s_axi_rvalid          (expl_axi_rvalid  ),
+  .i_s_axi_rready          (expl_axi_rready  ),
+
+  .o_ctrl_wr_addr          (o_ctrl_wr_addr  ),
+  .o_ctrl_wr_en            (o_ctrl_wr_en    ),
+  .o_ctrl_wr_data          (o_ctrl_wr_data  ),
+  .o_ctrl_wr_mask          (o_ctrl_wr_mask  ),
+  .o_ctrl_rd_addr          (o_ctrl_rd_addr  ),
+  .i_ctrl_rd_data          (i_ctrl_rd_data  )
+);
+
+regfile # (
+	.AW(32          ),
+	.DW(`E203_XLEN  )
+)u_regfile
+(
+  .clk			  (clk            ),
+  .rst_n		  (bus_rst_n      ),
+
+  .wr_en		  (o_ctrl_wr_en   ),
+  .wr_addr		(o_ctrl_wr_addr ),
+  .wr_data 	  (o_ctrl_wr_data ),
+  .wr_mask 	  (o_ctrl_wr_mask ),
+  .rd_addr		(o_ctrl_rd_addr ),
+
+  .rd_data		(i_ctrl_rd_data )
+
+);
 
 endmodule

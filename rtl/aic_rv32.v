@@ -378,11 +378,11 @@ module aic_rv32
   (
     //System CLOCK
     .hfextclk(clk_16M),
-    .hfxoscen(1'b1),
+    .hfxoscen(),
 
     //RTC CLOCK
     .lfextclk(CLK32768KHZ), 
-    .lfxoscen(1'b1),
+    .lfxoscen(),
 
     //JTAG
     .io_pads_jtag_TCK_i_ival(dut_io_pads_jtag_TCK_i_ival),
@@ -814,7 +814,16 @@ module aic_rv32
   //   .T  (~dut_io_pads_gpioB_o_oe[7])
   // );
 
+ila_0 your_instance_name (
+	.clk(clk), // input wire clk
 
+
+	.probe0(
+    {
+      dut_io_pads_gpioA_i_ival[17]
+    }
+  ) // input wire [99:0] probe0
+);
 
 endmodule
 
