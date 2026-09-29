@@ -1,6 +1,15 @@
-# 排除所有文件夹
-*
-# 但是保留 rtl 文件夹
-!rtl/
-# 保留 .gitignore 本身
-!.gitignore
+# 只忽略prj工程和vivado生成文件
+prj/
+*.jou
+*.log
+*.rpt
+*.bit
+*.hw
+*.xdc~
+*.v~
+xdc/
+tb/
+sdk/
+ip/
+hex/
+build_prj.tcl
