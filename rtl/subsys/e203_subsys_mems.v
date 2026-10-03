@@ -557,10 +557,10 @@ Axi4_lite_slave # (
   .i_ctrl_rd_data          (i_ctrl_rd_data  )
 );
 
-regfile # (
+cnn_regs # (
 	.AW(32          ),
 	.DW(`E203_XLEN  )
-)u_regfile
+)u_cnn_regs
 (
   .clk			  (clk            ),
   .rst_n		  (bus_rst_n      ),
