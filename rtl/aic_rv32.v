@@ -814,16 +814,16 @@ module aic_rv32
   //   .T  (~dut_io_pads_gpioB_o_oe[7])
   // );
 
-ila_0 your_instance_name (
-	.clk(clk), // input wire clk
+//ila_0 your_instance_name (
+//	.clk(clk), // input wire clk
 
 
-	.probe0(
-    {
-      dut_io_pads_gpioA_i_ival[17]
-    }
-  ) // input wire [99:0] probe0
-);
+//	.probe0(
+//    {
+//      dut_io_pads_gpioA_i_ival[17]
+//    }
+//  ) // input wire [99:0] probe0
+//);
 
 endmodule
 

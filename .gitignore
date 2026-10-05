@@ -13,3 +13,6 @@ sdk/
 ip/
 hex/
 build_prj.tcl
+py/
+gold/
+vitis/

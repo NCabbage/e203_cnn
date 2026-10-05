@@ -79,7 +79,8 @@ module cnn_regs #(
     reg       cfg_relu;
 
     // ------------------------------------------------ 指针与控制
-    reg [11:0] wptr, iptr;
+    reg [15:0] wptr;
+    reg [11:0] iptr;
     reg [7:0]  bptr;
     reg [11:0] oidx;
     reg        cnn_start;
@@ -91,11 +92,11 @@ module cnn_regs #(
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            wptr <= 12'd0;
+            wptr <= 15'd0;
         end else if (wr && (wa == A_CTRL) && wr_data[1]) begin
-            wptr <= 12'd0;
+            wptr <= 15'd0;
         end else if (w_e) begin
-            wptr <= wptr + 12'd1;
+            wptr <= wptr + 15'd1;
         end
     end
 
@@ -190,7 +191,7 @@ module cnn_regs #(
         case (ra)
             A_STATUS : rd_data = {30'd0, cnn_done, cnn_busy};
             A_ODATA  : rd_data = {{24{cnn_y[7]}}, cnn_y};   // int8 符号扩展
-            A_WPTR   : rd_data = {20'd0, wptr};
+            A_WPTR   : rd_data = {16'd0, wptr};
             A_IPTR   : rd_data = {20'd0, iptr};
             A_YCOUNT : rd_data = {20'd0, cnn_ycount};
             A_VERSION: rd_data = 32'h0001_0000;

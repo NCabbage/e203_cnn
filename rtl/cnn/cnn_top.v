@@ -21,7 +21,7 @@
 
 module cnn_top #(
     parameter X_DEPTH = 4096,
-    parameter W_DEPTH = 4096,
+    parameter W_DEPTH = 8192,
     parameter Y_DEPTH = 4096,
     parameter B_DEPTH = 256,
     parameter PAR     = 4          // 并行 lane 数（本版固定按 4 写死，仅作标识）
@@ -45,7 +45,7 @@ module cnn_top #(
     input  wire [11:0]        x_waddr,
     input  wire signed [7:0]  x_wdata,
     input  wire               w_wen,
-    input  wire [11:0]        w_waddr,
+    input  wire [15:0]        w_waddr,
     input  wire signed [7:0]  w_wdata,
     input  wire               b_wen,
     input  wire [7:0]         b_waddr,
@@ -161,7 +161,7 @@ module cnn_top #(
 
         // 权重地址：w 的线性序号 = tap_idx*OC + oc，所以直接由 (kh,kw,c) 算
         wire [31:0] wa = (({28'd0, l_kh} * k32 + {28'd0, l_kw}) * cch32 + {24'd0, l_c}) * oc32 + ocv;
-        assign w_val[gi] = lane_en ? w_mem[wa[11:0]] : 8'sd0;
+        assign w_val[gi] = lane_en ? w_mem[wa[13:0]] : 8'sd0;
 
         wire signed [15:0] prod = x_val[gi] * w_val[gi];
         assign prod32[gi] = {{16{prod[15]}}, prod};
