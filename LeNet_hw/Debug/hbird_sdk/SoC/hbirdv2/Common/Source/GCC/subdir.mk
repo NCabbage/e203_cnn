@@ -20,7 +20,7 @@ S_UPPER_DEPS += \
 hbird_sdk/SoC/hbirdv2/Common/Source/GCC/%.o: ../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/%.S
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU RISC-V Cross Assembler'
-	riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_cnn\sdk\LeNet_hw\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_cnn\sdk\LeNet_hw\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_cnn\sdk\LeNet_hw\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_cnn\sdk\LeNet_hw\application" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	riscv-nuclei-elf-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -mno-save-restore -O2 -ffunction-sections -fdata-sections -fno-common  -g -x assembler-with-cpp -D__IDE_RV_CORE=null -DSOC_HBIRDV2 -DDOWNLOAD_MODE=DOWNLOAD_MODE_ILM -DDOWNLOAD_MODE_STRING=\"ILM\" -DBOARD_DDR200T -I"D:\fpgafile\e203_cnn\LeNet_hw\hbird_sdk\NMSIS\Core\Include" -I"D:\fpgafile\e203_cnn\LeNet_hw\hbird_sdk\SoC\hbirdv2\Common\Include" -I"D:\fpgafile\e203_cnn\LeNet_hw\hbird_sdk\SoC\hbirdv2\Board\ddr200t\Include" -I"D:\fpgafile\e203_cnn\LeNet_hw\application" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
