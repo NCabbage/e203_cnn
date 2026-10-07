@@ -171,10 +171,21 @@ module e203_exu_alu(
   `endif//}
 
   input  clk,
-  input  rst_n
+  input  rst_n,
+
+  //////////////////////////////////////custom csr (mul load store)
+  output  mul_ena   ,
+  output  load_ena  ,
+  output  store_ena
+  //////////////////////////////////////
   );
 
+/////////////////////////////////////////////////////////////////custom csr (load store)
 
+assign load_ena   = agu_icb_cmd_valid & agu_icb_cmd_ready & agu_icb_cmd_read;
+assign store_ena  = agu_icb_cmd_valid & agu_icb_cmd_ready & ~agu_icb_cmd_read;
+
+/////////////////////////////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////
   // Dispatch to different sub-modules according to their types
@@ -667,7 +678,8 @@ module e203_exu_alu(
       .muldiv_sbf_1_r      (muldiv_sbf_1_r    ),
 
       .clk                 (clk               ),
-      .rst_n               (rst_n             ) 
+      .rst_n               (rst_n             ),
+      .mul_ena             (mul_ena           )
   );
 `endif//E203_SUPPORT_SHARE_MULDIV}
 

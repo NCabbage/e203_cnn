@@ -411,8 +411,20 @@ module e203_exu(
     .oitfrd_match_disprd (oitfrd_match_disprd ),
     
     .clk                 (clk  ),
-    .rst_n               (rst_n) 
+    .rst_n               (rst_n),
+
+    ////////////////////////////////////////////////////////////custom csr (stall)
+
+    .stall_ena           (stall_ena   )
+
+    ////////////////////////////////////////////////////////////
   );
+
+  ////////////////////////////////////////////////////////////custom csr (stall)
+
+  wire  stall_ena;
+
+  ////////////////////////////////////////////////////////////custom csr (stall)
 
   //////////////////////////////////////////////////////////////
   // Instantiate the OITF
@@ -642,8 +654,20 @@ module e203_exu(
   `endif//}
 
     .clk                 (clk          ),
-    .rst_n               (rst_n        ) 
+    .rst_n               (rst_n        ),
+
+  ///////////////////////////////////////////custom crs (mul load store)
+
+    .mul_ena             (mul_ena      ),
+    .load_ena            (load_ena     ),
+    .store_ena           (store_ena    )
+  ///////////////////////////////////////////
   );
+  ///////////////////////////////////////////custom crs (mul)
+  wire  mul_ena;
+  wire  load_ena;
+  wire  store_ena;
+  ///////////////////////////////////////////
 
   //////////////////////////////////////////////////////////////
   // Instantiate the Long-pipe Write-Back
@@ -950,7 +974,15 @@ module e203_exu(
 
     .clk_aon       (clk_aon      ),
     .clk           (clk          ),
-    .rst_n         (rst_n        ) 
+    .rst_n         (rst_n        ),
+
+    ///////////////////////////////////////////custom crs (mul laod store stall)
+
+    .mul_ena       (mul_ena      ),
+    .load_ena      (load_ena     ),
+    .store_ena     (store_ena    ),
+    .stall_ena     (stall_ena    )
+    ///////////////////////////////////////////
   );
 
   assign exu_active = (~oitf_empty) | i_valid | excp_active;

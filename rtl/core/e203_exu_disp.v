@@ -105,9 +105,18 @@ module e203_exu_disp(
 
   
   input  clk,
-  input  rst_n
+  input  rst_n,
+
+  /////////////////////////////////////////custom csr (stall)
+
+  output  stall_ena
   );
 
+  /////////////////////////////////////////custom csr (stall)
+
+  assign  stall_ena = ~oitf_empty & disp_i_valid & ~disp_i_ready;
+
+  /////////////////////////////////////////
 
   wire [`E203_DECINFO_GRP_WIDTH-1:0] disp_i_info_grp  = disp_i_info [`E203_DECINFO_GRP];
 

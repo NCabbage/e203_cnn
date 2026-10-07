@@ -16,3 +16,4 @@ build_prj.tcl
 py/
 gold/
 vitis/
+data/

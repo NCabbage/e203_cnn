@@ -79,8 +79,20 @@ module e203_exu_alu_muldiv(
   input  [33-1:0] muldiv_sbf_1_r,
 
   input  clk,
-  input  rst_n
+  input  rst_n,
+
+  ///////////////////////////////////////////////custom crs (mul)
+
+  output  mul_ena
+
+  ///////////////////////////////////////////////custom crs (mul)
   );
+
+  ///////////////////////////////////////////////
+
+  assign mul_ena = muldiv_i_hsked & i_op_mul;
+
+  ///////////////////////////////////////////////
 
   wire muldiv_i_hsked = muldiv_i_valid & muldiv_i_ready;
   wire muldiv_o_hsked = muldiv_o_valid & muldiv_o_ready;

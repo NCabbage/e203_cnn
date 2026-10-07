@@ -94,11 +94,73 @@ module e203_exu_csr(
 
   input  clk_aon,
   input  clk,
-  input  rst_n
+  input  rst_n,
+
+/////////////////////////////////////////////custom crs (mul load store stall
+
+  input   mul_ena   ,
+  input   load_ena  ,
+  input   store_ena ,
+  input   stall_ena
+
+
+/////////////////////////////////////////////
 
   );
 
+/////////////////////////////////////////////custom crs (mul load store stall
 
+wire  sel_mulcnt  = (csr_idx == 12'hcc0);
+wire  rd_mulcnt   = sel_mulcnt & csr_rd_en;
+
+wire  [`E203_XLEN-1:0]  mulcnt_r;
+wire  mulcnt_ena = mul_ena;
+wire  [`E203_XLEN-1:0]  mulcnt_nxt = mulcnt_r + 1'b1;
+
+sirv_gnrl_dfflr #(`E203_XLEN) mulcnt_dfflr(mulcnt_ena, mulcnt_nxt, mulcnt_r, clk, rst_n);
+
+wire  [`E203_XLEN-1:0]  csr_mulcnt = mulcnt_r;
+
+//////////load
+
+wire  sel_loadcnt = (csr_idx == 12'hcc1);
+wire  rd_loadcnt   = sel_loadcnt & csr_rd_en;
+
+wire  [`E203_XLEN-1:0]  loadcnt_r;
+wire  loadcnt_ena = load_ena;
+wire  [`E203_XLEN-1:0]  loadcnt_nxt = loadcnt_r + 1'b1;
+
+sirv_gnrl_dfflr #(`E203_XLEN) loadcnt_dfflr(loadcnt_ena, loadcnt_nxt, loadcnt_r, clk, rst_n);
+
+wire  [`E203_XLEN-1:0]  csr_loadcnt = loadcnt_r;
+
+/////////store
+
+wire  sel_storecnt = (csr_idx == 12'hcc2);
+wire  rd_storecnt   = sel_storecnt & csr_rd_en;
+
+wire  [`E203_XLEN-1:0]  storecnt_r;
+wire  storecnt_ena = store_ena;
+wire  [`E203_XLEN-1:0]  storecnt_nxt = storecnt_r + 1'b1;
+
+sirv_gnrl_dfflr #(`E203_XLEN) storecnt_dfflr(storecnt_ena, storecnt_nxt, storecnt_r, clk, rst_n);
+
+wire  [`E203_XLEN-1:0]  csr_storecnt = storecnt_r;
+
+////////stall
+
+wire  sel_stallcnt = (csr_idx == 12'hcc3);
+wire  rd_stallcnt   = sel_stallcnt & csr_rd_en;
+
+wire  [`E203_XLEN-1:0]  stallcnt_r;
+wire  stallcnt_ena = stall_ena;
+wire  [`E203_XLEN-1:0]  stallcnt_nxt = stallcnt_r + 1'b1;
+
+sirv_gnrl_dfflr #(`E203_XLEN) stallcnt_dfflr(stallcnt_ena, stallcnt_nxt, stallcnt_r, clk, rst_n);
+
+wire  [`E203_XLEN-1:0]  csr_stallcnt = stallcnt_r;
+
+/////////////////////////////////////////////
 
 assign csr_access_ilgl = 1'b0
                 ;
@@ -673,6 +735,10 @@ assign read_csr_dat = `E203_XLEN'b0
                | ({`E203_XLEN{rd_dcsr     }} & csr_dcsr    )
                | ({`E203_XLEN{rd_dpc      }} & csr_dpc     )
                | ({`E203_XLEN{rd_dscratch }} & csr_dscratch)
+               | ({`E203_XLEN{rd_mulcnt}}   & csr_mulcnt    )
+               | ({`E203_XLEN{rd_loadcnt}}   & csr_loadcnt  )
+               | ({`E203_XLEN{rd_storecnt}}   & csr_storecnt)
+               | ({`E203_XLEN{rd_stallcnt}}   & csr_stallcnt)
                ;
 
 
