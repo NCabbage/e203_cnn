@@ -210,15 +210,11 @@ int main(void)
     for (int i = 0; i < 120; i++)
         hw_x[i] = c5_out[i];
 
-    /* 权重 1*1*120*84 = 10080 > W_DEPTH 8192，必须分 2 块 */
-    cnn_layer_occhunk(1, 1, 120, 1, 84, 0, 42, 1, 0, QUANT_SHIFT, 1,
-                      hw_x, f6_weight_hw, f6_bias, hw_y, 42);
-    for (int i = 0; i < 42; i++) f6_out[i] = hw_y[i];
+    cnn_layer(1, 1, 120, 1, 84, 1, 0, QUANT_SHIFT, 1,
+              hw_x, f6_weight_hw, f6_bias, hw_y, 84);
 
-    cnn_layer_occhunk(1, 1, 120, 1, 84, 42, 42, 1, 0, QUANT_SHIFT, 1,
-                      hw_x, f6_weight_hw, f6_bias, hw_y, 42);
-    for (int i = 0; i < 42; i++) f6_out[42 + i] = hw_y[i];
-
+    for (int i = 0; i < 84; i++)
+        f6_out[i] = hw_y[i];
     printf("F6 done\n");
 
     // ==================== OUT ====================

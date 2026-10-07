@@ -158,14 +158,9 @@ static int infer_one(const unsigned char img[28][28])
     // ==================== F6 ====================
     for (int i = 0; i < 120; i++) hw_x[i] = c5_out[i];
 
-    /* 权重 1*1*120*84 = 10080 > W_DEPTH 8192，必须分 2 块 */
-    cnn_layer_occhunk(1, 1, 120, 1, 84, 0, 42, 1, 0, QUANT_SHIFT, 1,
-                      hw_x, f6_weight_hw, f6_bias, hw_y, 42);
-    for (int i = 0; i < 42; i++) f6_out[i] = hw_y[i];
-
-    cnn_layer_occhunk(1, 1, 120, 1, 84, 42, 42, 1, 0, QUANT_SHIFT, 1,
-                      hw_x, f6_weight_hw, f6_bias, hw_y, 42);
-    for (int i = 0; i < 42; i++) f6_out[42 + i] = hw_y[i];
+    cnn_layer(1, 1, 120, 1, 84, 1, 0, QUANT_SHIFT, 1,
+              hw_x, f6_weight_hw, f6_bias, hw_y, 84);
+    for (int i = 0; i < 84; i++) f6_out[i] = hw_y[i];
 
     // ==================== OUT (relu=0) ====================
     for (int i = 0; i < 84; i++) hw_x[i] = f6_out[i];
@@ -180,7 +175,7 @@ static int infer_one(const unsigned char img[28][28])
 // ============ 主函数 ============
 int main(void)
 {
-    printf("\n===== LeNet-5 Accuracy Test (10 images) =====\n");
+    printf("\n===== LeNet-5 Accuracy Test (100 images) =====\n");
 
     if (cnn_init() != 0) {
         printf("ERROR: CNN VERSION mismatch!\n");
@@ -213,7 +208,7 @@ int main(void)
 
     // ---------- 准确率 ----------
     printf("\n===== Accuracy =====\n");
-    printf("Total: %d/10 = %d%%\n", correct, correct * 10);
+    printf("Total: %d/100 = %d%%\n", correct, correct);
 
     printf("\nPer-class:\n");
     for (int c = 0; c < 10; c++) {
@@ -227,12 +222,12 @@ int main(void)
     // ---------- 计时 ----------
     printf("\n===== Timing =====\n");
     printf("Total cycles: %u\n", cycles);
-    printf("Per-image cycles: %u\n", cycles / 10);
+    printf("Per-image cycles: %u\n", cycles / 100);
     printf("CPU Frequency: %u Hz\n", (uint32_t)SystemCoreClock);
     if (SystemCoreClock > 0) {
         uint32_t ms = (uint32_t)((uint64_t)cycles * 1000ULL / SystemCoreClock);
         printf("Total time: %u ms\n", ms);
-        printf("Per-image time: %u ms\n", ms / 10);
+        printf("Per-image time: %u ms\n", ms / 100);
     }
 
     printf("===== Done =====\n\n");

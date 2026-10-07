@@ -120,31 +120,6 @@ static inline void cnn_layer(int in_h, int in_w, int in_c, int k,
         y[i] = cnn_read_output(i);
 }
 
-
-/* ---- 输出通道分块执行：某层权重数 k*k*C*OC 超过硬件 W_DEPTH(8192) 时用 ----
- * 权重数组布局固定为 [k][k][C][OC_total]，本函数只取 oc_start..oc_start+oc_n-1 这一段，
- * 按 [k][k][C][oc_n] 的紧凑布局写进硬件权重内存。
- * 用法：把一个大层切成几块依次调用，每块的结果分别写回输出数组。
- */
-static inline void cnn_layer_occhunk(int in_h, int in_w, int in_c, int k,
-                                     int oc_total, int oc_start, int oc_n,
-                                     int stride, int pad, int shift, int relu,
-                                     const int8_t *x, const int8_t *w,
-                                     const int32_t *b,
-                                     int8_t *y, int out_n)
-{
-    cnn_clear_ptrs();
-    cnn_config(in_h, in_w, in_c, k, oc_n, stride, pad, shift, relu);
-    cnn_load_input(x, in_h * in_w * in_c);
-    for (int t = 0; t < k * k * in_c; t++)
-        for (int o = 0; o < oc_n; o++)
-            CNN_WR(CNN_WDATA, (uint32_t)(int32_t)w[t * oc_total + oc_start + o]);
-    cnn_load_bias(&b[oc_start], oc_n);
-    cnn_run();
-    for (int i = 0; i < out_n; i++)
-        y[i] = cnn_read_output(i);
-}
-
 #endif /* __CNN_H__ */
 
 #endif /* CNN_H_ */
