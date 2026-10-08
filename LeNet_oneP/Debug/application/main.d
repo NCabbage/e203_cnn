@@ -18,7 +18,7 @@ application/main.o: ../application/main.c \
  D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_i2c.h \
  D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_spi.h \
  D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_pwm.h \
- ../application/../include/cnn.h \
+ ../application/../include/csr.h ../application/../include/cnn.h \
  ../application/../include/lenet_weights_hw.h \
  ../application/../include/lenet_c5_split.h \
  ../application/../include/mnist_samples.h
@@ -41,6 +41,7 @@ D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv
 D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_i2c.h:
 D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_spi.h:
 D\:\fpgafile\e203_cnn\sdk\LeNet_oneP\hbird_sdk\SoC\hbirdv2\Common\Include/hbirdv2_pwm.h:
+../application/../include/csr.h:
 ../application/../include/cnn.h:
 ../application/../include/lenet_weights_hw.h:
 ../application/../include/lenet_c5_split.h:

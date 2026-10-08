@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "hbird_sdk_soc.h"
 
+#include "../include/csr.h"
 #include "../include/cnn.h"
 #include "../include/lenet_weights_hw.h"
 #include "../include/lenet_c5_split.h"       // ← 新增：C5a~C5d
@@ -50,13 +51,6 @@ static int32_t final_out[OUT_NUM];
 // ============ 硬件缓冲 ============
 static int8_t  hw_x[4096];
 static int8_t  hw_y[4096];
-
-// ============ 计时 ============
-static __attribute__((always_inline)) inline uint32_t get_cycle(void) {
-    uint32_t val;
-    asm volatile ("csrr %0, mcycle" : "=r"(val));
-    return val;
-}
 
 // ============ MNIST 样本查找表 ============
 static const unsigned char (* const mnist_table[10])[28] = {
@@ -231,6 +225,10 @@ int main(void)
     uint32_t t_end = get_cycle();
     uint32_t cycles = t_end - t_start;
 
+    uint32_t mulcnt = csr_read_mulcnt();
+    uint32_t loadcnt = csr_read_loadcnt();
+    uint32_t storecnt = csr_read_storecnt();
+    uint32_t stallcnt = csr_read_stallcnt();
     // ==================== 结果 ====================
     int pred = argmax(final_out, OUT_NUM);
 
@@ -240,7 +238,13 @@ int main(void)
         printf("  class[%d] = %d\n", i, (int)final_out[i]);
 
     printf("\n===== Benchmark Result =====\n");
+
     printf("Total cycles: %u\n", cycles);
+    printf("Total mul num: %u\n", mulcnt);
+    printf("Total load num: %u\n", loadcnt);
+    printf("Total store num: %u\n", storecnt);
+    printf("Total stall num: %u\n", stallcnt);
+
     printf("CPU Frequency: %u Hz\n", (uint32_t)SystemCoreClock);
 
     if (SystemCoreClock > 0) {

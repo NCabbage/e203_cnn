@@ -817,321 +817,322 @@ END GROUP
 .ialign         0x00000000800000c0        0x0
                 0x00000000800000c0                PROVIDE (_ilm = .)
 
-.text           0x00000000800000c0     0x22f8
+.text           0x00000000800000c0     0x234c
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  .text.startup.main
-                0x00000000800000c0      0x738 ./application/main.o
+                0x00000000800000c0      0x78a ./application/main.o
                 0x00000000800000c0                main
  *(.text .text.*)
- .text._close   0x00000000800007f8        0xa ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
-                0x00000000800007f8                _close
- .text._fstat   0x0000000080000802       0x1a ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
-                0x0000000080000802                _fstat
- .text._isatty  0x000000008000081c        0x4 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
-                0x000000008000081c                _isatty
- .text._lseek   0x0000000080000820        0x4 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o
-                0x0000000080000820                _lseek
- .text._read    0x0000000080000824       0x22 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o
-                0x0000000080000824                _read
- .text._sbrk    0x0000000080000846       0x30 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o
-                0x0000000080000846                _sbrk
- .text._write   0x0000000080000876       0x62 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o
-                0x0000000080000876                _write
- .text.trap     0x00000000800008d8       0x78 ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o
-                0x00000000800008d8                trap_entry
+ .text._close   0x000000008000084a        0xa ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000084a                _close
+ .text._fstat   0x0000000080000854       0x1a ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
+                0x0000000080000854                _fstat
+ .text._isatty  0x000000008000086e        0x4 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
+                0x000000008000086e                _isatty
+ .text._lseek   0x0000000080000872        0x4 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/lseek.o
+                0x0000000080000872                _lseek
+ .text._read    0x0000000080000876       0x22 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/read.o
+                0x0000000080000876                _read
+ .text._sbrk    0x0000000080000898       0x30 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.o
+                0x0000000080000898                _sbrk
+ .text._write   0x00000000800008c8       0x62 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/write.o
+                0x00000000800008c8                _write
+ *fill*         0x000000008000092a        0x2 
+ .text.trap     0x000000008000092c       0x78 ./hbird_sdk/SoC/hbirdv2/Common/Source/GCC/intexc_hbirdv2.o
+                0x000000008000092c                trap_entry
  .text.gpio_iof_config
-                0x0000000080000950       0x12 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o
-                0x0000000080000950                gpio_iof_config
+                0x00000000800009a4       0x12 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_gpio.o
+                0x00000000800009a4                gpio_iof_config
  .text.uart_init
-                0x0000000080000962       0x3a ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
-                0x0000000080000962                uart_init
+                0x00000000800009b6       0x3a ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
+                0x00000000800009b6                uart_init
  .text.uart_write
-                0x000000008000099c       0x14 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
-                0x000000008000099c                uart_write
+                0x00000000800009f0       0x14 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
+                0x00000000800009f0                uart_write
  .text.uart_read
-                0x00000000800009b0       0x16 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
-                0x00000000800009b0                uart_read
+                0x0000000080000a04       0x16 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
+                0x0000000080000a04                uart_read
  .text.measure_cpu_freq
-                0x00000000800009c6       0x68 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
-                0x00000000800009c6                measure_cpu_freq
+                0x0000000080000a1a       0x68 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
+                0x0000000080000a1a                measure_cpu_freq
  .text.get_cpu_freq
-                0x0000000080000a2e       0x12 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
-                0x0000000080000a2e                get_cpu_freq
+                0x0000000080000a82       0x12 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
+                0x0000000080000a82                get_cpu_freq
  .text.system_default_exception_handler
-                0x0000000080000a40       0x3e ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000a94       0x3e ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
  .text.system_default_interrupt_handler
-                0x0000000080000a7e       0x42 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000ad2       0x42 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
  .text.SystemInit
-                0x0000000080000ac0        0xe ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000ac0                SystemInit
+                0x0000000080000b14        0xe ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000b14                SystemInit
  .text.core_trap_handler
-                0x0000000080000ace       0x90 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000ace                core_trap_handler
+                0x0000000080000b22       0x90 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000b22                core_trap_handler
  .text._premain_init
-                0x0000000080000b5e       0xe6 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000b5e                _premain_init
+                0x0000000080000bb2       0xe6 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000bb2                _premain_init
  .text._postmain_fini
-                0x0000000080000c44        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000c44                _postmain_fini
- .text._init    0x0000000080000c46        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000c46                _init
- .text._fini    0x0000000080000c48        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
-                0x0000000080000c48                _fini
+                0x0000000080000c98        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000c98                _postmain_fini
+ .text._init    0x0000000080000c9a        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000c9a                _init
+ .text._fini    0x0000000080000c9c        0x2 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x0000000080000c9c                _fini
  .text.cnn_layer.constprop.0
-                0x0000000080000c4a       0xc4 ./application/main.o
- .text          0x0000000080000d0e      0x360 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
-                0x0000000080000d0e                __udivdi3
- .text.atexit   0x000000008000106e        0xa d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-atexit.o)
-                0x000000008000106e                atexit
+                0x0000000080000c9e       0xc4 ./application/main.o
+ .text          0x0000000080000d62      0x360 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+                0x0000000080000d62                __udivdi3
+ .text.atexit   0x00000000800010c2        0xa d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-atexit.o)
+                0x00000000800010c2                atexit
  .text.__libc_fini_array
-                0x0000000080001078       0x36 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fini.o)
-                0x0000000080001078                __libc_fini_array
+                0x00000000800010cc       0x36 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fini.o)
+                0x00000000800010cc                __libc_fini_array
  .text.__libc_init_array
-                0x00000000800010ae       0x5e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-init.o)
-                0x00000000800010ae                __libc_init_array
- .text.printf   0x000000008000110c       0x3a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-printf.o)
-                0x000000008000110c                iprintf
-                0x000000008000110c                printf
- .text._puts_r  0x0000000080001146       0xda d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-puts.o)
-                0x0000000080001146                _puts_r
- .text.puts     0x0000000080001220        0x8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-puts.o)
-                0x0000000080001220                puts
- .text.isatty   0x0000000080001228        0x4 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-sysisatty.o)
-                0x0000000080001228                isatty
+                0x0000000080001102       0x5e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-init.o)
+                0x0000000080001102                __libc_init_array
+ .text.printf   0x0000000080001160       0x3a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-printf.o)
+                0x0000000080001160                iprintf
+                0x0000000080001160                printf
+ .text._puts_r  0x000000008000119a       0xda d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-puts.o)
+                0x000000008000119a                _puts_r
+ .text.puts     0x0000000080001274        0x8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-puts.o)
+                0x0000000080001274                puts
+ .text.isatty   0x000000008000127c        0x4 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-sysisatty.o)
+                0x000000008000127c                isatty
  .text.__swbuf_r
-                0x000000008000122c       0xc0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-wbuf.o)
-                0x000000008000122c                __swbuf_r
+                0x0000000080001280       0xc0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-wbuf.o)
+                0x0000000080001280                __swbuf_r
  .text.__swsetup_r
-                0x00000000800012ec      0x106 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-wsetup.o)
-                0x00000000800012ec                __swsetup_r
+                0x0000000080001340      0x106 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-wsetup.o)
+                0x0000000080001340                __swsetup_r
  .text.__register_exitproc
-                0x00000000800013f2       0x78 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-__atexit.o)
-                0x00000000800013f2                __register_exitproc
+                0x0000000080001446       0x78 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-__atexit.o)
+                0x0000000080001446                __register_exitproc
  .text.__sflush_r
-                0x000000008000146a      0x146 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fflush.o)
-                0x000000008000146a                __sflush_r
+                0x00000000800014be      0x146 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fflush.o)
+                0x00000000800014be                __sflush_r
  .text._fflush_r
-                0x00000000800015b0       0x64 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fflush.o)
-                0x00000000800015b0                _fflush_r
- .text.std      0x0000000080001614       0x68 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x0000000080001604       0x64 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fflush.o)
+                0x0000000080001604                _fflush_r
+ .text.std      0x0000000080001668       0x68 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
  .text._cleanup_r
-                0x000000008000167c        0xa d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x000000008000167c                _cleanup_r
+                0x00000000800016d0        0xa d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x00000000800016d0                _cleanup_r
  .text.__sfmoreglue
-                0x0000000080001686       0x44 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x0000000080001686                __sfmoreglue
- .text.__sinit  0x00000000800016ca       0x66 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x00000000800016ca                __sinit
- .text.__sfp    0x0000000080001730       0x98 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x0000000080001730                __sfp
+                0x00000000800016da       0x44 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x00000000800016da                __sfmoreglue
+ .text.__sinit  0x000000008000171e       0x66 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x000000008000171e                __sinit
+ .text.__sfp    0x0000000080001784       0x98 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x0000000080001784                __sfp
  .text._fwalk_reent
-                0x00000000800017c8       0x6a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fwalk.o)
-                0x00000000800017c8                _fwalk_reent
+                0x000000008000181c       0x6a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fwalk.o)
+                0x000000008000181c                _fwalk_reent
  .text.__swhatbuf_r
-                0x0000000080001832       0x5a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-makebuf.o)
-                0x0000000080001832                __swhatbuf_r
+                0x0000000080001886       0x5a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-makebuf.o)
+                0x0000000080001886                __swhatbuf_r
  .text.__smakebuf_r
-                0x000000008000188c       0x9c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-makebuf.o)
-                0x000000008000188c                __smakebuf_r
- .text          0x0000000080001928       0xa8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-memset.o)
-                0x0000000080001928                memset
- .text._free_r  0x00000000800019d0       0x9e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-freer.o)
-                0x00000000800019d0                _free_r
+                0x00000000800018e0       0x9c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-makebuf.o)
+                0x00000000800018e0                __smakebuf_r
+ .text          0x000000008000197c       0xa8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-memset.o)
+                0x000000008000197c                memset
+ .text._free_r  0x0000000080001a24       0x9e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-freer.o)
+                0x0000000080001a24                _free_r
  .text._malloc_r
-                0x0000000080001a6e       0xd0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-mallocr.o)
-                0x0000000080001a6e                _malloc_r
+                0x0000000080001ac2       0xd0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-mallocr.o)
+                0x0000000080001ac2                _malloc_r
  .text.__sfputc_r
-                0x0000000080001b3e       0x2a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x0000000080001b92       0x2a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
  .text.__sfputs_r
-                0x0000000080001b68       0x42 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
-                0x0000000080001b68                __sfputs_r
+                0x0000000080001bbc       0x42 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x0000000080001bbc                __sfputs_r
  .text._vfprintf_r
-                0x0000000080001baa      0x294 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
-                0x0000000080001baa                _vfprintf_r
-                0x0000000080001baa                _vfiprintf_r
- .text._sbrk_r  0x0000000080001e3e       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-sbrkr.o)
-                0x0000000080001e3e                _sbrk_r
- .text.__sread  0x0000000080001e66       0x30 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
-                0x0000000080001e66                __sread
+                0x0000000080001bfe      0x294 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
+                0x0000000080001bfe                _vfprintf_r
+                0x0000000080001bfe                _vfiprintf_r
+ .text._sbrk_r  0x0000000080001e92       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-sbrkr.o)
+                0x0000000080001e92                _sbrk_r
+ .text.__sread  0x0000000080001eba       0x30 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
+                0x0000000080001eba                __sread
  .text.__swrite
-                0x0000000080001e96       0x4e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
-                0x0000000080001e96                __swrite
- .text.__sseek  0x0000000080001ee4       0x36 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
-                0x0000000080001ee4                __sseek
+                0x0000000080001eea       0x4e d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
+                0x0000000080001eea                __swrite
+ .text.__sseek  0x0000000080001f38       0x36 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
+                0x0000000080001f38                __sseek
  .text.__sclose
-                0x0000000080001f1a        0x6 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
-                0x0000000080001f1a                __sclose
+                0x0000000080001f6e        0x6 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-stdio.o)
+                0x0000000080001f6e                __sclose
  .text._write_r
-                0x0000000080001f20       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-writer.o)
-                0x0000000080001f20                _write_r
+                0x0000000080001f74       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-writer.o)
+                0x0000000080001f74                _write_r
  .text._close_r
-                0x0000000080001f4c       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-closer.o)
-                0x0000000080001f4c                _close_r
+                0x0000000080001fa0       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-closer.o)
+                0x0000000080001fa0                _close_r
  .text._fstat_r
-                0x0000000080001f74       0x2a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fstatr.o)
-                0x0000000080001f74                _fstat_r
+                0x0000000080001fc8       0x2a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-fstatr.o)
+                0x0000000080001fc8                _fstat_r
  .text._isatty_r
-                0x0000000080001f9e       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-isattyr.o)
-                0x0000000080001f9e                _isatty_r
+                0x0000000080001ff2       0x28 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-isattyr.o)
+                0x0000000080001ff2                _isatty_r
  .text._lseek_r
-                0x0000000080001fc6       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-lseekr.o)
-                0x0000000080001fc6                _lseek_r
- .text.memchr   0x0000000080001ff2       0x1a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-memchr.o)
-                0x0000000080001ff2                memchr
+                0x000000008000201a       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-lseekr.o)
+                0x000000008000201a                _lseek_r
+ .text.memchr   0x0000000080002046       0x1a d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-memchr.o)
+                0x0000000080002046                memchr
  .text.__malloc_lock
-                0x000000008000200c        0x2 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-mlock.o)
-                0x000000008000200c                __malloc_lock
+                0x0000000080002060        0x2 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-mlock.o)
+                0x0000000080002060                __malloc_lock
  .text.__malloc_unlock
-                0x000000008000200e        0x2 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-mlock.o)
-                0x000000008000200e                __malloc_unlock
+                0x0000000080002062        0x2 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-mlock.o)
+                0x0000000080002062                __malloc_unlock
  .text._printf_common
-                0x0000000080002010      0x10c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000080002010                _printf_common
+                0x0000000080002064      0x10c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000080002064                _printf_common
  .text._printf_i
-                0x000000008000211c      0x270 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000000008000211c                _printf_i
- .text._read_r  0x000000008000238c       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-readr.o)
-                0x000000008000238c                _read_r
+                0x0000000080002170      0x270 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000080002170                _printf_i
+ .text._read_r  0x00000000800023e0       0x2c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-readr.o)
+                0x00000000800023e0                _read_r
  *(.gnu.linkonce.t.*)
 
-.rodata         0x00000000800023b8     0xb880
-                0x00000000800023b8                . = ALIGN (0x4)
+.rodata         0x000000008000240c     0xb8d8
+                0x000000008000240c                . = ALIGN (0x4)
  *(.rdata)
  *(.rodata .rodata.*)
  .rodata.system_default_exception_handler.str1.4
-                0x00000000800023b8       0x44 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+                0x000000008000240c       0x44 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
  .rodata.system_default_interrupt_handler.str1.4
-                0x00000000800023fc       0x13 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- *fill*         0x000000008000240f        0x1 
+                0x0000000080002450       0x13 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+ *fill*         0x0000000080002463        0x1 
  .rodata.SystemBannerPrint.str1.4
-                0x0000000080002410       0x6f ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- *fill*         0x000000008000247f        0x1 
+                0x0000000080002464       0x6f ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
+ *fill*         0x00000000800024d3        0x1 
  .rodata.main.str1.4
-                0x0000000080002480      0x264 ./application/main.o
+                0x00000000800024d4      0x2bc ./application/main.o
  .rodata.c1_bias
-                0x00000000800026e4       0x18 ./application/main.o
+                0x0000000080002790       0x18 ./application/main.o
  .rodata.c1_weight_hw
-                0x00000000800026fc       0x96 ./application/main.o
- *fill*         0x0000000080002792        0x2 
+                0x00000000800027a8       0x96 ./application/main.o
+ *fill*         0x000000008000283e        0x2 
  .rodata.c3_bias
-                0x0000000080002794       0x40 ./application/main.o
+                0x0000000080002840       0x40 ./application/main.o
  .rodata.c3_weight_hw
-                0x00000000800027d4      0x960 ./application/main.o
+                0x0000000080002880      0x960 ./application/main.o
  .rodata.c5a_bias
-                0x0000000080003134       0x80 ./application/main.o
+                0x00000000800031e0       0x80 ./application/main.o
  .rodata.c5a_weight_hw
-                0x00000000800031b4     0x2000 ./application/main.o
+                0x0000000080003260     0x2000 ./application/main.o
  .rodata.c5b_bias
-                0x00000000800051b4       0x80 ./application/main.o
+                0x0000000080005260       0x80 ./application/main.o
  .rodata.c5b_weight_hw
-                0x0000000080005234     0x2000 ./application/main.o
+                0x00000000800052e0     0x2000 ./application/main.o
  .rodata.c5c_bias
-                0x0000000080007234       0x80 ./application/main.o
+                0x00000000800072e0       0x80 ./application/main.o
  .rodata.c5c_weight_hw
-                0x00000000800072b4     0x2000 ./application/main.o
+                0x0000000080007360     0x2000 ./application/main.o
  .rodata.c5d_bias
-                0x00000000800092b4       0x60 ./application/main.o
+                0x0000000080009360       0x60 ./application/main.o
  .rodata.c5d_weight_hw
-                0x0000000080009314     0x1800 ./application/main.o
+                0x00000000800093c0     0x1800 ./application/main.o
  .rodata.digit5_mnist
-                0x000000008000ab14      0x310 ./application/main.o
+                0x000000008000abc0      0x310 ./application/main.o
  .rodata.f6_bias
-                0x000000008000ae24      0x150 ./application/main.o
+                0x000000008000aed0      0x150 ./application/main.o
  .rodata.f6_weight_hw
-                0x000000008000af74     0x2760 ./application/main.o
+                0x000000008000b020     0x2760 ./application/main.o
  .rodata.out_bias
-                0x000000008000d6d4       0x28 ./application/main.o
+                0x000000008000d780       0x28 ./application/main.o
  .rodata.out_weight_hw
-                0x000000008000d6fc      0x348 ./application/main.o
- .rodata        0x000000008000da44      0x100 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
-                0x000000008000da44                __clz_tab
+                0x000000008000d7a8      0x348 ./application/main.o
+ .rodata        0x000000008000daf0      0x100 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x000000008000daf0                __clz_tab
  .rodata.__sf_fake_stderr
-                0x000000008000db44       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x000000008000db44                __sf_fake_stderr
+                0x000000008000dbf0       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x000000008000dbf0                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x000000008000db64       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x000000008000db64                __sf_fake_stdin
+                0x000000008000dc10       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x000000008000dc10                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000000008000db84       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
-                0x000000008000db84                __sf_fake_stdout
+                0x000000008000dc30       0x20 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-findfp.o)
+                0x000000008000dc30                __sf_fake_stdout
  .rodata._vfprintf_r.str1.4
-                0x000000008000dba4       0x13 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
- *fill*         0x000000008000dbb7        0x1 
+                0x000000008000dc50       0x13 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf.o)
+ *fill*         0x000000008000dc63        0x1 
  .rodata._printf_i.str1.4
-                0x000000008000dbb8       0x25 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
- *fill*         0x000000008000dbdd        0x3 
+                0x000000008000dc64       0x25 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
+ *fill*         0x000000008000dc89        0x3 
  .rodata._printf_i
-                0x000000008000dbe0       0x58 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
-                0x000000008000dc38                . = ALIGN (0x4)
-                0x000000008000dc38                __rt_init_start = .
+                0x000000008000dc8c       0x58 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-nano-vfprintf_i.o)
+                0x000000008000dce4                . = ALIGN (0x4)
+                0x000000008000dce4                __rt_init_start = .
  *(SORT_BY_NAME(.rti_fn*))
-                0x000000008000dc38                __rt_init_end = .
-                0x000000008000dc38                . = ALIGN (0x4)
-                0x000000008000dc38                __fsymtab_start = .
+                0x000000008000dce4                __rt_init_end = .
+                0x000000008000dce4                . = ALIGN (0x4)
+                0x000000008000dce4                __fsymtab_start = .
  *(FSymTab)
-                0x000000008000dc38                __fsymtab_end = .
-                0x000000008000dc38                . = ALIGN (0x4)
-                0x000000008000dc38                __vsymtab_start = .
+                0x000000008000dce4                __fsymtab_end = .
+                0x000000008000dce4                . = ALIGN (0x4)
+                0x000000008000dce4                __vsymtab_start = .
  *(VSymTab)
-                0x000000008000dc38                __vsymtab_end = .
+                0x000000008000dce4                __vsymtab_end = .
  *(.gnu.linkonce.r.*)
 
-.rela.dyn       0x000000008000dc38        0x0
+.rela.dyn       0x000000008000dce4        0x0
  .rela.text._sbrk
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.sdata.curbrk.0
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
- .rela.init     0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+ .rela.init     0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text.__libc_fini_array
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text.__libc_init_array
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text.isatty
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text.__register_exitproc
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._vfprintf_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._sbrk_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._write_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._close_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._fstat_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._isatty_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._lseek_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .rela.text._read_r
-                0x000000008000dc38        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
+                0x000000008000dce4        0x0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
 
 .fini
  *(SORT_NONE(.fini))
-                0x000000008000dc38                . = ALIGN (0x4)
+                0x000000008000dce4                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__etext = .)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (etext = .)
-                0x000000008000dc38                PROVIDE (_eilm = .)
+                0x000000008000dce4                PROVIDE (_eilm = .)
 
-.preinit_array  0x000000008000dc38        0x0
-                0x000000008000dc38                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x000000008000dce4        0x0
+                0x000000008000dce4                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
-                0x000000008000dc38                PROVIDE (__preinit_array_end = .)
+                0x000000008000dce4                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x000000008000dc38        0x0
-                0x000000008000dc38                PROVIDE (__init_array_start = .)
+.init_array     0x000000008000dce4        0x0
+                0x000000008000dce4                PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
-                0x000000008000dc38                PROVIDE (__init_array_end = .)
+                0x000000008000dce4                PROVIDE (__init_array_end = .)
 
-.fini_array     0x000000008000dc38        0x0
-                0x000000008000dc38                PROVIDE (__fini_array_start = .)
+.fini_array     0x000000008000dce4        0x0
+                0x000000008000dce4                PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
-                0x000000008000dc38                PROVIDE (__fini_array_end = .)
+                0x000000008000dce4                PROVIDE (__fini_array_end = .)
 
 .ctors
  *crtbegin.o(.ctors)
@@ -1147,15 +1148,15 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.lalign         0x000000008000dc38        0x0
-                0x000000008000dc38                . = ALIGN (0x4)
-                0x000000008000dc38                PROVIDE (_data_lma = .)
+.lalign         0x000000008000dce4        0x0
+                0x000000008000dce4                . = ALIGN (0x4)
+                0x000000008000dce4                PROVIDE (_data_lma = .)
 
-.dalign         0x0000000090000000        0x0 load address 0x000000008000dc38
+.dalign         0x0000000090000000        0x0 load address 0x000000008000dce4
                 0x0000000090000000                . = ALIGN (0x4)
                 0x0000000090000000                PROVIDE (_data = .)
 
-.data           0x0000000090000000       0x74 load address 0x000000008000dc38
+.data           0x0000000090000000       0x74 load address 0x000000008000dce4
  *(.data .data.*)
  .data.impure_data
                 0x0000000090000000       0x60 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-impure.o)
@@ -1237,7 +1238,7 @@ END GROUP
                 0x0000000090010000                PROVIDE (_sp = .)
 OUTPUT(LeNet_oneP.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000     0xdae7
+.debug_info     0x0000000000000000     0xdc7d
  .debug_info    0x0000000000000000       0xac ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .debug_info    0x00000000000000ac      0x2c8 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
  .debug_info    0x0000000000000374       0xa0 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
@@ -1251,9 +1252,9 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_info    0x0000000000000e7f      0x539 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
  .debug_info    0x00000000000013b8      0x329 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
  .debug_info    0x00000000000016e1      0xf76 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- .debug_info    0x0000000000002657     0xabeb ./application/main.o
- .debug_info    0x000000000000d242      0x7c0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
- .debug_info    0x000000000000da02       0xe5 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x0000000000002657     0xad81 ./application/main.o
+ .debug_info    0x000000000000d3d8      0x7c0 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_info    0x000000000000db98       0xe5 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
 .debug_abbrev   0x0000000000000000     0x129e
  .debug_abbrev  0x0000000000000000       0x6a ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
@@ -1273,7 +1274,7 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_abbrev  0x0000000000001091      0x19d d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
  .debug_abbrev  0x000000000000122e       0x70 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_loc      0x0000000000000000     0x281a
+.debug_loc      0x0000000000000000     0x2866
  .debug_loc     0x0000000000000000       0x21 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .debug_loc     0x0000000000000021       0x2e ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
  .debug_loc     0x000000000000004f       0x21 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
@@ -1285,8 +1286,8 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_loc     0x000000000000066f      0x45c ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
  .debug_loc     0x0000000000000acb       0xd1 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
  .debug_loc     0x0000000000000b9c      0x690 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- .debug_loc     0x000000000000122c      0xa11 ./application/main.o
- .debug_loc     0x0000000000001c3d      0xbdd d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_loc     0x000000000000122c      0xa5d ./application/main.o
+ .debug_loc     0x0000000000001c89      0xbdd d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
 
 .debug_aranges  0x0000000000000000      0x340
  .debug_aranges
@@ -1322,7 +1323,7 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000328       0x18 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_ranges   0x0000000000000000      0x828
+.debug_ranges   0x0000000000000000      0x858
  .debug_ranges  0x0000000000000000       0x10 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .debug_ranges  0x0000000000000010       0x10 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
  .debug_ranges  0x0000000000000020       0x10 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
@@ -1334,10 +1335,10 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_ranges  0x00000000000000c0       0x88 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
  .debug_ranges  0x0000000000000148       0x80 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
  .debug_ranges  0x00000000000001c8      0x150 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- .debug_ranges  0x0000000000000318      0x418 ./application/main.o
- .debug_ranges  0x0000000000000730       0xf8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x0000000000000318      0x448 ./application/main.o
+ .debug_ranges  0x0000000000000760       0xf8 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
 
-.debug_line     0x0000000000000000     0x469e
+.debug_line     0x0000000000000000     0x474b
  .debug_line    0x0000000000000000       0x88 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .debug_line    0x0000000000000088      0x1b6 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
  .debug_line    0x000000000000023e       0x77 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
@@ -1351,11 +1352,11 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_line    0x000000000000125b      0x966 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
  .debug_line    0x0000000000001bc1      0x482 ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
  .debug_line    0x0000000000002043      0xcf9 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- .debug_line    0x0000000000002d3c     0x1174 ./application/main.o
- .debug_line    0x0000000000003eb0      0x772 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
- .debug_line    0x0000000000004622       0x7c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_line    0x0000000000002d3c     0x1221 ./application/main.o
+ .debug_line    0x0000000000003f5d      0x772 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_line    0x00000000000046cf       0x7c d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
 
-.debug_str      0x0000000000000000     0x14fb
+.debug_str      0x0000000000000000     0x1540
  .debug_str     0x0000000000000000      0x169 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
                                         0x1ae (size before relaxing)
  .debug_str     0x0000000000000169      0x141 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
@@ -1382,11 +1383,11 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
                                         0x2b5 (size before relaxing)
  .debug_str     0x0000000000000979      0x596 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
                                         0x7f6 (size before relaxing)
- .debug_str     0x0000000000000f0f      0x2b7 ./application/main.o
-                                        0x499 (size before relaxing)
- .debug_str     0x00000000000011c6      0x282 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_str     0x0000000000000f0f      0x2fc ./application/main.o
+                                        0x4ff (size before relaxing)
+ .debug_str     0x000000000000120b      0x282 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
                                         0x345 (size before relaxing)
- .debug_str     0x0000000000001448       0xb3 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_str     0x000000000000148d       0xb3 d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/rv32imac/ilp32\libgcc.a(_clz.o)
                                         0x28c (size before relaxing)
 
 .comment        0x0000000000000000       0x12
@@ -1533,7 +1534,7 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .riscv.attributes
                 0x00000000000007c8       0x2b d:/nucleistudio/nucleistudio/toolchain/gcc/bin/../lib/gcc/riscv-nuclei-elf/10.1.0/../../../../riscv-nuclei-elf/lib/rv32imac/ilp32\libg_nano.a(lib_a-readr.o)
 
-.debug_frame    0x0000000000000000      0x4ec
+.debug_frame    0x0000000000000000      0x4f4
  .debug_frame   0x0000000000000000       0x20 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/close.o
  .debug_frame   0x0000000000000020       0x20 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/fstat.o
  .debug_frame   0x0000000000000040       0x20 ./hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/isatty.o
@@ -1545,4 +1546,4 @@ OUTPUT(LeNet_oneP.elf elf32-littleriscv)
  .debug_frame   0x00000000000001b0      0x110 ./hbird_sdk/SoC/hbirdv2/Common/Source/Drivers/hbirdv2_uart.o
  .debug_frame   0x00000000000002c0       0x6c ./hbird_sdk/SoC/hbirdv2/Common/Source/hbirdv2_common.o
  .debug_frame   0x000000000000032c      0x180 ./hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.o
- .debug_frame   0x00000000000004ac       0x40 ./application/main.o
+ .debug_frame   0x00000000000004ac       0x48 ./application/main.o
