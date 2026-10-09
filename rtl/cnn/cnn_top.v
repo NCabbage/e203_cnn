@@ -58,6 +58,15 @@ module cnn_top #(
     output reg                busy,
     output reg                done,
 
+    // ---- PMU（性能监测单元）----
+    input  wire               pmu_en,
+    input  wire               pmu_clr,
+    output reg  [31:0]        pmu_mac_cycles,
+    output reg  [31:0]        pmu_wload_cycles,
+    output reg  [31:0]        pmu_xload_cycles,
+    output reg  [31:0]        pmu_bubble_cycles,
+    output reg  [31:0]        pmu_total_cycles,
+
     // ---- 结果读出 ----
     input  wire [11:0]        y_raddr,
     output wire signed [7:0]  y_rdata,
@@ -150,6 +159,7 @@ module cnn_top #(
     wire signed [7:0]  x_val  [0:3];
     wire signed [7:0]  w_val  [0:3];
     wire signed [31:0] prod32 [0:3];
+    wire [3:0]         lane_valid;
 
     genvar gi;
     generate
@@ -164,6 +174,7 @@ module cnn_top #(
         wire signed [31:0] ih = oh32 * st32 + $signed({28'd0, l_kh}) - pd32;
         wire signed [31:0] iw = ow32 * st32 + $signed({28'd0, l_kw}) - pd32;
         wire in_range = (ih >= 0) && (ih < h32) && (iw >= 0) && (iw < w32);
+        assign lane_valid[gi] = lane_en && in_range;
 
         wire [31:0] xa = (ih * w32 + iw) * cch32 + {24'd0, l_c};
         assign x_val[gi] = (lane_en && in_range) ? x_mem[xa[11:0]] : 8'sd0;
@@ -295,6 +306,40 @@ module cnn_top #(
             end
             default: state <= S_IDLE;
             endcase
+        end
+    end
+
+    // ------------------------------------------------------------- PMU 性能监测单元
+    // 计数口径：
+    //   pmu_mac_cycles    : 处于 S_MAC 的周期数
+    //   pmu_wload_cycles  : w_wen 有效周期数（权重装载）
+    //   pmu_xload_cycles  : x_wen 有效周期数（输入激活装载）
+    //   pmu_bubble_cycles : S_MAC 中至少 1 个 lane 无效（padding / 尾部 / 越界）的周期数
+    //   pmu_total_cycles  : start 拍 + busy 周期，表示一次推理的端到端有效周期
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            pmu_mac_cycles    <= 32'd0;
+            pmu_wload_cycles  <= 32'd0;
+            pmu_xload_cycles  <= 32'd0;
+            pmu_bubble_cycles <= 32'd0;
+            pmu_total_cycles  <= 32'd0;
+        end else if (pmu_clr) begin
+            pmu_mac_cycles    <= 32'd0;
+            pmu_wload_cycles  <= 32'd0;
+            pmu_xload_cycles  <= 32'd0;
+            pmu_bubble_cycles <= 32'd0;
+            pmu_total_cycles  <= 32'd0;
+        end else if (pmu_en) begin
+            if (state == S_MAC)
+                pmu_mac_cycles <= pmu_mac_cycles + 32'd1;
+            if (w_wen)
+                pmu_wload_cycles <= pmu_wload_cycles + 32'd1;
+            if (x_wen)
+                pmu_xload_cycles <= pmu_xload_cycles + 32'd1;
+            if ((state == S_MAC) && (lane_valid != 4'b1111))
+                pmu_bubble_cycles <= pmu_bubble_cycles + 32'd1;
+            if (busy || (state == S_IDLE && start))
+                pmu_total_cycles <= pmu_total_cycles + 32'd1;
         end
     end
 
