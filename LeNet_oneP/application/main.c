@@ -4,9 +4,14 @@
 
 #include "../include/csr.h"
 #include "../include/cnn.h"
-#include "../include/lenet_weights_hw.h"
-#include "../include/lenet_c5_split.h"       // ← 新增：C5a~C5d
+#include "../include/wbase_tap.h"          // ← 新增：W_BASE_xxx 定义
+#include "../include/lenet_weights_hw.h"    // 偏置仍从这里来
 #include "../include/mnist_samples.h"
+
+// ============ WBASE 寄存器（新增）============
+// cnn.h 里如果没有定义 CNN_BASE，就把这里换成你实际的宏
+
+#define CNN_WBASE_OFFSET  0x34u
 
 // ============ 网络配置 ============
 #define INPUT_H       28
@@ -103,11 +108,11 @@ static int argmax(const int32_t *arr, int n) {
 // ============ 主函数 ============
 int main(void)
 {
-    printf("\n===== LeNet-5 INT8 Hardware Inference =====\n");
+    printf("\n===== LeNet-5 INT8 Hardware Inference (BRAM Weights) =====\n");
     printf("Core: RV32I (E203) + CNN Accelerator\n");
     printf("Quant shift: %d\n", QUANT_SHIFT);
     printf("Test image: MNIST real digit %d\n", TEST_DIGIT);
-    printf("C5: 4 segments (32+32+32+24)\n");
+    printf("Weights: preloaded to BRAM via $readmemh\n");
 
     // 硬件初始化
     if (cnn_init() != 0) {
@@ -129,8 +134,9 @@ int main(void)
         for (int w = 0; w < 28; w++)
             hw_x[h * 28 + w] = input_img[h][w];
 
+    cnn_set_wbase(W_BASE_C1);
     cnn_layer(28, 28, 1, 5, 6, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c1_weight_hw, c1_bias, hw_y, 24 * 24 * 6);
+              hw_x, c1_bias, hw_y, 24 * 24 * 6);
 
     for (int i = 0; i < 24 * 24 * 6; i++) {
         int oc = i % 6;
@@ -150,8 +156,9 @@ int main(void)
             for (int c = 0; c < 6; c++)
                 hw_x[(h * 12 + w) * 6 + c] = s2_out[c][h][w];
 
+    cnn_set_wbase(W_BASE_C3);
     cnn_layer(12, 12, 6, 5, 16, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c3_weight_hw, c3_bias, hw_y, 8 * 8 * 16);
+              hw_x, c3_bias, hw_y, 8 * 8 * 16);
 
     for (int i = 0; i < 8 * 8 * 16; i++) {
         int oc = i % 16;
@@ -165,47 +172,27 @@ int main(void)
     pool_s4();
     printf("S4 done\n");
 
-    // ==================== C5 (拆成 4 段) ====================
-    // 输入 4×4×16，K=4，4 段共享同一输入
+    // ==================== C5 (一次跑完，不再拆 4 段) ====================
     for (int h = 0; h < 4; h++)
         for (int w = 0; w < 4; w++)
             for (int c = 0; c < 16; c++)
                 hw_x[(h * 4 + w) * 16 + c] = s4_out[c][h][w];
 
-    // C5a: oc=0..31
-    cnn_layer(4, 4, 16, 4, 32, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c5a_weight_hw, c5a_bias, hw_y, 32);
-    for (int i = 0; i < 32; i++)
+    cnn_set_wbase(W_BASE_C5);
+    cnn_layer(4, 4, 16, 4, 120, 1, 0, QUANT_SHIFT, 1,
+              hw_x, c5_bias, hw_y, 120);
+
+    for (int i = 0; i < 120; i++)
         c5_out[i] = hw_y[i];
-    printf("C5a done (oc 0..31)\n");
-
-    // C5b: oc=32..63
-    cnn_layer(4, 4, 16, 4, 32, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c5b_weight_hw, c5b_bias, hw_y, 32);
-    for (int i = 0; i < 32; i++)
-        c5_out[32 + i] = hw_y[i];
-    printf("C5b done (oc 32..63)\n");
-
-    // C5c: oc=64..95
-    cnn_layer(4, 4, 16, 4, 32, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c5c_weight_hw, c5c_bias, hw_y, 32);
-    for (int i = 0; i < 32; i++)
-        c5_out[64 + i] = hw_y[i];
-    printf("C5c done (oc 64..95)\n");
-
-    // C5d: oc=96..119
-    cnn_layer(4, 4, 16, 4, 24, 1, 0, QUANT_SHIFT, 1,
-              hw_x, c5d_weight_hw, c5d_bias, hw_y, 24);
-    for (int i = 0; i < 24; i++)
-        c5_out[96 + i] = hw_y[i];
-    printf("C5d done (oc 96..119)\n");
+    printf("C5 done (120 outputs)\n");
 
     // ==================== F6 ====================
     for (int i = 0; i < 120; i++)
         hw_x[i] = c5_out[i];
 
+    cnn_set_wbase(W_BASE_F6);
     cnn_layer(1, 1, 120, 1, 84, 1, 0, QUANT_SHIFT, 1,
-              hw_x, f6_weight_hw, f6_bias, hw_y, 84);
+              hw_x, f6_bias, hw_y, 84);
 
     for (int i = 0; i < 84; i++)
         f6_out[i] = hw_y[i];
@@ -215,8 +202,9 @@ int main(void)
     for (int i = 0; i < 84; i++)
         hw_x[i] = f6_out[i];
 
+    cnn_set_wbase(W_BASE_OUT);
     cnn_layer(1, 1, 84, 1, 10, 1, 0, QUANT_SHIFT, 0,
-              hw_x, out_weight_hw, out_bias, hw_y, 10);
+              hw_x, out_bias, hw_y, 10);
 
     for (int i = 0; i < 10; i++)
         final_out[i] = (int32_t)hw_y[i];
@@ -225,10 +213,11 @@ int main(void)
     uint32_t t_end = get_cycle();
     uint32_t cycles = t_end - t_start;
 
-    uint32_t mulcnt = csr_read_mulcnt();
-    uint32_t loadcnt = csr_read_loadcnt();
+    uint32_t mulcnt   = csr_read_mulcnt();
+    uint32_t loadcnt  = csr_read_loadcnt();
     uint32_t storecnt = csr_read_storecnt();
     uint32_t stallcnt = csr_read_stallcnt();
+
     // ==================== 结果 ====================
     int pred = argmax(final_out, OUT_NUM);
 
@@ -238,13 +227,11 @@ int main(void)
         printf("  class[%d] = %d\n", i, (int)final_out[i]);
 
     printf("\n===== Benchmark Result =====\n");
-
     printf("Total cycles: %u\n", cycles);
     printf("Total mul num: %u\n", mulcnt);
     printf("Total load num: %u\n", loadcnt);
     printf("Total store num: %u\n", storecnt);
     printf("Total stall num: %u\n", stallcnt);
-
     printf("CPU Frequency: %u Hz\n", (uint32_t)SystemCoreClock);
 
     if (SystemCoreClock > 0) {
