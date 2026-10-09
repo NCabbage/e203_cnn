@@ -22,6 +22,14 @@
 //   0x28 IPTR    R  当前输入写指针（调试用）
 //   0x2C YCOUNT  R  已完成输出个数
 //   0x30 VERSION R  固定 0x0001_0000（联调时判断桥通没通）
+//   0x34 PMU_CTRL W/R [0]enable [1]clear（写 1 清计数）
+//   0x38 PMU_MAC R  MAC 计算周期
+//   0x3C PMU_WLOAD R 权重装载周期
+//   0x40 PMU_XLOAD R 输入装载周期
+//   0x44 PMU_BUBBLE R MAC 气泡周期（至少 1 lane 无效）
+//   0x48 PMU_TOTAL R 总有效推理周期（start 拍 + busy）
+//   0x4C PMU_AXIWR R AXI-Lite 写事务数
+//   0x50 PMU_VERSION R 固定 0x0001_0000
 //
 // 【典型时序（驱动/C 代码照这个写）】
 //   1. 写 CTRL   = 0x0000_000E   // clr_wptr|clr_iptr|clr_bptr，指针归零
@@ -65,7 +73,15 @@ module cnn_regs #(
                      A_WPTR   = 8'h24,
                      A_IPTR   = 8'h28,
                      A_YCOUNT = 8'h2C,
-                     A_VERSION= 8'h30;
+                     A_VERSION= 8'h30,
+                     A_PMU_CTRL   = 8'h34,
+                     A_PMU_MAC    = 8'h38,
+                     A_PMU_WLOAD  = 8'h3C,
+                     A_PMU_XLOAD  = 8'h40,
+                     A_PMU_BUBBLE = 8'h44,
+                     A_PMU_TOTAL  = 8'h48,
+                     A_PMU_AXIWR  = 8'h4C,
+                     A_PMU_VERSION= 8'h50;
 
     wire [7:0] wa = wr_addr[7:0];
     wire [7:0] ra = rd_addr[7:0];
@@ -84,6 +100,16 @@ module cnn_regs #(
     reg [7:0]  bptr;
     reg [11:0] oidx;
     reg        cnn_start;
+
+    // ------------------------------------------------ PMU 控制与计数
+    reg  [31:0] pmu_axi_wr;
+    reg         pmu_en;
+    wire        pmu_clr = wr && (wa == A_PMU_CTRL) && wr_data[1];
+    wire [31:0] pmu_mac_cycles;
+    wire [31:0] pmu_wload_cycles;
+    wire [31:0] pmu_xload_cycles;
+    wire [31:0] pmu_bubble_cycles;
+    wire [31:0] pmu_total_cycles;
 
     // ------------------------------------------------ 写端口脉冲（1 拍）
     wire w_e = wr && (wa == A_WDATA);
@@ -123,6 +149,20 @@ module cnn_regs #(
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n)                                  cnn_start <= 1'b0;
         else if (wr && (wa == A_CTRL))               cnn_start <= wr_data[0];
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) pmu_en <= 1'b1;
+        else if (wr && (wa == A_PMU_CTRL)) begin
+            if (wr_data[0])      pmu_en <= 1'b1;
+            else if (!wr_data[1]) pmu_en <= 1'b0;   // 只写 clear 位时不禁用 PMU
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) pmu_axi_wr <= 32'd0;
+        else if (pmu_clr) pmu_axi_wr <= 32'd0;
+        else if (pmu_en && wr) pmu_axi_wr <= pmu_axi_wr + 32'd1;
     end
 
     always @(posedge clk or negedge rst_n) begin
@@ -181,6 +221,14 @@ module cnn_regs #(
         .busy       (cnn_busy   ),
         .done       (cnn_done   ),
 
+        .pmu_en          (pmu_en          ),
+        .pmu_clr         (pmu_clr         ),
+        .pmu_mac_cycles  (pmu_mac_cycles  ),
+        .pmu_wload_cycles(pmu_wload_cycles),
+        .pmu_xload_cycles(pmu_xload_cycles),
+        .pmu_bubble_cycles(pmu_bubble_cycles),
+        .pmu_total_cycles(pmu_total_cycles),
+
         .y_raddr    (oidx       ),
         .y_rdata    (cnn_y      ),
         .y_count    (cnn_ycount )
@@ -195,6 +243,14 @@ module cnn_regs #(
             A_IPTR   : rd_data = {20'd0, iptr};
             A_YCOUNT : rd_data = {20'd0, cnn_ycount};
             A_VERSION: rd_data = 32'h0001_0000;
+            A_PMU_CTRL   : rd_data = {31'd0, pmu_en};
+            A_PMU_MAC    : rd_data = pmu_mac_cycles;
+            A_PMU_WLOAD  : rd_data = pmu_wload_cycles;
+            A_PMU_XLOAD  : rd_data = pmu_xload_cycles;
+            A_PMU_BUBBLE : rd_data = pmu_bubble_cycles;
+            A_PMU_TOTAL  : rd_data = pmu_total_cycles;
+            A_PMU_AXIWR  : rd_data = pmu_axi_wr;
+            A_PMU_VERSION: rd_data = 32'h0001_0000;
             default  : rd_data = 32'hDEAD_BEEF;
         endcase
     end
