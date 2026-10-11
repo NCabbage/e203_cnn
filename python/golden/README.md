@@ -149,3 +149,44 @@ C1/S2/C3/S4/C5/F6/OUT  全部 mismatch=0
 
 10 张 MNIST 的 9/10 和 `label=2 -> pred=4` 错例也完全一致。
 因此该错例来自当前 INT8 量化模型本身，不是 RTL/硬件链路错误。
+## 6. A 侧权重 BRAM 版本
+
+A 侧当前 BRAM 权重方案使用：
+
+```text
+WBASE 寄存器：0x54
+```
+
+注意：PMU 仍占用 `0x34 - 0x50`，所以 `WBASE` 不能放在 `0x34`。
+
+生成权重 ROM：
+
+```bash
+python export_wbase_tap.py
+```
+
+会生成：
+
+```text
+rom_all_tap.hex
+```
+
+当前权重地址规划：
+
+```text
+W_BASE_C1   = 0
+W_BASE_C3   = 42
+W_BASE_C5   = 650
+W_BASE_F6   = 8330
+W_BASE_OUT  = 10850
+W_TOTAL_WORDS_TAP = 11060
+```
+
+`cnn_top.v` 中使用：
+
+```verilog
+initial $readmemh("rom_all_tap.hex", w_rom);
+```
+
+因此 Vivado 综合/仿真时，需要保证 `rom_all_tap.hex` 位于当前工作目录，或者把该文件加入 Vivado 工程并作为内存初始化文件。
+黄金模型仍然可以继续用于验证 BRAM 版本的数值输出。

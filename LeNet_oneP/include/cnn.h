@@ -27,7 +27,7 @@
 #define CNN_IPTR     (CNN_BASE + 0x28)
 #define CNN_YCOUNT   (CNN_BASE + 0x2C)
 #define CNN_VERSION  (CNN_BASE + 0x30)
-#define CNN_WBASE    (CNN_BASE + 0x34)   /* 新增：每层权重起始字地址 */
+#define CNN_WBASE    (CNN_BASE + 0x54)   /* 新增：每层权重起始字地址，避开 PMU 0x34-0x50 */
 
 /* ---- CTRL 位定义 ---- */
 #define CNN_CTRL_START     (1u<<0)

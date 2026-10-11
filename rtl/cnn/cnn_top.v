@@ -312,7 +312,7 @@ module cnn_top #(
     // ------------------------------------------------------------- PMU 性能监测单元
     // 计数口径：
     //   pmu_mac_cycles    : 处于 S_MAC 的周期数
-    //   pmu_wload_cycles  : w_wen 有效周期数（权重装载）
+    //   pmu_wload_cycles  : BRAM 版本无动态权重装载，保持 0
     //   pmu_xload_cycles  : x_wen 有效周期数（输入激活装载）
     //   pmu_bubble_cycles : S_MAC 中至少 1 个 lane 无效（padding / 尾部 / 越界）的周期数
     //   pmu_total_cycles  : start 拍 + busy 周期，表示一次推理的端到端有效周期
@@ -332,8 +332,8 @@ module cnn_top #(
         end else if (pmu_en) begin
             if (state == S_MAC)
                 pmu_mac_cycles <= pmu_mac_cycles + 32'd1;
-            if (w_wen)
-                pmu_wload_cycles <= pmu_wload_cycles + 32'd1;
+            // BRAM 版本权重由 w_rom 预加载，不再经过 CPU 写口，
+            // pmu_wload_cycles 保持 0。
             if (x_wen)
                 pmu_xload_cycles <= pmu_xload_cycles + 32'd1;
             if ((state == S_MAC) && (lane_valid != 4'b1111))

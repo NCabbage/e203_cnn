@@ -55,3 +55,6 @@ uint32_t axi_wr= CNN_RD(0x4000004C);
   - `PMU_AXIWR = 52161`
   - 与理论写入次数一致。
 - 最终 Explore 时序：WNS `0.000 ns`，WHS `0.023 ns`。
+## 与权重 BRAM 版本的共存
+
+PMU 占用 `0x34 - 0x50`，A 侧 BRAM 权重版本的 `WBASE` 使用 `0x54`，避免冲突。
