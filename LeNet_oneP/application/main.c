@@ -126,6 +126,15 @@ int main(void)
     init_input();
     printf("Init done.\n");
 
+    // 清 PMU 计数并保持使能：保证后面的 PMU 读数就是本轮推理口径
+    CNN_WR(CNN_PMU_CTRL, CNN_PMU_CTRL_CLEAR | CNN_PMU_CTRL_EN);
+
+    // CPU-CSR 只有读通路、无写清零（A 侧 RTL），所以本轮用差值口径
+    uint32_t mul_0   = csr_read_mulcnt();
+    uint32_t load_0  = csr_read_loadcnt();
+    uint32_t store_0 = csr_read_storecnt();
+    uint32_t stall_0 = csr_read_stallcnt();
+
     // 计时开始
     uint32_t t_start = get_cycle();
 
@@ -213,10 +222,10 @@ int main(void)
     uint32_t t_end = get_cycle();
     uint32_t cycles = t_end - t_start;
 
-    uint32_t mulcnt   = csr_read_mulcnt();
-    uint32_t loadcnt  = csr_read_loadcnt();
-    uint32_t storecnt = csr_read_storecnt();
-    uint32_t stallcnt = csr_read_stallcnt();
+    uint32_t mulcnt   = csr_read_mulcnt()   - mul_0;
+    uint32_t loadcnt  = csr_read_loadcnt()  - load_0;
+    uint32_t storecnt = csr_read_storecnt() - store_0;
+    uint32_t stallcnt = csr_read_stallcnt() - stall_0;
 
     // ==================== 结果 ====================
     int pred = argmax(final_out, OUT_NUM);
@@ -228,6 +237,13 @@ int main(void)
 
     printf("\n===== Benchmark Result =====\n");
     printf("Total cycles: %u\n", cycles);
+    printf("PMU MAC=%u WLOAD=%u XLOAD=%u BUBBLE=%u TOTAL=%u AXIWR=%u\n",
+           (unsigned)CNN_RD(CNN_PMU_MAC),
+           (unsigned)CNN_RD(CNN_PMU_WLOAD),
+           (unsigned)CNN_RD(CNN_PMU_XLOAD),
+           (unsigned)CNN_RD(CNN_PMU_BUBBLE),
+           (unsigned)CNN_RD(CNN_PMU_TOTAL),
+           (unsigned)CNN_RD(CNN_PMU_AXIWR));
     printf("Total mul num: %u\n", mulcnt);
     printf("Total load num: %u\n", loadcnt);
     printf("Total store num: %u\n", storecnt);

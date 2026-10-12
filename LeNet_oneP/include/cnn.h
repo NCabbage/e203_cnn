@@ -29,6 +29,19 @@
 #define CNN_VERSION  (CNN_BASE + 0x30)
 #define CNN_WBASE    (CNN_BASE + 0x54)   /* 新增：每层权重起始字地址，避开 PMU 0x34-0x50 */
 
+/* ---- PMU 寄存器（加速器侧性能监测，0x34-0x50） ---- */
+#define CNN_PMU_CTRL     (CNN_BASE + 0x34)   /* bit0=enable, bit1=clear */
+#define CNN_PMU_MAC      (CNN_BASE + 0x38)
+#define CNN_PMU_WLOAD    (CNN_BASE + 0x3C)
+#define CNN_PMU_XLOAD    (CNN_BASE + 0x40)
+#define CNN_PMU_BUBBLE   (CNN_BASE + 0x44)
+#define CNN_PMU_TOTAL    (CNN_BASE + 0x48)
+#define CNN_PMU_AXIWR    (CNN_BASE + 0x4C)
+#define CNN_PMU_VERSION  (CNN_BASE + 0x50)
+
+#define CNN_PMU_CTRL_EN     (1u << 0)
+#define CNN_PMU_CTRL_CLEAR  (1u << 1)
+
 /* ---- CTRL 位定义 ---- */
 #define CNN_CTRL_START     (1u<<0)
 #define CNN_CTRL_CLR_WPTR  (1u<<1)       /* 保留，无实际作用 */

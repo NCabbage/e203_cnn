@@ -261,7 +261,7 @@ module cnn_top #(
                     tcnt <= tcnt + 32'd4;
                     // 预取下一拍的地址
                     w_word_addr_r <= w_base + oc * num_tap_groups
-                                     + ((tcnt + 32'd4) >> 2);
+                                     + ((tcnt + 32'd8) >> 2);   // BRAM sync-read: prefetch one tap-group earlier
                     if (last_round) state <= S_QUANT;
                 end
             end
