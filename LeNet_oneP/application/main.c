@@ -257,6 +257,34 @@ int main(void)
 
     printf("===== Benchmark Done =====\n\n");
 
+    // ---- 2x2 max pooling 自检（CFG1[20]=1，权重不参与）----
+    printf("===== Pooling Selftest (2x2 max) =====\n");
+    {
+        static const int8_t pool_in[36] = {
+            -5, -2,  3,  4, -5,  6,
+            -7, -8, -9, 10, 11,-12,
+           -13, 14, 15,-16, 17, 18,
+            19,-20, 21, 22,-23, 24,
+            25, 26,-27, 28, 29,-30,
+            31,-32, 33, 34,-35, 36
+        };
+        static const int8_t pool_exp[9] = { -2, 10, 11, 19, 22, 24, 31, 34, 36 };
+        int pool_ok = 1;
+        cnn_clear_ptrs();
+        CNN_WR(CNN_CFG0, cnn_cfg0(6, 6, 1, 2));
+        CNN_WR(CNN_CFG1, cnn_cfg1(1, 2, 0, 0, 0) | (1u << 20));   /* pool=1 */
+        cnn_load_input(pool_in, 36);
+        cnn_run();
+        for (int i = 0; i < 9; i++) {
+            int v = (int)cnn_read_output(i);
+            printf("  pool[%d] = %d (expect %d)%s\n", i, v, (int)pool_exp[i],
+                   (v == (int)pool_exp[i]) ? "" : "  <-- MISMATCH");
+            if (v != (int)pool_exp[i]) pool_ok = 0;
+        }
+        printf("POOL SELFTEST: %s\n", pool_ok ? "PASS" : "FAIL");
+    }
+    printf("===== Pooling Done =====\n\n");
+
     while (1);
     return 0;
 }

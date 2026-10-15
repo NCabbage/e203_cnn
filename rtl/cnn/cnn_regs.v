@@ -76,6 +76,7 @@ module cnn_regs #(
     reg [3:0] cfg_pad;
     reg [4:0] cfg_shift;
     reg       cfg_relu;
+reg       cfg_pool;          // CFG1[20]
 
     // ------------------------------------------------ 指针与控制
     reg [11:0] iptr;
@@ -143,7 +144,7 @@ module cnn_regs #(
         if (!rst_n) begin
             cfg_h <= 8'd0; cfg_w <= 8'd0; cfg_c <= 8'd0; cfg_k <= 8'd0;
             cfg_oc <= 8'd0; cfg_stride <= 2'd0; cfg_pad <= 4'd0;
-            cfg_shift <= 5'd0; cfg_relu <= 1'b0;
+            cfg_shift <= 5'd0; cfg_relu <= 1'b0; cfg_pool <= 1'b0;
         end else if (wr && (wa == A_CFG0)) begin
             cfg_h <= wr_data[7:0];
             cfg_w <= wr_data[15:8];
@@ -155,6 +156,7 @@ module cnn_regs #(
             cfg_pad   <= wr_data[13:10];
             cfg_shift <= wr_data[18:14];
             cfg_relu  <= wr_data[19];
+cfg_pool  <= wr_data[20];
         end
     end
 
@@ -177,6 +179,7 @@ module cnn_regs #(
         .cfg_pad    (cfg_pad    ),
         .cfg_shift  (cfg_shift  ),
         .cfg_relu   (cfg_relu   ),
+        .cfg_pool   (cfg_pool   ),
 
         .x_wen      (x_e        ),
         .x_waddr    (iptr       ),

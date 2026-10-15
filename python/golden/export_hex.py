@@ -62,7 +62,7 @@ def write_hex_byte4(path, values, signed=True):
             fh.write(format(word & 0xFFFFFFFF, "08x") + "\n")
 
 
-def dump_case(name, x, w, b, expect, stride, pad, shift, relu, note=""):
+def dump_case(name, x, w, b, expect, stride, pad, shift, relu, note="", pool=0):
     d = os.path.join(OUT_ROOT, name)
     os.makedirs(d, exist_ok=True)
 
@@ -87,6 +87,7 @@ def dump_case(name, x, w, b, expect, stride, pad, shift, relu, note=""):
         fh.write(f"PAD          = {pad}\n")
         fh.write(f"SHIFT        = {shift}\n")
         fh.write(f"RELU         = {1 if relu else 0}\n")
+        fh.write(f"POOL         = {int(pool)}\n")
         fh.write(f"X_COUNT      = {x.size}\n")
         fh.write(f"W_COUNT      = {w.size}\n")
         fh.write(f"B_COUNT      = {b.size}\n")
@@ -95,7 +96,7 @@ def dump_case(name, x, w, b, expect, stride, pad, shift, relu, note=""):
     # 给 testbench 用的用例参数：params.hex（13 个 32bit 值，$readmemh 直接读）
     # 顺序：H W C K OC STRIDE PAD SHIFT RELU X_COUNT W_COUNT B_COUNT Y_COUNT
     params = [H, W, C, K, OC, stride, pad, shift, (1 if relu else 0),
-              int(x.size), int(w.size), int(b.size), int(expect.size)]
+              int(x.size), int(w.size), int(b.size), int(expect.size), int(pool)]
     with open(os.path.join(d, "params.hex"), "w", encoding="ascii", newline="\n") as fh:
         for v in params:
             fh.write(format(int(v) & 0xFFFFFFFF, "08x") + "\n")
@@ -179,6 +180,39 @@ def make_small_cases():
     return out
 
 
+def maxpool2d_int8(x, k=2, stride=2):
+    """INT8 2x2 max pooling 黄金实现（逐通道）"""
+    H, W, C = x.shape
+    OH = (H - k) // stride + 1
+    OW = (W - k) // stride + 1
+    out = np.zeros((OH, OW, C), np.int8)
+    for oh in range(OH):
+        for ow in range(OW):
+            for c in range(C):
+                win = x[oh * stride:oh * stride + k, ow * stride:ow * stride + k, c]
+                out[oh, ow, c] = np.int8(win.max())
+    return out
+
+
+def make_pool_case():
+    """t8_pool: 2x2 max pooling（硬件 CFG1[20]=1）。6x6x1 -> 3x3x1。
+    权重不参与，SHIFT=0/RELU=0，输出即 max 值本身。"""
+    x = np.array([[-5, -2,   3,   4,  -5,   6],
+                  [-7, -8,  -9,  10,  11, -12],
+                  [-13, 14, 15, -16,  17,  18],
+                  [19, -20, 21,  22, -23,  24],
+                  [25,  26, -27, 28,  29, -30],
+                  [31, -32, 33,  34, -35,  36]], np.int8)[:, :, None]
+    k, stride = 2, 2
+    expect = maxpool2d_int8(x, k, stride)
+    w = np.zeros((k, k, 1, 1), np.int8)   # 池化不用权重，占位
+    b = np.array([0], np.int64)
+    dump_case("t8_pool", x, w, b, expect, stride, 0, 0, 0,
+              "2x2 max pooling, 6x6x1 -> 3x3x1 (SHIFT=0 RELU=0, 权重不参与)",
+              pool=1)
+    return True
+
+
 def make_big_case():
     rng = np.random.default_rng(SEED + 1)
     # 28x28 灰度（模拟 MNIST 一张图），3x3 卷积 + pad1，4 个输出通道
@@ -204,6 +238,8 @@ def main():
 
     for name, x, w, b, y, st, pd, sh, rl, note in cases:
         dump_case(name, x, w, b, y, st, pd, sh, rl, note)
+
+    make_pool_case()   # t8_pool: 2x2 max pooling
 
     with open(os.path.join(OUT_ROOT, "manifest.txt"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write("INT8 卷积测试向量清单\n")

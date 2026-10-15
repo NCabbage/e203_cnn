@@ -41,6 +41,7 @@ module cnn_top #(
     input  wire [3:0]         cfg_pad,
     input  wire [4:0]         cfg_shift,
     input  wire               cfg_relu,
+    input  wire               cfg_pool,          // 1 = 2x2 max pooling（权重不参与，取 lane 输入最大值）
 
     // ---- 装载端口（权重不再从这里进）----
     input  wire               x_wen,
@@ -192,7 +193,17 @@ module cnn_top #(
 
     wire signed [31:0] acc_sum = prod32[0] + prod32[1] + prod32[2] + prod32[3];
 
-    wire signed [31:0] b_val = b_mem[oc];
+    // ---- 池化：本拍 4 个 lane 的输入最大值（无效 lane 视为 -128）----
+    wire signed [7:0] pool_x0 = lane_valid[0] ? x_val[0] : 8'sh80;
+    wire signed [7:0] pool_x1 = lane_valid[1] ? x_val[1] : 8'sh80;
+    wire signed [7:0] pool_x2 = lane_valid[2] ? x_val[2] : 8'sh80;
+    wire signed [7:0] pool_x3 = lane_valid[3] ? x_val[3] : 8'sh80;
+    wire signed [7:0] pool_m01 = (pool_x0 > pool_x1) ? pool_x0 : pool_x1;
+    wire signed [7:0] pool_m23 = (pool_x2 > pool_x3) ? pool_x2 : pool_x3;
+    wire signed [7:0] pool_round = (pool_m01 > pool_m23) ? pool_m01 : pool_m23;
+    wire signed [31:0] pool_max32 = {{24{pool_round[7]}}, pool_round};
+
+    wire signed [31:0] b_val = cfg_pool ? 32'sd0 : b_mem[oc];   // 池化模式忽略 bias
 
     wire signed [7:0] quant_y;
     cnn_quant u_quant (
@@ -243,7 +254,7 @@ module cnn_top #(
                 if (start) begin
                     oh <= 8'd0; ow <= 8'd0; oc <= 8'd0;
                     tcur <= 16'd0; tcnt <= 32'd0;
-                    acc <= 32'sd0; out_cnt <= 12'd0;
+                    acc <= cfg_pool ? -32'sd128 : 32'sd0; out_cnt <= 12'd0;
                     mac_first <= 1'b1;
                     busy <= 1'b1;
                     state <= S_MAC;
@@ -256,7 +267,8 @@ module cnn_top #(
                     mac_first     <= 1'b0;
                     w_word_addr_r <= w_base + oc * num_tap_groups + 32'd1;
                 end else begin
-                    acc  <= acc + acc_sum;
+                    acc  <= cfg_pool ? ((acc > pool_max32) ? acc : pool_max32)
+                                     : (acc + acc_sum);
                     tcur <= lt4;
                     tcnt <= tcnt + 32'd4;
                     // 预取下一拍的地址
@@ -269,7 +281,7 @@ module cnn_top #(
             S_QUANT: begin
                 y_we <= 1'b1; y_wa <= out_cnt; y_wd <= quant_y;
                 out_cnt <= out_cnt + 12'd1;
-                acc  <= 32'sd0;
+                acc  <= cfg_pool ? -32'sd128 : 32'sd0;
                 tcnt <= 32'd0;
                 tcur <= 16'd0;
 
