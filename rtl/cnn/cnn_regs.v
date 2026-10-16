@@ -166,7 +166,7 @@ cfg_pool  <= wr_data[20];
     wire [11:0] cnn_ycount;
 
     cnn_top #(
-        .W_TOTAL_WORDS (11060)
+        .W_TOTAL_WORDS (11066)
     ) u_cnn (
         .clk        (clk        ),
         .rst_n      (rst_n      ),

@@ -26,7 +26,7 @@ module cnn_top #(
     parameter Y_DEPTH       = 4096,
     parameter B_DEPTH       = 256,
     parameter PAR           = 4,
-    parameter W_TOTAL_WORDS = 11060   // 从 wbase_tap.h 的 W_TOTAL_WORDS_TAP 抄
+    parameter W_TOTAL_WORDS = 11066   // LeNet(11060) + Sobel(6)，见 wbase_tap.h
 )(
     input  wire               clk,
     input  wire               rst_n,
