@@ -1,15 +1,13 @@
-// ===========================================================================
-// cnn_top.v  --  INT8 卷积内核（4 路并行 MAC 阵列 + 权重预加载 BRAM 版）
+//===========================================================================
+// cnn_top.v  --  INT8 卷积内核（4 路并行 MAC + ROM IP 权重 + 2x2 max pool）
 //
-// 与原来 tap 切版本数值约定完全一致，只改权重来源：
-//   原来：CPU 逐字节写 WDATA -> w_mem[wptr]
-//   现在：上电 $readmemh 从 rom_all_tap.hex 读进 w_rom，4 路 lane 同步读
-//          一个 32bit 字，拆成 4 个 tap 的权重。
+// 权重来源：Block Memory Generator IP（Single Port ROM），
+//           IP 初始化文件 rom_all_tap.coe，内部同步读，1 拍延迟。
 //
-// 数据布局（与 python 导出的 tap 顺序 hex 一致）
+// 数据布局（与 python 导出的 tap 顺序 coe 一致）
 //   x: [H][W][C]              地址 = (h*W + w)*C + c
 //   y: [OH][OW][OC]           顺序写，用 out_cnt 递增
-//   w_rom 字布局: [OC][TAP_GROUP][LANE]
+//   ROM 字布局: [OC][TAP_GROUP][LANE]
 //     字地址 = w_base + oc * num_tap_groups + tap_group
 //     32bit 字里:
 //       [7:0]   = tap_group*4 + 0 的权重
@@ -17,21 +15,21 @@
 //       [23:16] = tap_group*4 + 2 的权重
 //       [31:24] = tap_group*4 + 3 的权重
 //
-// 同步读流水线：w_rom 是同步读，晚一拍。S_MAC 里用 mac_first 标志
+// 同步读流水线：ROM IP 输出晚一拍。S_MAC 里用 mac_first 标志
 //   跳过第一拍，让 w_word 对齐 tcur。
-// ===========================================================================
+//
+// cfg_pool = 1 时进入池化模式：
+//   - tap_total = 4（只处理 2x2 空间窗口）
+//   - 4 个 lane 固定为 (kh,kw) = (0,0)/(0,1)/(1,0)/(1,1)，c = oc
+//   - 权重不参与计算，bias 忽略
+//   - acc 初始化为 -128，取 4 个 lane 输入的最大值
+//   - 每个输出点只需 1 拍
+//===========================================================================
 
-module cnn_top #(
-    parameter X_DEPTH       = 4096,
-    parameter Y_DEPTH       = 4096,
-    parameter B_DEPTH       = 256,
-    parameter PAR           = 4,
-    parameter W_TOTAL_WORDS = 11060   // 从 wbase_tap.h 的 W_TOTAL_WORDS_TAP 抄
-)(
+module cnn_top (
     input  wire               clk,
     input  wire               rst_n,
 
-    // ---- 配置 ----
     input  wire [7:0]         cfg_h,
     input  wire [7:0]         cfg_w,
     input  wire [7:0]         cfg_c,
@@ -41,9 +39,8 @@ module cnn_top #(
     input  wire [3:0]         cfg_pad,
     input  wire [4:0]         cfg_shift,
     input  wire               cfg_relu,
-    input  wire               cfg_pool,          // 1 = 2x2 max pooling（权重不参与，取 lane 输入最大值）
+    input  wire               cfg_pool,
 
-    // ---- 装载端口（权重不再从这里进）----
     input  wire               x_wen,
     input  wire [11:0]        x_waddr,
     input  wire signed [7:0]  x_wdata,
@@ -51,15 +48,12 @@ module cnn_top #(
     input  wire [7:0]         b_waddr,
     input  wire signed [31:0] b_wdata,
 
-    // ---- 权重基地址（从 cnn_regs 传进来，单位：32bit 字）----
     input  wire [15:0]        w_base,
 
-    // ---- 控制 ----
     input  wire               start,
     output reg                busy,
     output reg                done,
 
-    // ---- PMU（性能监测单元）----
     input  wire               pmu_en,
     input  wire               pmu_clr,
     output reg  [31:0]        pmu_mac_cycles,
@@ -68,41 +62,40 @@ module cnn_top #(
     output reg  [31:0]        pmu_bubble_cycles,
     output reg  [31:0]        pmu_total_cycles,
 
-    // ---- 结果读出 ----
     input  wire [11:0]        y_raddr,
     output wire signed [7:0]  y_rdata,
     output wire [11:0]        y_count
 );
 
     // ------------------------------------------------------------- 存储器
-    reg signed [7:0]  x_mem [0:X_DEPTH-1];
-    reg signed [31:0] b_mem [0:B_DEPTH-1];
-    reg signed [7:0]  y_mem [0:Y_DEPTH-1];
-
-    // 权重 ROM：32bit 字，$readmemh 初始化
-    reg [31:0]        w_rom [0:W_TOTAL_WORDS-1];
-    initial $readmemh("rom_all_tap.hex", w_rom);
+    reg signed [7:0]  x_mem [0:4096-1];
+    reg signed [31:0] b_mem [0:256-1];
+    reg signed [7:0]  y_mem [0:4096-1];
 
     always @(posedge clk) if (x_wen) x_mem[x_waddr] <= x_wdata;
     always @(posedge clk) if (b_wen) b_mem[b_waddr] <= b_wdata;
 
-    // y_mem 写口（纯同步，无复位，保证 BRAM 推断）
     reg                 y_we;
     reg  [11:0]         y_wa;
     reg  signed [7:0]   y_wd;
     always @(posedge clk) if (y_we) y_mem[y_wa] <= y_wd;
 
-    // y_mem 同步读（1 拍延迟）
     reg signed [7:0] y_rdata_r;
     always @(posedge clk) y_rdata_r <= y_mem[y_raddr];
     assign y_rdata = y_rdata_r;
 
-    // w_rom 同步读（1 拍延迟）
-    reg [31:0] w_word;
-    reg [31:0] w_word_addr_r;
-    always @(posedge clk) w_word <= w_rom[w_word_addr_r];
+    // ------------------------------------------------------------- 权重 ROM IP
+    reg  [31:0] w_word_addr_r;
+    wire [13:0] w_rom_addr = w_word_addr_r[13:0];
+    wire [31:0] w_word;
 
-    // ------------------------------------------------------------- tap 前进函数
+    rom_all_tap u_rom (
+        .clka  (clk        ),
+        .addra (w_rom_addr ),
+        .douta (w_word     )
+    );
+
+    // ------------------------------------------------------------- tap_next
     function [15:0] tap_next;
         input [15:0] t;
         input [7:0]  KK;
@@ -134,29 +127,36 @@ module cnn_top #(
     reg  [11:0]        out_cnt;
     reg                mac_first;
 
-    wire [31:0] tap_total      = ({24'd0, cfg_k} * {24'd0, cfg_k}) * {24'd0, cfg_c};
+    // 池化模式 tap_total = 4（只处理 2x2 空间窗口）
+    wire [31:0] tap_total = cfg_pool
+                          ? 32'd4
+                          : (({24'd0, cfg_k} * {24'd0, cfg_k}) * {24'd0, cfg_c});
     wire [31:0] num_tap_groups = (tap_total + 32'd3) >> 2;
 
     assign y_count = out_cnt;
 
-    // 32 位坐标运算
     wire signed [31:0] h32 = cfg_h, w32 = cfg_w, cch32 = cfg_c, k32 = cfg_k;
     wire signed [31:0] oc32 = cfg_oc, st32 = cfg_stride, pd32 = cfg_pad;
     wire signed [31:0] oh32 = oh, ow32 = ow;
 
+    // 池化模式 4 个 lane 固定为 2x2 空间窗口，c = oc
     wire [15:0] lane [0:3];
-    assign lane[0] = lt0;
-    assign lane[1] = lt1;
-    assign lane[2] = lt2;
-    assign lane[3] = lt3;
+    wire [15:0] pool_lane0 = {4'd0, 4'd0, oc};   // (kh=0, kw=0)
+    wire [15:0] pool_lane1 = {4'd0, 4'd1, oc};   // (kh=0, kw=1)
+    wire [15:0] pool_lane2 = {4'd1, 4'd0, oc};   // (kh=1, kw=0)
+    wire [15:0] pool_lane3 = {4'd1, 4'd1, oc};   // (kh=1, kw=1)
 
-    // 32bit 字拆成 4 个 tap 的权重
+    assign lane[0] = cfg_pool ? pool_lane0 : lt0;
+    assign lane[1] = cfg_pool ? pool_lane1 : lt1;
+    assign lane[2] = cfg_pool ? pool_lane2 : lt2;
+    assign lane[3] = cfg_pool ? pool_lane3 : lt3;
+
     wire signed [7:0] w0 = w_word[7:0];
     wire signed [7:0] w1 = w_word[15:8];
     wire signed [7:0] w2 = w_word[23:16];
     wire signed [7:0] w3 = w_word[31:24];
 
-    // ------------------------------------------------------------- 4 个 lane
+    // ------------------------------------------------------------- 4 lane
     wire signed [7:0]  x_val  [0:3];
     wire signed [7:0]  w_val  [0:3];
     wire signed [31:0] prod32 [0:3];
@@ -171,7 +171,6 @@ module cnn_top #(
 
         wire lane_en = ((tcnt + gi) < tap_total);
 
-        // 输入坐标（含 padding）
         wire signed [31:0] ih = oh32 * st32 + $signed({28'd0, l_kh}) - pd32;
         wire signed [31:0] iw = ow32 * st32 + $signed({28'd0, l_kw}) - pd32;
         wire in_range = (ih >= 0) && (ih < h32) && (iw >= 0) && (iw < w32);
@@ -185,7 +184,6 @@ module cnn_top #(
     end
     endgenerate
 
-    // 权重拆包后按 lane 分配
     assign w_val[0] = (tcnt + 32'd0 < tap_total) ? w0 : 8'sd0;
     assign w_val[1] = (tcnt + 32'd1 < tap_total) ? w1 : 8'sd0;
     assign w_val[2] = (tcnt + 32'd2 < tap_total) ? w2 : 8'sd0;
@@ -193,7 +191,7 @@ module cnn_top #(
 
     wire signed [31:0] acc_sum = prod32[0] + prod32[1] + prod32[2] + prod32[3];
 
-    // ---- 池化：本拍 4 个 lane 的输入最大值（无效 lane 视为 -128）----
+    // 池化：本拍 4 个 lane 的输入最大值（无效 lane 视为 -128）
     wire signed [7:0] pool_x0 = lane_valid[0] ? x_val[0] : 8'sh80;
     wire signed [7:0] pool_x1 = lane_valid[1] ? x_val[1] : 8'sh80;
     wire signed [7:0] pool_x2 = lane_valid[2] ? x_val[2] : 8'sh80;
@@ -203,7 +201,7 @@ module cnn_top #(
     wire signed [7:0] pool_round = (pool_m01 > pool_m23) ? pool_m01 : pool_m23;
     wire signed [31:0] pool_max32 = {{24{pool_round[7]}}, pool_round};
 
-    wire signed [31:0] b_val = cfg_pool ? 32'sd0 : b_mem[oc];   // 池化模式忽略 bias
+    wire signed [31:0] b_val = cfg_pool ? 32'sd0 : b_mem[oc];
 
     wire signed [7:0] quant_y;
     cnn_quant u_quant (
@@ -226,10 +224,9 @@ module cnn_top #(
     wire all_done    = last_oc && !ow_has_next && !oh_has_next;
     wire last_round  = ((tcnt + 32'd4) >= tap_total);
 
-    // 下一个输出点的 oc
     wire [7:0] oc_next = (!last_oc) ? (oc + 8'd1) : 8'd0;
 
-    // ------------------------------------------------------------- 主状态机
+    // ------------------------------------------------------------- 状态机
     localparam S_IDLE = 2'd0, S_MAC = 2'd1, S_QUANT = 2'd2, S_DONE = 2'd3;
     reg [1:0] state;
 
@@ -246,24 +243,21 @@ module cnn_top #(
         end else begin
             y_we <= 1'b0;
             case (state)
-            // -------------------------------------------------
             S_IDLE: begin
                 done <= 1'b0;
-                // 持续预取第一个 oc/tap_group 的地址
-                w_word_addr_r <= w_base;   // oc=0, tap_group=0
+                w_word_addr_r <= w_base;
                 if (start) begin
                     oh <= 8'd0; ow <= 8'd0; oc <= 8'd0;
                     tcur <= 16'd0; tcnt <= 32'd0;
-                    acc <= cfg_pool ? -32'sd128 : 32'sd0; out_cnt <= 12'd0;
+                    acc <= cfg_pool ? -32'sd128 : 32'sd0;
+                    out_cnt <= 12'd0;
                     mac_first <= 1'b1;
                     busy <= 1'b1;
                     state <= S_MAC;
                 end
             end
-            // -------------------------------------------------
             S_MAC: begin
                 if (mac_first) begin
-                    // 预热拍：跳过 MAC，让 w_word 与 tcur 对齐
                     mac_first     <= 1'b0;
                     w_word_addr_r <= w_base + oc * num_tap_groups + 32'd1;
                 end else begin
@@ -271,13 +265,11 @@ module cnn_top #(
                                      : (acc + acc_sum);
                     tcur <= lt4;
                     tcnt <= tcnt + 32'd4;
-                    // 预取下一拍的地址
                     w_word_addr_r <= w_base + oc * num_tap_groups
-                                     + ((tcnt + 32'd8) >> 2);   // BRAM sync-read: prefetch one tap-group earlier
+                                     + (tcnt >> 2) + 32'd2;
                     if (last_round) state <= S_QUANT;
                 end
             end
-            // -------------------------------------------------
             S_QUANT: begin
                 y_we <= 1'b1; y_wa <= out_cnt; y_wd <= quant_y;
                 out_cnt <= out_cnt + 12'd1;
@@ -289,7 +281,6 @@ module cnn_top #(
                     busy  <= 1'b0;
                     state <= S_DONE;
                 end else begin
-                    // 推进 oc/ow/oh
                     if (!last_oc) begin
                         oc <= oc + 8'd1;
                     end else begin
@@ -301,13 +292,11 @@ module cnn_top #(
                             if (oh_has_next) oh <= oh + 8'd1;
                         end
                     end
-                    // 预取下一个输出点的第一个地址
                     w_word_addr_r <= w_base + oc_next * num_tap_groups;
                     mac_first     <= 1'b1;
                     state <= S_MAC;
                 end
             end
-            // -------------------------------------------------
             S_DONE: begin
                 done <= 1'b1;
                 busy <= 1'b0;
@@ -321,13 +310,7 @@ module cnn_top #(
         end
     end
 
-    // ------------------------------------------------------------- PMU 性能监测单元
-    // 计数口径：
-    //   pmu_mac_cycles    : 处于 S_MAC 的周期数
-    //   pmu_wload_cycles  : BRAM 版本无动态权重装载，保持 0
-    //   pmu_xload_cycles  : x_wen 有效周期数（输入激活装载）
-    //   pmu_bubble_cycles : S_MAC 中至少 1 个 lane 无效（padding / 尾部 / 越界）的周期数
-    //   pmu_total_cycles  : start 拍 + busy 周期，表示一次推理的端到端有效周期
+    // ------------------------------------------------------------- PMU
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             pmu_mac_cycles    <= 32'd0;
@@ -342,13 +325,13 @@ module cnn_top #(
             pmu_bubble_cycles <= 32'd0;
             pmu_total_cycles  <= 32'd0;
         end else if (pmu_en) begin
-            if (state == S_MAC)
+            if (state == S_MAC && !mac_first)
                 pmu_mac_cycles <= pmu_mac_cycles + 32'd1;
-            // BRAM 版本权重由 w_rom 预加载，不再经过 CPU 写口，
-            // pmu_wload_cycles 保持 0。
+            if (state == S_MAC && !mac_first)
+                pmu_wload_cycles <= pmu_wload_cycles + 32'd1;
             if (x_wen)
                 pmu_xload_cycles <= pmu_xload_cycles + 32'd1;
-            if ((state == S_MAC) && (lane_valid != 4'b1111))
+            if ((state == S_MAC) && !mac_first && (lane_valid != 4'b1111))
                 pmu_bubble_cycles <= pmu_bubble_cycles + 32'd1;
             if (busy || (state == S_IDLE && start))
                 pmu_total_cycles <= pmu_total_cycles + 32'd1;

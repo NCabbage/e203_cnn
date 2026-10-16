@@ -7,12 +7,12 @@ start address 0x80000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x80000000 paddr 0x80000000 align 2**12
-         filesz 0x00002ea4 memsz 0x00002ea4 flags rwx
-    LOAD off    0x00004000 vaddr 0x90000000 paddr 0x80002ea4 align 2**12
+         filesz 0x00002ef8 memsz 0x00002ef8 flags rwx
+    LOAD off    0x00004000 vaddr 0x90000000 paddr 0x80002ef8 align 2**12
          filesz 0x00000074 memsz 0x00000074 flags rw-
     LOAD off    0x00000074 vaddr 0x90000074 paddr 0x90000074 align 2**12
-         filesz 0x00000000 memsz 0x00003b18 flags rw-
-    LOAD off    0x00000800 vaddr 0x9000f800 paddr 0x90003b8c align 2**12
+         filesz 0x00000000 memsz 0x0000246c flags rw-
+    LOAD off    0x00000800 vaddr 0x9000f800 paddr 0x900024e0 align 2**12
          filesz 0x00000000 memsz 0x00000800 flags rw-
 
 Sections:
@@ -20,28 +20,28 @@ Idx Name              Size      VMA       LMA       File off  Algn  Flags
   0 .init             000000be  80000000  80000000  00001000  2**0  CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .ilalign          00000002  800000be  800000be  000010be  2**0  ALLOC
   2 .text             000021d8  800000c0  800000c0  000010c0  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .rodata           00000c0c  80002298  80002298  00003298  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .lalign           00000000  80002ea4  80002ea4  00004074  2**0  CONTENTS
+  3 .rodata           00000c60  80002298  80002298  00003298  2**2  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .lalign           00000000  80002ef8  80002ef8  00004074  2**0  CONTENTS
   5 .dalign           00000000  90000000  90000000  00004074  2**0  CONTENTS
-  6 .data             00000074  90000000  80002ea4  00004000  2**2  CONTENTS, ALLOC, LOAD, DATA
-  7 .bss              00003b18  90000074  90000074  00004074  2**2  ALLOC
-  8 .stack            00000800  9000f800  90003b8c  00004800  2**0  ALLOC
-  9 .debug_info       00010c5e  00000000  00000000  00004074  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 10 .debug_abbrev     000012af  00000000  00000000  00014cd2  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_loc        0000277c  00000000  00000000  00015f81  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_aranges    00000340  00000000  00000000  00018700  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_ranges     00000838  00000000  00000000  00018a40  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_line       000046c1  00000000  00000000  00019278  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_str        000014e2  00000000  00000000  0001d939  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .comment          00000012  00000000  00000000  0001ee1b  2**0  CONTENTS, READONLY
- 17 .riscv.attributes 0000002f  00000000  00000000  0001ee2d  2**0  CONTENTS, READONLY
- 18 .debug_frame      000004f4  00000000  00000000  0001ee5c  2**2  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .data             00000074  90000000  80002ef8  00004000  2**2  CONTENTS, ALLOC, LOAD, DATA
+  7 .bss              0000246c  90000074  90000074  00004074  2**2  ALLOC
+  8 .stack            00000800  9000f800  900024e0  00004800  2**0  ALLOC
+  9 .debug_info       00010c0d  00000000  00000000  00004074  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 10 .debug_abbrev     000012a6  00000000  00000000  00014c81  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 11 .debug_loc        0000270c  00000000  00000000  00015f27  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 12 .debug_aranges    00000340  00000000  00000000  00018638  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_ranges     00000758  00000000  00000000  00018978  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_line       0000470b  00000000  00000000  000190d0  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_str        000014e7  00000000  00000000  0001d7db  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .comment          00000012  00000000  00000000  0001ecc2  2**0  CONTENTS, READONLY
+ 17 .riscv.attributes 0000002f  00000000  00000000  0001ecd4  2**0  CONTENTS, READONLY
+ 18 .debug_frame      000004f4  00000000  00000000  0001ed04  2**2  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 80000000 l    d  .init	00000000 .init
 800000be l    d  .ilalign	00000000 .ilalign
 800000c0 l    d  .text	00000000 .text
 80002298 l    d  .rodata	00000000 .rodata
-80002ea4 l    d  .lalign	00000000 .lalign
+80002ef8 l    d  .lalign	00000000 .lalign
 90000000 l    d  .dalign	00000000 .dalign
 90000000 l    d  .data	00000000 .data
 90000074 l    d  .bss	00000000 .bss
@@ -58,22 +58,18 @@ SYMBOL TABLE:
 00000000 l    d  .debug_frame	00000000 .debug_frame
 00000000 l    df *ABS*	00000000 main.c
 80000b52 l     F .text	0000009c cnn_layer.constprop.0
-90001390 l     O .bss	00001000 hw_x
-90002390 l     O .bss	00001000 hw_y
-9000011c l     O .bss	00000d80 c1_out
-90000e9c l     O .bss	00000400 c3_out
-9000129c l     O .bss	00000078 c5_out
-90001314 l     O .bss	00000054 f6_out
-90001368 l     O .bss	00000028 final_out
-90003390 l     O .bss	00000310 input_img
-900036a0 l     O .bss	00000360 s2_out
-90003a00 l     O .bss	00000100 s4_out
-800025f0 l     O .rodata	00000018 c1_bias
-80002608 l     O .rodata	00000040 c3_bias
-80002648 l     O .rodata	000001e0 c5_bias
-80002828 l     O .rodata	00000310 digit5_mnist
-80002b38 l     O .rodata	00000150 f6_bias
-80002c88 l     O .rodata	00000028 out_bias
+90000144 l     O .bss	00001000 hw_x
+90001144 l     O .bss	00001000 hw_y
+9000011c l     O .bss	00000028 final_out
+90002144 l     O .bss	00000310 input_img
+80002614 l     O .rodata	00000018 c1_bias
+8000262c l     O .rodata	00000040 c3_bias
+8000266c l     O .rodata	000001e0 c5_bias
+8000284c l     O .rodata	00000310 digit3_mnist
+80002b5c l     O .rodata	00000150 f6_bias
+80002cac l     O .rodata	00000028 out_bias
+80002cd4 l     O .rodata	00000009 pool_exp.0
+80002ce0 l     O .rodata	00000024 pool_in.1
 00000000 l    df *ABS*	00000000 close.c
 00000000 l    df *ABS*	00000000 fstat.c
 00000000 l    df *ABS*	00000000 isatty.c
@@ -101,7 +97,7 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 wbuf.c
 00000000 l    df *ABS*	00000000 wsetup.c
 00000000 l    df *ABS*	00000000 __atexit.c
-90003b00 l     O .bss	0000008c _global_atexit0
+90002454 l     O .bss	0000008c _global_atexit0
 00000000 l    df *ABS*	00000000 fflush.c
 00000000 l    df *ABS*	00000000 findfp.c
 800014f4 l     F .text	00000068 std
@@ -126,12 +122,12 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 impure.c
 90000000 l     O .data	00000060 impure_data
 00000000 l    df *ABS*	00000000 
-80002ea4 l       .rodata	00000000 __fini_array_end
-80002ea4 l       .rodata	00000000 __fini_array_start
-80002ea4 l       .rodata	00000000 __init_array_end
-80002ea4 l       .rodata	00000000 __preinit_array_end
-80002ea4 l       .rodata	00000000 __init_array_start
-80002ea4 l       .rodata	00000000 __preinit_array_start
+80002ef8 l       .rodata	00000000 __fini_array_end
+80002ef8 l       .rodata	00000000 __fini_array_start
+80002ef8 l       .rodata	00000000 __init_array_end
+80002ef8 l       .rodata	00000000 __preinit_array_end
+80002ef8 l       .rodata	00000000 __init_array_start
+80002ef8 l       .rodata	00000000 __preinit_array_start
 80001e7e g     F .text	00000028 _isatty_r
 80001026 g     F .text	000000da _puts_r
 80001ea6 g     F .text	0000002c _lseek_r
@@ -146,19 +142,19 @@ SYMBOL TABLE:
 90000074 g     O .bss	00000004 errno
 00000800 g       *ABS*	00000000 __stack_size
 800008a4 g     F .text	00000014 uart_write
-80002ea4 g       .rodata	00000000 __rt_init_start
-80002ea4 g       .rodata	00000000 __fsymtab_end
+80002ef8 g       .rodata	00000000 __rt_init_start
+80002ef8 g       .rodata	00000000 __fsymtab_end
 800000c0 g       .ilalign	00000000 _ilm_lma
 8000155c g     F .text	0000000a _cleanup_r
 80001100 g     F .text	00000008 puts
-80002ea4 g       .rodata	00000000 __rt_init_end
+80002ef8 g       .rodata	00000000 __rt_init_end
 90000064 g     O .data	00000004 SystemCoreClock
 80001108 g     F .text	00000004 isatty
 80000708  w    F .text	0000001a _fstat
 80000936 g     F .text	00000012 get_cpu_freq
 80001d1e g     F .text	00000028 _sbrk_r
 8000226c g     F .text	0000002c _read_r
-80002ea4 g       .rodata	00000000 _eilm
+80002ef8 g       .rodata	00000000 _eilm
 9000f800 g       .stack	00000000 _heap_end
 80000722  w    F .text	00000004 _isatty
 90000070 g     O .data	00000004 _global_impure_ptr
@@ -169,7 +165,7 @@ SYMBOL TABLE:
 80000f58 g     F .text	00000036 __libc_fini_array
 800000c0 g       .ilalign	00000000 _ilm
 80000a66 g     F .text	000000e6 _premain_init
-80002db0 g     O .rodata	00000020 __sf_fake_stderr
+80002e04 g     O .rodata	00000020 __sf_fake_stderr
 800009d6 g     F .text	00000090 core_trap_handler
 80001a48 g     F .text	00000042 __sfputs_r
 8000086a g     F .text	0000003a uart_init
@@ -186,43 +182,43 @@ SYMBOL TABLE:
 80001d46 g     F .text	00000030 __sread
 80001eec g     F .text	00000002 __malloc_lock
 80001490 g     F .text	00000064 _fflush_r
-80002dd0 g     O .rodata	00000020 __sf_fake_stdin
+80002e24 g     O .rodata	00000020 __sf_fake_stdin
 90000074 g       .bss	00000000 __bss_start
 80001808 g     F .text	000000a8 memset
 800000c0 g     F .text	0000063e main
 800007e0  w      .text	00000000 trap_entry
 80001dfa g     F .text	00000006 __sclose
 8000194e g     F .text	000000d0 _malloc_r
-80002ea4 g       .rodata	00000000 __vsymtab_start
+80002ef8 g       .rodata	00000000 __vsymtab_start
 800009c8 g     F .text	0000000e SystemInit
 80000b50 g     F .text	00000002 _fini
 80000fec g     F .text	0000003a iprintf
-80002cb0 g     O .rodata	00000100 .hidden __clz_tab
+80002d04 g     O .rodata	00000100 .hidden __clz_tab
 80000f4e g     F .text	0000000a atexit
 80001e00 g     F .text	0000002c _write_r
 80001ef0 g     F .text	0000010c _printf_common
 90000068 g     O .data	00000004 _impure_ptr
 8000134a g     F .text	00000146 __sflush_r
 90000000 g       .dalign	00000000 _data
-80002ea4 g       .rodata	00000000 __vsymtab_end
+80002ef8 g       .rodata	00000000 __vsymtab_end
 800008ce g     F .text	00000068 measure_cpu_freq
 80001712 g     F .text	0000005a __swhatbuf_r
 8000077c  w    F .text	00000062 _write
 90000074 g       .bss	00000000 _edata
 80000b4c g     F .text	00000002 _postmain_fini
-90003b90 g       .bss	00000000 _end
-80002ea4 g       .lalign	00000000 _data_lma
+900024e0 g       .bss	00000000 _end
+80002ef8 g       .lalign	00000000 _data_lma
 800008b8 g     F .text	00000016 uart_read
 80001d76 g     F .text	0000004e __swrite
 80001a8a g     F .text	00000294 _vfiprintf_r
 800016a8 g     F .text	0000006a _fwalk_reent
-80002df0 g     O .rodata	00000020 __sf_fake_stdout
+80002e44 g     O .rodata	00000020 __sf_fake_stdout
 8000072a  w    F .text	00000022 _read
 8000176c g     F .text	0000009c __smakebuf_r
 80001ffc g     F .text	00000270 _printf_i
 90000080 g     O .bss	00000004 __malloc_sbrk_start
 9000007c g     O .bss	00000004 __malloc_free_list
-80002ea4 g       .rodata	00000000 __fsymtab_start
+80002ef8 g       .rodata	00000000 __fsymtab_start
 80001a8a g     F .text	00000294 _vfprintf_r
 80000858 g     F .text	00000012 gpio_iof_config
 800006fe  w    F .text	0000000a _close
@@ -294,7 +290,7 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S:78
     la a2, _eilm
 8000003c:	00003617          	auipc	a2,0x3
-80000040:	e6860613          	addi	a2,a2,-408 # 80002ea4 <__fsymtab_end>
+80000040:	ebc60613          	addi	a2,a2,-324 # 80002ef8 <__fsymtab_end>
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S:79
     bgeu a1, a2, 2f
 80000044:	00c5fa63          	bgeu	a1,a2,80000058 <_start+0x58>
@@ -321,7 +317,7 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source
     /* Load data section */
     la a0, _data_lma
 80000058:	00003517          	auipc	a0,0x3
-8000005c:	e4c50513          	addi	a0,a0,-436 # 80002ea4 <__fsymtab_end>
+8000005c:	ea050513          	addi	a0,a0,-352 # 80002ef8 <__fsymtab_end>
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S:91
     la a1, _data
 80000060:	10000597          	auipc	a1,0x10000
@@ -355,8 +351,8 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source
 80000080:	81418513          	addi	a0,gp,-2028 # 90000074 <errno>
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S:103
     la a1, _end
-80000084:	10004597          	auipc	a1,0x10004
-80000088:	b0c58593          	addi	a1,a1,-1268 # 90003b90 <_end>
+80000084:	10002597          	auipc	a1,0x10002
+80000088:	45c58593          	addi	a1,a1,1116 # 900024e0 <_end>
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/GCC/startup_hbirdv2.S:104
     bgeu a0, a1, 2f
 8000008c:	00b57763          	bgeu	a0,a1,8000009a <_start+0x9a>
@@ -427,7 +423,7 @@ Disassembly of section .text:
 
 800000c0 <main>:
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:110
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:61
     return best;
 }
 
@@ -435,11 +431,11 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:110
 int main(void)
 {
 800000c0:	7179                	addi	sp,sp,-48
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:111
-    printf("\n===== LeNet-5 INT8 Hardware Inference (BRAM Weights) =====\n");
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:62
+    printf("\n===== LeNet-5 INT8 HW Inference (HW Pooling) =====\n");
 800000c2:	00002517          	auipc	a0,0x2
-800000c6:	29e50513          	addi	a0,a0,670 # 80002360 <_read_r+0xf4>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:110
+800000c6:	2ae50513          	addi	a0,a0,686 # 80002370 <_read_r+0x104>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:61
 {
 800000ca:	d606                	sw	ra,44(sp)
 800000cc:	d422                	sw	s0,40(sp)
@@ -451,119 +447,150 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:110
 800000d8:	c85a                	sw	s6,16(sp)
 800000da:	c65e                	sw	s7,12(sp)
 800000dc:	c462                	sw	s8,8(sp)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:111
-    printf("\n===== LeNet-5 INT8 Hardware Inference (BRAM Weights) =====\n");
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:62
+    printf("\n===== LeNet-5 INT8 HW Inference (HW Pooling) =====\n");
 800000de:	022010ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:112
-    printf("Core: RV32I (E203) + CNN Accelerator\n");
-800000e2:	00002517          	auipc	a0,0x2
-800000e6:	2ba50513          	addi	a0,a0,698 # 8000239c <_read_r+0x130>
-800000ea:	016010ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:113
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:63
     printf("Quant shift: %d\n", QUANT_SHIFT);
-800000ee:	45a1                	li	a1,8
-800000f0:	00002517          	auipc	a0,0x2
-800000f4:	2d450513          	addi	a0,a0,724 # 800023c4 <_read_r+0x158>
-800000f8:	6f5000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:114
+800000e2:	45a1                	li	a1,8
+800000e4:	00002517          	auipc	a0,0x2
+800000e8:	2c050513          	addi	a0,a0,704 # 800023a4 <_read_r+0x138>
+800000ec:	701000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:64
     printf("Test image: MNIST real digit %d\n", TEST_DIGIT);
-800000fc:	4595                	li	a1,5
+800000f0:	458d                	li	a1,3
+800000f2:	00002517          	auipc	a0,0x2
+800000f6:	2c650513          	addi	a0,a0,710 # 800023b8 <_read_r+0x14c>
+800000fa:	6f3000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:65
+    printf("Pooling: 2x2 MAX hardware, multi-channel\n");
 800000fe:	00002517          	auipc	a0,0x2
-80000102:	2da50513          	addi	a0,a0,730 # 800023d8 <_read_r+0x16c>
-80000106:	6e7000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:115
-    printf("Weights: preloaded to BRAM via $readmemh\n");
-8000010a:	00002517          	auipc	a0,0x2
-8000010e:	2f250513          	addi	a0,a0,754 # 800023fc <_read_r+0x190>
-80000112:	7ef000ef          	jal	ra,80001100 <puts>
+80000102:	2de50513          	addi	a0,a0,734 # 800023dc <_read_r+0x170>
+80000106:	7fb000ef          	jal	ra,80001100 <puts>
 cnn_init():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:61
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:72
 }
 
 /* ---- 基本操作 ---- */
 static inline int cnn_init(void)
 {
     return (CNN_RD(CNN_VERSION) == 0x00010000u) ? 0 : -1;
-80000116:	400007b7          	lui	a5,0x40000
-8000011a:	5b98                	lw	a4,48(a5)
-8000011c:	67c1                	lui	a5,0x10
-8000011e:	5cf71963          	bne	a4,a5,800006f0 <main+0x630>
+8000010a:	400007b7          	lui	a5,0x40000
+8000010e:	5b98                	lw	a4,48(a5)
+80000110:	67c1                	lui	a5,0x10
+80000112:	5cf71f63          	bne	a4,a5,800006f0 <main+0x630>
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:122
-    // 硬件初始化
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:71
+
     if (cnn_init() != 0) {
-        printf("ERROR: CNN VERSION != 0x00010000, bridge not working!\n");
+        printf("ERROR: CNN VERSION != 0x00010000\n");
         while (1);
     }
     printf("CNN VERSION OK\n");
-80000122:	00002517          	auipc	a0,0x2
-80000126:	30650513          	addi	a0,a0,774 # 80002428 <_read_r+0x1bc>
-8000012a:	7d7000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:125
-
-    // 输入
-    printf("Initializing test data...\n");
-8000012e:	00002517          	auipc	a0,0x2
-80000132:	30a50513          	addi	a0,a0,778 # 80002438 <_read_r+0x1cc>
-80000136:	7cb000ef          	jal	ra,80001100 <puts>
+80000116:	00002517          	auipc	a0,0x2
+8000011a:	2f250513          	addi	a0,a0,754 # 80002408 <_read_r+0x19c>
+8000011e:	7e3000ef          	jal	ra,80001100 <puts>
 init_input():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:69
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:46
     for (int i = 0; i < INPUT_H; i++)
-8000013a:	00002817          	auipc	a6,0x2
-8000013e:	6ef80813          	addi	a6,a6,1775 # 80002829 <digit5_mnist+0x1>
-80000142:	10003617          	auipc	a2,0x10003
-80000146:	26a60613          	addi	a2,a2,618 # 900033ac <input_img+0x1c>
-8000014a:	10003897          	auipc	a7,0x10003
-8000014e:	57288893          	addi	a7,a7,1394 # 900036bc <s2_out+0x1c>
+80000122:	00002817          	auipc	a6,0x2
+80000126:	72b80813          	addi	a6,a6,1835 # 8000284d <digit3_mnist+0x1>
+8000012a:	10002617          	auipc	a2,0x10002
+8000012e:	03660613          	addi	a2,a2,54 # 90002160 <input_img+0x1c>
+80000132:	10002897          	auipc	a7,0x10002
+80000136:	33e88893          	addi	a7,a7,830 # 90002470 <_global_atexit0+0x1c>
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:125
-    printf("Initializing test data...\n");
-80000152:	4781                	li	a5,0
-init_input():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:71
+    printf("CNN VERSION OK\n");
+8000013a:	4781                	li	a5,0
+init_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:48
             input_img[i][j] = (int8_t)(src[i][j] * 100 / 255);
-80000154:	06400513          	li	a0,100
-80000158:	0ff00593          	li	a1,255
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:70
+8000013c:	06400513          	li	a0,100
+80000140:	0ff00593          	li	a1,255
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:47
         for (int j = 0; j < INPUT_W; j++)
-8000015c:	fe460713          	addi	a4,a2,-28
+80000144:	fe460713          	addi	a4,a2,-28
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:110
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:61
 {
-80000160:	86c2                	mv	a3,a6
-80000162:	a021                	j	8000016a <main+0xaa>
+80000148:	86c2                	mv	a3,a6
+8000014a:	a021                	j	80000152 <main+0x92>
 init_input():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:71
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:48
             input_img[i][j] = (int8_t)(src[i][j] * 100 / 255);
-80000164:	0006c783          	lbu	a5,0(a3)
-80000168:	0685                	addi	a3,a3,1
-8000016a:	02a787b3          	mul	a5,a5,a0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:70
+8000014c:	0006c783          	lbu	a5,0(a3)
+80000150:	0685                	addi	a3,a3,1
+80000152:	02a787b3          	mul	a5,a5,a0
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:47
         for (int j = 0; j < INPUT_W; j++)
-8000016e:	0705                	addi	a4,a4,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:71
+80000156:	0705                	addi	a4,a4,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:48
             input_img[i][j] = (int8_t)(src[i][j] * 100 / 255);
-80000170:	02b7c7b3          	div	a5,a5,a1
-80000174:	fef70fa3          	sb	a5,-1(a4)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:70
+80000158:	02b7c7b3          	div	a5,a5,a1
+8000015c:	fef70fa3          	sb	a5,-1(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:47
         for (int j = 0; j < INPUT_W; j++)
-80000178:	fec716e3          	bne	a4,a2,80000164 <main+0xa4>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:69
+80000160:	fee616e3          	bne	a2,a4,8000014c <main+0x8c>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:46
     for (int i = 0; i < INPUT_H; i++)
-8000017c:	0671                	addi	a2,a2,28
-8000017e:	0871                	addi	a6,a6,28
-80000180:	01160563          	beq	a2,a7,8000018a <main+0xca>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:71
+80000164:	0671                	addi	a2,a2,28
+80000166:	0871                	addi	a6,a6,28
+80000168:	01160563          	beq	a2,a7,80000172 <main+0xb2>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:48
             input_img[i][j] = (int8_t)(src[i][j] * 100 / 255);
-80000184:	fff84783          	lbu	a5,-1(a6)
-80000188:	bfd1                	j	8000015c <main+0x9c>
+8000016c:	fff84783          	lbu	a5,-1(a6)
+80000170:	bfd1                	j	80000144 <main+0x84>
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:127
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:74
+
     init_input();
     printf("Init done.\n");
-8000018a:	00002517          	auipc	a0,0x2
-8000018e:	2ca50513          	addi	a0,a0,714 # 80002454 <_read_r+0x1e8>
-80000192:	76f000ef          	jal	ra,80001100 <puts>
+80000172:	00002517          	auipc	a0,0x2
+80000176:	2a650513          	addi	a0,a0,678 # 80002418 <_read_r+0x1ac>
+8000017a:	787000ef          	jal	ra,80001100 <puts>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:76
+
+    CNN_WR(CNN_PMU_CTRL, CNN_PMU_CTRL_CLEAR | CNN_PMU_CTRL_EN);
+8000017e:	400007b7          	lui	a5,0x40000
+80000182:	470d                	li	a4,3
+80000184:	dbd8                	sw	a4,52(a5)
+csr_read_mulcnt():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:16
+#include <stdint.h>
+
+// 读自定义 CSR
+static inline uint32_t csr_read_mulcnt(void) {
+    uint32_t v;
+    asm volatile ("csrr %0, 0xCC0" : "=r"(v));
+80000186:	cc0029f3          	csrr	s3,0xcc0
+csr_read_loadcnt():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:22
+    return v;
+}
+
+static inline uint32_t csr_read_loadcnt(void) {
+    uint32_t v;
+    asm volatile ("csrr %0, 0xCC1" : "=r"(v));
+8000018a:	cc102973          	csrr	s2,0xcc1
+csr_read_storecnt():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:28
+    return v;
+}
+
+static inline uint32_t csr_read_storecnt(void) {
+    uint32_t v;
+    asm volatile ("csrr %0, 0xCC2" : "=r"(v));
+8000018e:	cc2024f3          	csrr	s1,0xcc2
+csr_read_stallcnt():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:34
+    return v;
+}
+
+static inline uint32_t csr_read_stallcnt(void) {
+    uint32_t v;
+    asm volatile ("csrr %0, 0xCC3" : "=r"(v));
+80000192:	cc302473          	csrr	s0,0xcc3
 get_cycle():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:55
 }
@@ -572,817 +599,897 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:55
 static inline uint32_t get_cycle(void) {
     uint32_t v;
     asm volatile ("csrr %0, 0xB00" : "=r"(v));
-80000196:	b00024f3          	csrr	s1,mcycle
+80000196:	b0002a73          	csrr	s4,mcycle
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:135
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87
+
     uint32_t t_start = get_cycle();
 
-    // ==================== C1 ====================
-    for (int h = 0; h < 28; h++)
-        for (int w = 0; w < 28; w++)
-            hw_x[h * 28 + w] = input_img[h][w];
-8000019a:	10003797          	auipc	a5,0x10003
-8000019e:	1f678793          	addi	a5,a5,502 # 90003390 <input_img>
-800001a2:	10001717          	auipc	a4,0x10001
-800001a6:	1ee70713          	addi	a4,a4,494 # 90001390 <hw_x>
-800001aa:	10003697          	auipc	a3,0x10003
-800001ae:	4f668693          	addi	a3,a3,1270 # 900036a0 <s2_out>
-800001b2:	0007a803          	lw	a6,0(a5)
-800001b6:	43c8                	lw	a0,4(a5)
-800001b8:	478c                	lw	a1,8(a5)
-800001ba:	47d0                	lw	a2,12(a5)
-800001bc:	01072023          	sw	a6,0(a4)
-800001c0:	c348                	sw	a0,4(a4)
-800001c2:	c70c                	sw	a1,8(a4)
-800001c4:	c750                	sw	a2,12(a4)
-800001c6:	07c1                	addi	a5,a5,16
-800001c8:	0741                	addi	a4,a4,16
-800001ca:	fed794e3          	bne	a5,a3,800001b2 <main+0xf2>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:138
-
-    cnn_set_wbase(W_BASE_C1);
-    cnn_layer(28, 28, 1, 5, 6, 1, 0, QUANT_SHIFT, 1,
-800001ce:	6905                	lui	s2,0x1
+    // ==================== C1 卷积 ====================
+    // 输入 28x28x1 -> 输出 24x24x6（hw_y 布局 [oh][ow][oc]）
+    for (int i = 0; i < 28 * 28; i++)
+8000019a:	10000a97          	auipc	s5,0x10000
+8000019e:	faaa8a93          	addi	s5,s5,-86 # 90000144 <hw_x>
+get_cycle():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:55
+800001a2:	86d6                	mv	a3,s5
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87
+800001a4:	4701                	li	a4,0
+800001a6:	10002897          	auipc	a7,0x10002
+800001aa:	f9e88893          	addi	a7,a7,-98 # 90002144 <input_img>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:88
+        hw_x[i] = input_img[i / 28][i % 28];
+800001ae:	45f1                	li	a1,28
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87
+    for (int i = 0; i < 28 * 28; i++)
+800001b0:	31000813          	li	a6,784
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:88 (discriminator 3)
+        hw_x[i] = input_img[i / 28][i % 28];
+800001b4:	02b74633          	div	a2,a4,a1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87 (discriminator 3)
+    for (int i = 0; i < 28 * 28; i++)
+800001b8:	0685                	addi	a3,a3,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:88 (discriminator 3)
+        hw_x[i] = input_img[i / 28][i % 28];
+800001ba:	02b76533          	rem	a0,a4,a1
+800001be:	00361793          	slli	a5,a2,0x3
+800001c2:	8f91                	sub	a5,a5,a2
+800001c4:	078a                	slli	a5,a5,0x2
+800001c6:	97c6                	add	a5,a5,a7
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87 (discriminator 3)
+    for (int i = 0; i < 28 * 28; i++)
+800001c8:	0705                	addi	a4,a4,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:88 (discriminator 3)
+        hw_x[i] = input_img[i / 28][i % 28];
+800001ca:	97aa                	add	a5,a5,a0
+800001cc:	0007c783          	lbu	a5,0(a5) # 40000000 <__stack_size+0x3ffff800>
+800001d0:	fef68fa3          	sb	a5,-1(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:87 (discriminator 3)
+    for (int i = 0; i < 28 * 28; i++)
+800001d4:	ff0710e3          	bne	a4,a6,800001b4 <main+0xf4>
 cnn_set_wbase():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:68
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
 
 /* 设置当前层的权重基地址（单位：32bit 字）
  * 每层启动前调用一次，值从 wbase_tap.h 的 W_BASE_xxx 抄 */
 static inline void cnn_set_wbase(uint32_t base)
 {
     CNN_WR(CNN_WBASE, base & 0xFFFFu);
-800001d0:	400007b7          	lui	a5,0x40000
-800001d4:	0207aa23          	sw	zero,52(a5) # 40000034 <__stack_size+0x3ffff834>
+800001d8:	400007b7          	lui	a5,0x40000
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:138
-800001d8:	00002817          	auipc	a6,0x2
-800001dc:	41880813          	addi	a6,a6,1048 # 800025f0 <c1_bias>
-800001e0:	4719                	li	a4,6
-800001e2:	45f1                	li	a1,28
-800001e4:	d8090893          	addi	a7,s2,-640 # d80 <__stack_size+0x580>
-800001e8:	4785                	li	a5,1
-800001ea:	4695                	li	a3,5
-800001ec:	4605                	li	a2,1
-800001ee:	4571                	li	a0,28
-800001f0:	163000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
-              hw_x, c1_bias, hw_y, 24 * 24 * 6);
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
 
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-800001f4:	10002417          	auipc	s0,0x10002
-800001f8:	19c40413          	addi	s0,s0,412 # 90002390 <hw_y>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:138
+    cnn_set_wbase(W_BASE_C1);
     cnn_layer(28, 28, 1, 5, 6, 1, 0, QUANT_SHIFT, 1,
-800001fc:	85a2                	mv	a1,s0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-800001fe:	4701                	li	a4,0
-80000200:	10000f17          	auipc	t5,0x10000
-80000204:	f1cf0f13          	addi	t5,t5,-228 # 9000011c <c1_out>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:144
-        int oc = i % 6;
-        int ow = (i / 6) % 24;
-        int oh = (i / 6) / 24;
-80000208:	09000e93          	li	t4,144
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:142
-        int oc = i % 6;
-8000020c:	4819                	li	a6,6
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:143
-        int ow = (i / 6) % 24;
-8000020e:	4e61                	li	t3,24
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-80000210:	d8090313          	addi	t1,s2,-640
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:143 (discriminator 3)
-        int ow = (i / 6) % 24;
-80000214:	03074633          	div	a2,a4,a6
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:145 (discriminator 3)
-        c1_out[oc][oh][ow] = hw_y[i];
-80000218:	0005c883          	lbu	a7,0(a1)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141 (discriminator 3)
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-8000021c:	0585                	addi	a1,a1,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:144 (discriminator 3)
-        int oh = (i / 6) / 24;
-8000021e:	03d746b3          	div	a3,a4,t4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:142 (discriminator 3)
-        int oc = i % 6;
-80000222:	03076533          	rem	a0,a4,a6
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:145 (discriminator 3)
-        c1_out[oc][oh][ow] = hw_y[i];
-80000226:	00169793          	slli	a5,a3,0x1
-8000022a:	97b6                	add	a5,a5,a3
-8000022c:	078e                	slli	a5,a5,0x3
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141 (discriminator 3)
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-8000022e:	0705                	addi	a4,a4,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:143 (discriminator 3)
-        int ow = (i / 6) % 24;
-80000230:	03c66633          	rem	a2,a2,t3
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:145 (discriminator 3)
-        c1_out[oc][oh][ow] = hw_y[i];
-80000234:	00351693          	slli	a3,a0,0x3
-80000238:	96aa                	add	a3,a3,a0
-8000023a:	069a                	slli	a3,a3,0x6
-8000023c:	97b6                	add	a5,a5,a3
-8000023e:	97fa                	add	a5,a5,t5
-80000240:	97b2                	add	a5,a5,a2
-80000242:	01178023          	sb	a7,0(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141 (discriminator 3)
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-80000246:	fc6717e3          	bne	a4,t1,80000214 <main+0x154>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:147
-    }
-    printf("C1 done\n");
-8000024a:	00002517          	auipc	a0,0x2
-8000024e:	24e50513          	addi	a0,a0,590 # 80002498 <_read_r+0x22c>
-80000252:	6af000ef          	jal	ra,80001100 <puts>
-80000256:	10003f97          	auipc	t6,0x10003
-8000025a:	44af8f93          	addi	t6,t6,1098 # 900036a0 <s2_out>
-8000025e:	4f01                	li	t5,0
-80000260:	4e81                	li	t4,0
-80000262:	10000917          	auipc	s2,0x10000
-80000266:	ed290913          	addi	s2,s2,-302 # 90000134 <c1_out+0x18>
-8000026a:	10000397          	auipc	t2,0x10000
-8000026e:	10a38393          	addi	t2,t2,266 # 90000374 <c1_out+0x258>
-pool_s2():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:76
-    for (int ch = 0; ch < C1_OUT_CH; ch++)
-80000272:	36000293          	li	t0,864
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:77
-        for (int oh = 0; oh < S2_OUT_H; oh++)
-80000276:	01d908b3          	add	a7,s2,t4
-main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-8000027a:	837e                	mv	t1,t6
-8000027c:	01d38e33          	add	t3,t2,t4
-pool_s2():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:78
-            for (int ow = 0; ow < S2_OUT_W; ow++) {
-80000280:	fe888713          	addi	a4,a7,-24
-main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
-    for (int i = 0; i < 24 * 24 * 6; i++) {
-80000284:	851a                	mv	a0,t1
-80000286:	86c6                	mv	a3,a7
-pool_s2():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:82
-                        sum += c1_out[ch][oh * 2 + m][ow * 2 + n];
-80000288:	00070583          	lb	a1,0(a4)
-8000028c:	00170803          	lb	a6,1(a4)
-80000290:	00068603          	lb	a2,0(a3)
-80000294:	00168783          	lb	a5,1(a3)
-80000298:	95c2                	add	a1,a1,a6
-8000029a:	962e                	add	a2,a2,a1
-8000029c:	97b2                	add	a5,a5,a2
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:83
-                s2_out[ch][oh][ow] = (int8_t)(sum >> 2);
-8000029e:	8789                	srai	a5,a5,0x2
-800002a0:	00f50023          	sb	a5,0(a0)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:78
-            for (int ow = 0; ow < S2_OUT_W; ow++) {
-800002a4:	0709                	addi	a4,a4,2
-800002a6:	0689                	addi	a3,a3,2
-800002a8:	0505                	addi	a0,a0,1
-800002aa:	fd171fe3          	bne	a4,a7,80000288 <main+0x1c8>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:77
-        for (int oh = 0; oh < S2_OUT_H; oh++)
-800002ae:	03070893          	addi	a7,a4,48
-800002b2:	0331                	addi	t1,t1,12
-800002b4:	fdc896e3          	bne	a7,t3,80000280 <main+0x1c0>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:76
-    for (int ch = 0; ch < C1_OUT_CH; ch++)
-800002b8:	090f0f13          	addi	t5,t5,144
-800002bc:	090f8f93          	addi	t6,t6,144
-800002c0:	240e8e93          	addi	t4,t4,576
-800002c4:	fa5f19e3          	bne	t5,t0,80000276 <main+0x1b6>
-main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:151
-
-    // ==================== S2 ====================
-    pool_s2();
-    printf("S2 done\n");
-800002c8:	00002517          	auipc	a0,0x2
-800002cc:	1d850513          	addi	a0,a0,472 # 800024a0 <_read_r+0x234>
-800002d0:	631000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:154
-
-    // ==================== C3 ====================
-    for (int h = 0; h < 12; h++)
-800002d4:	10003517          	auipc	a0,0x10003
-800002d8:	3d850513          	addi	a0,a0,984 # 900036ac <s2_out+0xc>
-800002dc:	10001897          	auipc	a7,0x10001
-800002e0:	0ba88893          	addi	a7,a7,186 # 90001396 <hw_x+0x6>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:151
-    printf("S2 done\n");
-800002e4:	4801                	li	a6,0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:154
-    for (int h = 0; h < 12; h++)
-800002e6:	09000313          	li	t1,144
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:155
-        for (int w = 0; w < 12; w++)
-800002ea:	ff450593          	addi	a1,a0,-12
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:147
-    printf("C1 done\n");
-800002ee:	8646                	mv	a2,a7
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:156
-            for (int c = 0; c < 6; c++)
-800002f0:	ffa60793          	addi	a5,a2,-6
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:147
-    printf("C1 done\n");
-800002f4:	872e                	mv	a4,a1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:157 (discriminator 3)
-                hw_x[(h * 12 + w) * 6 + c] = s2_out[c][h][w];
-800002f6:	00074683          	lbu	a3,0(a4)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:156 (discriminator 3)
-            for (int c = 0; c < 6; c++)
-800002fa:	0785                	addi	a5,a5,1
-800002fc:	09070713          	addi	a4,a4,144
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:157 (discriminator 3)
-                hw_x[(h * 12 + w) * 6 + c] = s2_out[c][h][w];
-80000300:	fed78fa3          	sb	a3,-1(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:156 (discriminator 3)
-            for (int c = 0; c < 6; c++)
-80000304:	fef619e3          	bne	a2,a5,800002f6 <main+0x236>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:155 (discriminator 2)
-        for (int w = 0; w < 12; w++)
-80000308:	0585                	addi	a1,a1,1
-8000030a:	0619                	addi	a2,a2,6
-8000030c:	fea592e3          	bne	a1,a0,800002f0 <main+0x230>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:154 (discriminator 2)
-    for (int h = 0; h < 12; h++)
-80000310:	0831                	addi	a6,a6,12
-80000312:	00c58513          	addi	a0,a1,12
-80000316:	04888893          	addi	a7,a7,72
-8000031a:	fc6818e3          	bne	a6,t1,800002ea <main+0x22a>
+800001dc:	6885                	lui	a7,0x1
 cnn_set_wbase():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:68
-8000031e:	400007b7          	lui	a5,0x40000
-80000322:	02a00713          	li	a4,42
-80000326:	dbd8                	sw	a4,52(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
+800001de:	0407aa23          	sw	zero,84(a5) # 40000054 <__stack_size+0x3ffff854>
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:160
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
+800001e2:	00002817          	auipc	a6,0x2
+800001e6:	43280813          	addi	a6,a6,1074 # 80002614 <c1_bias>
+800001ea:	4785                	li	a5,1
+800001ec:	4719                	li	a4,6
+800001ee:	d8088893          	addi	a7,a7,-640 # d80 <__stack_size+0x580>
+800001f2:	4695                	li	a3,5
+800001f4:	4605                	li	a2,1
+800001f6:	45f1                	li	a1,28
+800001f8:	4571                	li	a0,28
+800001fa:	159000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:96
+              hw_x, c1_bias, hw_y, C1_OUT_N);
 
+    // ==================== S2 硬件池化 ====================
+    // hw_y 布局 [24][24][6]，池化输入要求 [h][w][c]，完全相同，直接拷
+    for (int i = 0; i < C1_OUT_N; i++) hw_x[i] = hw_y[i];
+800001fe:	10001797          	auipc	a5,0x10001
+80000202:	f4678793          	addi	a5,a5,-186 # 90001144 <hw_y>
+80000206:	10000717          	auipc	a4,0x10000
+8000020a:	f3e70713          	addi	a4,a4,-194 # 90000144 <hw_x>
+8000020e:	10002817          	auipc	a6,0x10002
+80000212:	cb680813          	addi	a6,a6,-842 # 90001ec4 <hw_y+0xd80>
+80000216:	4388                	lw	a0,0(a5)
+80000218:	43cc                	lw	a1,4(a5)
+8000021a:	4790                	lw	a2,8(a5)
+8000021c:	47d4                	lw	a3,12(a5)
+8000021e:	c308                	sw	a0,0(a4)
+80000220:	c34c                	sw	a1,4(a4)
+80000222:	c710                	sw	a2,8(a4)
+80000224:	c754                	sw	a3,12(a4)
+80000226:	07c1                	addi	a5,a5,16
+80000228:	0741                	addi	a4,a4,16
+8000022a:	ff0796e3          	bne	a5,a6,80000216 <main+0x156>
+cnn_clear_ptrs():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:85
+}
+
+static inline void cnn_clear_ptrs(void)
+{
+    /* wptr 已经不用了，只清 iptr/bptr */
+    CNN_WR(CNN_CTRL, CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
+8000022e:	400007b7          	lui	a5,0x40000
+80000232:	4731                	li	a4,12
+80000234:	c398                	sw	a4,0(a5)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:147
+
+static inline void cnn_pool(int in_h, int in_w, int in_c,
+                            const int8_t *x, int8_t *y, int out_n)
+{
+    cnn_clear_ptrs();
+    CNN_WR(CNN_CFG0, cnn_cfg0(in_h, in_w, in_c, 2));                  // K=2
+80000236:	02062737          	lui	a4,0x2062
+8000023a:	81870713          	addi	a4,a4,-2024 # 2061818 <__stack_size+0x2061018>
+8000023e:	cbd8                	sw	a4,20(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:148
+    CNN_WR(CNN_CFG1, cnn_cfg1(in_c, 2, 0, 0, 0) | (1u << 20));        // stride=2, pool=1
+80000240:	00100737          	lui	a4,0x100
+80000244:	20670713          	addi	a4,a4,518 # 100206 <__stack_size+0xffa06>
+80000248:	cf98                	sw	a4,24(a5)
+cnn_load_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+8000024a:	10001617          	auipc	a2,0x10001
+8000024e:	c7a60613          	addi	a2,a2,-902 # 90000ec4 <__global_pointer$+0x664>
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:148
+    CNN_WR(CNN_CFG1, cnn_cfg1(in_c, 2, 0, 0, 0) | (1u << 20));        // stride=2, pool=1
+80000252:	10000797          	auipc	a5,0x10000
+80000256:	ef278793          	addi	a5,a5,-270 # 90000144 <hw_x>
+cnn_load_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+8000025a:	400006b7          	lui	a3,0x40000
+8000025e:	00078703          	lb	a4,0(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000262:	0785                	addi	a5,a5,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+80000264:	c6d8                	sw	a4,12(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000266:	fef61ce3          	bne	a2,a5,8000025e <main+0x19e>
+cnn_run():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:112
+    CNN_WR(CNN_CTRL, CNN_CTRL_START);
+8000026a:	4785                	li	a5,1
+8000026c:	c29c                	sw	a5,0(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:113
+    while ((CNN_RD(CNN_STATUS) & CNN_STATUS_DONE) == 0);
+8000026e:	40000737          	lui	a4,0x40000
+80000272:	435c                	lw	a5,4(a4)
+80000274:	8b89                	andi	a5,a5,2
+80000276:	dff5                	beqz	a5,80000272 <main+0x1b2>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
+    CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
+80000278:	10001b17          	auipc	s6,0x10001
+8000027c:	eccb0b13          	addi	s6,s6,-308 # 90001144 <hw_y>
+80000280:	00072023          	sw	zero,0(a4) # 40000000 <__stack_size+0x3ffff800>
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    cnn_load_input(x, in_h * in_w * in_c);
+    cnn_run();
+    for (int i = 0; i < out_n; i++)
+80000284:	4781                	li	a5,0
+cnn_run():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
+    CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
+80000286:	875a                	mv	a4,s6
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+80000288:	400006b7          	lui	a3,0x40000
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+8000028c:	36000593          	li	a1,864
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+80000290:	cedc                	sw	a5,28(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+    return (int8_t)CNN_RD(CNN_ODATA);
+80000292:	5290                	lw	a2,32(a3)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+80000294:	0785                	addi	a5,a5,1
+80000296:	0705                	addi	a4,a4,1
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+    return (int8_t)CNN_RD(CNN_ODATA);
+80000298:	fec70fa3          	sb	a2,-1(a4)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+8000029c:	feb79ae3          	bne	a5,a1,80000290 <main+0x1d0>
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:100
+    cnn_pool(24, 24, 6, hw_x, hw_y, S2_OUT_N);
+
+    // C3 输入：hw_y 布局 [12][12][6]，直接拷
+    for (int i = 0; i < S2_OUT_N; i++) hw_x[i] = hw_y[i];
+800002a0:	10001797          	auipc	a5,0x10001
+800002a4:	ea478793          	addi	a5,a5,-348 # 90001144 <hw_y>
+800002a8:	10000717          	auipc	a4,0x10000
+800002ac:	e9c70713          	addi	a4,a4,-356 # 90000144 <hw_x>
+800002b0:	10001817          	auipc	a6,0x10001
+800002b4:	1f480813          	addi	a6,a6,500 # 900014a4 <hw_y+0x360>
+800002b8:	4388                	lw	a0,0(a5)
+800002ba:	43cc                	lw	a1,4(a5)
+800002bc:	4790                	lw	a2,8(a5)
+800002be:	47d4                	lw	a3,12(a5)
+800002c0:	c308                	sw	a0,0(a4)
+800002c2:	c34c                	sw	a1,4(a4)
+800002c4:	c710                	sw	a2,8(a4)
+800002c6:	c754                	sw	a3,12(a4)
+800002c8:	07c1                	addi	a5,a5,16
+800002ca:	0741                	addi	a4,a4,16
+800002cc:	ff0796e3          	bne	a5,a6,800002b8 <main+0x1f8>
+cnn_set_wbase():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
+    CNN_WR(CNN_WBASE, base & 0xFFFFu);
+800002d0:	400007b7          	lui	a5,0x40000
+800002d4:	02a00713          	li	a4,42
+800002d8:	cbf8                	sw	a4,84(a5)
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:105
+
+    // ==================== C3 卷积 ====================
+    // 输入 12x12x6 -> 输出 8x8x16
     cnn_set_wbase(W_BASE_C3);
     cnn_layer(12, 12, 6, 5, 16, 1, 0, QUANT_SHIFT, 1,
-80000328:	00002817          	auipc	a6,0x2
-8000032c:	2e080813          	addi	a6,a6,736 # 80002608 <c3_bias>
-80000330:	4741                	li	a4,16
-80000332:	4619                	li	a2,6
-80000334:	4531                	li	a0,12
-80000336:	40000893          	li	a7,1024
-8000033a:	4785                	li	a5,1
-8000033c:	4695                	li	a3,5
-8000033e:	45b1                	li	a1,12
-80000340:	013000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
-80000344:	10002617          	auipc	a2,0x10002
-80000348:	04c60613          	addi	a2,a2,76 # 90002390 <hw_y>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:163
-              hw_x, c3_bias, hw_y, 8 * 8 * 16);
+800002da:	00002817          	auipc	a6,0x2
+800002de:	35280813          	addi	a6,a6,850 # 8000262c <c3_bias>
+800002e2:	4785                	li	a5,1
+800002e4:	4741                	li	a4,16
+800002e6:	40000893          	li	a7,1024
+800002ea:	4695                	li	a3,5
+800002ec:	4619                	li	a2,6
+800002ee:	45b1                	li	a1,12
+800002f0:	4531                	li	a0,12
+800002f2:	061000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:109
+              hw_x, c3_bias, hw_y, C3_OUT_N);
 
-    for (int i = 0; i < 8 * 8 * 16; i++) {
-8000034c:	4701                	li	a4,0
-8000034e:	63c18813          	addi	a6,gp,1596 # 90000e9c <c3_out>
-80000352:	40000513          	li	a0,1024
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:164 (discriminator 3)
-        int oc = i % 16;
-80000356:	00f77793          	andi	a5,a4,15
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:166 (discriminator 3)
-        int ow = (i / 16) % 8;
-        int oh = (i / 16) / 8;
-8000035a:	40775693          	srai	a3,a4,0x7
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:167 (discriminator 3)
-        c3_out[oc][oh][ow] = hw_y[i];
-8000035e:	078e                	slli	a5,a5,0x3
-80000360:	97b6                	add	a5,a5,a3
-80000362:	00064583          	lbu	a1,0(a2)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:165 (discriminator 3)
-        int ow = (i / 16) % 8;
-80000366:	40475693          	srai	a3,a4,0x4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:167 (discriminator 3)
-        c3_out[oc][oh][ow] = hw_y[i];
-8000036a:	078e                	slli	a5,a5,0x3
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:165 (discriminator 3)
-        int ow = (i / 16) % 8;
-8000036c:	8a9d                	andi	a3,a3,7
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:167 (discriminator 3)
-        c3_out[oc][oh][ow] = hw_y[i];
-8000036e:	97c2                	add	a5,a5,a6
-80000370:	97b6                	add	a5,a5,a3
-80000372:	00b78023          	sb	a1,0(a5) # 40000000 <__stack_size+0x3ffff800>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:163 (discriminator 3)
-    for (int i = 0; i < 8 * 8 * 16; i++) {
-80000376:	0705                	addi	a4,a4,1
-80000378:	0605                	addi	a2,a2,1
-8000037a:	fca71ee3          	bne	a4,a0,80000356 <main+0x296>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:169
-    }
-    printf("C3 done\n");
-8000037e:	00002517          	auipc	a0,0x2
-80000382:	12a50513          	addi	a0,a0,298 # 800024a8 <_read_r+0x23c>
-80000386:	57b000ef          	jal	ra,80001100 <puts>
-pool_s4():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:89
-    for (int ch = 0; ch < S4_OUT_CH; ch++)
-8000038a:	10003917          	auipc	s2,0x10003
-8000038e:	67690913          	addi	s2,s2,1654 # 90003a00 <s4_out>
-80000392:	10003e97          	auipc	t4,0x10003
-80000396:	67ee8e93          	addi	t4,t4,1662 # 90003a10 <s4_out+0x10>
-8000039a:	63c18f93          	addi	t6,gp,1596 # 90000e9c <c3_out>
+    // ==================== S4 硬件池化 ====================
+    for (int i = 0; i < C3_OUT_N; i++) hw_x[i] = hw_y[i];
+800002f6:	10001797          	auipc	a5,0x10001
+800002fa:	e4e78793          	addi	a5,a5,-434 # 90001144 <hw_y>
+800002fe:	10000717          	auipc	a4,0x10000
+80000302:	e4670713          	addi	a4,a4,-442 # 90000144 <hw_x>
+80000306:	10001817          	auipc	a6,0x10001
+8000030a:	23e80813          	addi	a6,a6,574 # 90001544 <hw_y+0x400>
+8000030e:	4388                	lw	a0,0(a5)
+80000310:	43cc                	lw	a1,4(a5)
+80000312:	4790                	lw	a2,8(a5)
+80000314:	47d4                	lw	a3,12(a5)
+80000316:	c308                	sw	a0,0(a4)
+80000318:	c34c                	sw	a1,4(a4)
+8000031a:	c710                	sw	a2,8(a4)
+8000031c:	c754                	sw	a3,12(a4)
+8000031e:	07c1                	addi	a5,a5,16
+80000320:	0741                	addi	a4,a4,16
+80000322:	ff0796e3          	bne	a5,a6,8000030e <main+0x24e>
+cnn_clear_ptrs():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:85
+    CNN_WR(CNN_CTRL, CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
+80000326:	400007b7          	lui	a5,0x40000
+8000032a:	4731                	li	a4,12
+8000032c:	c398                	sw	a4,0(a5)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:147
+    CNN_WR(CNN_CFG0, cnn_cfg0(in_h, in_w, in_c, 2));                  // K=2
+8000032e:	02101737          	lui	a4,0x2101
+80000332:	80870713          	addi	a4,a4,-2040 # 2100808 <__stack_size+0x2100008>
+80000336:	cbd8                	sw	a4,20(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:148
+    CNN_WR(CNN_CFG1, cnn_cfg1(in_c, 2, 0, 0, 0) | (1u << 20));        // stride=2, pool=1
+80000338:	00100737          	lui	a4,0x100
+8000033c:	21070713          	addi	a4,a4,528 # 100210 <__stack_size+0xffa10>
+80000340:	cf98                	sw	a4,24(a5)
+cnn_load_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000342:	10000697          	auipc	a3,0x10000
+80000346:	20268693          	addi	a3,a3,514 # 90000544 <hw_x+0x400>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+8000034a:	40000737          	lui	a4,0x40000
+8000034e:	000a8783          	lb	a5,0(s5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000352:	0a85                	addi	s5,s5,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+80000354:	c75c                	sw	a5,12(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000356:	ff569ce3          	bne	a3,s5,8000034e <main+0x28e>
+cnn_run():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:112
+    CNN_WR(CNN_CTRL, CNN_CTRL_START);
+8000035a:	4785                	li	a5,1
+8000035c:	c31c                	sw	a5,0(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:113
+    while ((CNN_RD(CNN_STATUS) & CNN_STATUS_DONE) == 0);
+8000035e:	40000737          	lui	a4,0x40000
+80000362:	435c                	lw	a5,4(a4)
+80000364:	8b89                	andi	a5,a5,2
+80000366:	dff5                	beqz	a5,80000362 <main+0x2a2>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
+    CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
+80000368:	00072023          	sw	zero,0(a4) # 40000000 <__stack_size+0x3ffff800>
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+8000036c:	4781                	li	a5,0
+cnn_run():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
+    CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
+8000036e:	10001717          	auipc	a4,0x10001
+80000372:	dd670713          	addi	a4,a4,-554 # 90001144 <hw_y>
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+80000376:	400006b7          	lui	a3,0x40000
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+8000037a:	10000593          	li	a1,256
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+8000037e:	cedc                	sw	a5,28(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+    return (int8_t)CNN_RD(CNN_ODATA);
+80000380:	5290                	lw	a2,32(a3)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+80000382:	0785                	addi	a5,a5,1
+80000384:	0705                	addi	a4,a4,1
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+    return (int8_t)CNN_RD(CNN_ODATA);
+80000386:	fec70fa3          	sb	a2,-1(a4)
+cnn_pool():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:151
+    for (int i = 0; i < out_n; i++)
+8000038a:	feb79ae3          	bne	a5,a1,8000037e <main+0x2be>
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:169
-    printf("C3 done\n");
-8000039e:	4f01                	li	t5,0
-pool_s4():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
-            for (int ow = 0; ow < S4_OUT_W; ow++) {
-800003a0:	4e11                	li	t3,4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:89
-    for (int ch = 0; ch < S4_OUT_CH; ch++)
-800003a2:	04000293          	li	t0,64
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:90
-        for (int oh = 0; oh < S4_OUT_H; oh++)
-800003a6:	ff0e8893          	addi	a7,t4,-16
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
-            for (int ow = 0; ow < S4_OUT_W; ow++) {
-800003aa:	837e                	mv	t1,t6
-800003ac:	00830613          	addi	a2,t1,8
-main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:163
-    for (int i = 0; i < 8 * 8 * 16; i++) {
-800003b0:	869a                	mv	a3,t1
-pool_s4():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
-            for (int ow = 0; ow < S4_OUT_W; ow++) {
-800003b2:	4701                	li	a4,0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:95
-                        sum += c3_out[ch][oh * 2 + m][ow * 2 + n];
-800003b4:	00068503          	lb	a0,0(a3)
-800003b8:	00168803          	lb	a6,1(a3)
-800003bc:	00060583          	lb	a1,0(a2)
-800003c0:	00160783          	lb	a5,1(a2)
-800003c4:	9542                	add	a0,a0,a6
-800003c6:	95aa                	add	a1,a1,a0
-800003c8:	97ae                	add	a5,a5,a1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:96
-                s4_out[ch][oh][ow] = (int8_t)(sum >> 2);
-800003ca:	8789                	srai	a5,a5,0x2
-800003cc:	00e885b3          	add	a1,a7,a4
-800003d0:	00f58023          	sb	a5,0(a1)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:91
-            for (int ow = 0; ow < S4_OUT_W; ow++) {
-800003d4:	0705                	addi	a4,a4,1
-800003d6:	0689                	addi	a3,a3,2
-800003d8:	0609                	addi	a2,a2,2
-800003da:	fdc71de3          	bne	a4,t3,800003b4 <main+0x2f4>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:90
-        for (int oh = 0; oh < S4_OUT_H; oh++)
-800003de:	0891                	addi	a7,a7,4
-800003e0:	0341                	addi	t1,t1,16
-800003e2:	fd1e95e3          	bne	t4,a7,800003ac <main+0x2ec>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:89
-    for (int ch = 0; ch < S4_OUT_CH; ch++)
-800003e6:	0f11                	addi	t5,t5,4
-800003e8:	0ec1                	addi	t4,t4,16
-800003ea:	040f8f93          	addi	t6,t6,64
-800003ee:	fa5f1ce3          	bne	t5,t0,800003a6 <main+0x2e6>
-main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:173
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:112
+    cnn_pool(8, 8, 16, hw_x, hw_y, S4_OUT_N);
 
-    // ==================== S4 ====================
-    pool_s4();
-    printf("S4 done\n");
-800003f2:	00002517          	auipc	a0,0x2
-800003f6:	0be50513          	addi	a0,a0,190 # 800024b0 <_read_r+0x244>
-800003fa:	507000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:176
-
-    // ==================== C5 (一次跑完，不再拆 4 段) ====================
-    for (int h = 0; h < 4; h++)
-800003fe:	10001817          	auipc	a6,0x10001
-80000402:	fa280813          	addi	a6,a6,-94 # 900013a0 <hw_x+0x10>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:173
-    printf("S4 done\n");
-80000406:	4501                	li	a0,0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:176
-    for (int h = 0; h < 4; h++)
-80000408:	4341                	li	t1,16
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:169
-    printf("C3 done\n");
-8000040a:	85ca                	mv	a1,s2
-8000040c:	8642                	mv	a2,a6
-8000040e:	00490893          	addi	a7,s2,4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:178
-        for (int w = 0; w < 4; w++)
-            for (int c = 0; c < 16; c++)
-80000412:	ff060793          	addi	a5,a2,-16
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:169
-    printf("C3 done\n");
-80000416:	872e                	mv	a4,a1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:179 (discriminator 3)
-                hw_x[(h * 4 + w) * 16 + c] = s4_out[c][h][w];
-80000418:	00074683          	lbu	a3,0(a4)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:178 (discriminator 3)
-            for (int c = 0; c < 16; c++)
-8000041c:	0785                	addi	a5,a5,1
-8000041e:	0741                	addi	a4,a4,16
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:179 (discriminator 3)
-                hw_x[(h * 4 + w) * 16 + c] = s4_out[c][h][w];
-80000420:	fed78fa3          	sb	a3,-1(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:178 (discriminator 3)
-            for (int c = 0; c < 16; c++)
-80000424:	fef61ae3          	bne	a2,a5,80000418 <main+0x358>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:177 (discriminator 2)
-        for (int w = 0; w < 4; w++)
-80000428:	0585                	addi	a1,a1,1
-8000042a:	0641                	addi	a2,a2,16
-8000042c:	ff1593e3          	bne	a1,a7,80000412 <main+0x352>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:176 (discriminator 2)
-    for (int h = 0; h < 4; h++)
-80000430:	0511                	addi	a0,a0,4
-80000432:	04080813          	addi	a6,a6,64
-80000436:	00650463          	beq	a0,t1,8000043e <main+0x37e>
-8000043a:	892e                	mv	s2,a1
-8000043c:	b7f9                	j	8000040a <main+0x34a>
+    for (int i = 0; i < S4_OUT_N; i++) hw_x[i] = hw_y[i];
+8000038e:	10001797          	auipc	a5,0x10001
+80000392:	db678793          	addi	a5,a5,-586 # 90001144 <hw_y>
+80000396:	10000717          	auipc	a4,0x10000
+8000039a:	dae70713          	addi	a4,a4,-594 # 90000144 <hw_x>
+8000039e:	10001817          	auipc	a6,0x10001
+800003a2:	ea680813          	addi	a6,a6,-346 # 90001244 <hw_y+0x100>
+800003a6:	4388                	lw	a0,0(a5)
+800003a8:	43cc                	lw	a1,4(a5)
+800003aa:	4790                	lw	a2,8(a5)
+800003ac:	47d4                	lw	a3,12(a5)
+800003ae:	c308                	sw	a0,0(a4)
+800003b0:	c34c                	sw	a1,4(a4)
+800003b2:	c710                	sw	a2,8(a4)
+800003b4:	c754                	sw	a3,12(a4)
+800003b6:	07c1                	addi	a5,a5,16
+800003b8:	0741                	addi	a4,a4,16
+800003ba:	ff0796e3          	bne	a5,a6,800003a6 <main+0x2e6>
 cnn_set_wbase():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:68
-8000043e:	400007b7          	lui	a5,0x40000
-80000442:	28a00713          	li	a4,650
-80000446:	dbd8                	sw	a4,52(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
+    CNN_WR(CNN_WBASE, base & 0xFFFFu);
+800003be:	400007b7          	lui	a5,0x40000
+800003c2:	28a00713          	li	a4,650
+800003c6:	cbf8                	sw	a4,84(a5)
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:182
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:117
 
+    // ==================== C5 卷积 ====================
+    // 输入 4x4x16 -> 输出 120
     cnn_set_wbase(W_BASE_C5);
     cnn_layer(4, 4, 16, 4, 120, 1, 0, QUANT_SHIFT, 1,
-80000448:	4691                	li	a3,4
-8000044a:	4785                	li	a5,1
-8000044c:	07800713          	li	a4,120
-80000450:	07800893          	li	a7,120
-80000454:	00002817          	auipc	a6,0x2
-80000458:	1f480813          	addi	a6,a6,500 # 80002648 <c5_bias>
-8000045c:	4641                	li	a2,16
-8000045e:	4591                	li	a1,4
-80000460:	4511                	li	a0,4
-80000462:	6f0000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:186
-              hw_x, c5_bias, hw_y, 120);
+800003c8:	07800893          	li	a7,120
+800003cc:	4785                	li	a5,1
+800003ce:	07800713          	li	a4,120
+800003d2:	00002817          	auipc	a6,0x2
+800003d6:	29a80813          	addi	a6,a6,666 # 8000266c <c5_bias>
+800003da:	4691                	li	a3,4
+800003dc:	4641                	li	a2,16
+800003de:	4591                	li	a1,4
+800003e0:	4511                	li	a0,4
+800003e2:	770000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:120
+              hw_x, c5_bias, hw_y, C5_OUT_N);
 
-    for (int i = 0; i < 120; i++)
-        c5_out[i] = hw_y[i];
-80000466:	10002797          	auipc	a5,0x10002
-8000046a:	f2a78793          	addi	a5,a5,-214 # 90002390 <hw_y>
-8000046e:	10001717          	auipc	a4,0x10001
-80000472:	e2e70713          	addi	a4,a4,-466 # 9000129c <c5_out>
-80000476:	10002697          	auipc	a3,0x10002
-8000047a:	f9268693          	addi	a3,a3,-110 # 90002408 <hw_y+0x78>
-8000047e:	0007a883          	lw	a7,0(a5)
-80000482:	0047a803          	lw	a6,4(a5)
-80000486:	4788                	lw	a0,8(a5)
-80000488:	47cc                	lw	a1,12(a5)
-8000048a:	4b90                	lw	a2,16(a5)
-8000048c:	01172023          	sw	a7,0(a4)
-80000490:	01072223          	sw	a6,4(a4)
-80000494:	c708                	sw	a0,8(a4)
-80000496:	c74c                	sw	a1,12(a4)
-80000498:	cb10                	sw	a2,16(a4)
-8000049a:	07d1                	addi	a5,a5,20
-8000049c:	0751                	addi	a4,a4,20
-8000049e:	fed790e3          	bne	a5,a3,8000047e <main+0x3be>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:187
-    printf("C5 done (120 outputs)\n");
-800004a2:	00002517          	auipc	a0,0x2
-800004a6:	01650513          	addi	a0,a0,22 # 800024b8 <_read_r+0x24c>
-800004aa:	457000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
-
-    // ==================== F6 ====================
-    for (int i = 0; i < 120; i++)
-        hw_x[i] = c5_out[i];
-800004ae:	10001797          	auipc	a5,0x10001
-800004b2:	dee78793          	addi	a5,a5,-530 # 9000129c <c5_out>
-800004b6:	10001717          	auipc	a4,0x10001
-800004ba:	eda70713          	addi	a4,a4,-294 # 90001390 <hw_x>
-800004be:	10001697          	auipc	a3,0x10001
-800004c2:	e5668693          	addi	a3,a3,-426 # 90001314 <f6_out>
-800004c6:	0007a883          	lw	a7,0(a5)
-800004ca:	0047a803          	lw	a6,4(a5)
-800004ce:	4788                	lw	a0,8(a5)
-800004d0:	47cc                	lw	a1,12(a5)
-800004d2:	4b90                	lw	a2,16(a5)
-800004d4:	01172023          	sw	a7,0(a4)
-800004d8:	01072223          	sw	a6,4(a4)
-800004dc:	c708                	sw	a0,8(a4)
-800004de:	c74c                	sw	a1,12(a4)
-800004e0:	cb10                	sw	a2,16(a4)
-800004e2:	07d1                	addi	a5,a5,20
-800004e4:	0751                	addi	a4,a4,20
-800004e6:	fed790e3          	bne	a5,a3,800004c6 <main+0x406>
+    for (int i = 0; i < C5_OUT_N; i++) hw_x[i] = hw_y[i];
+800003e6:	10001797          	auipc	a5,0x10001
+800003ea:	d5e78793          	addi	a5,a5,-674 # 90001144 <hw_y>
+800003ee:	10000717          	auipc	a4,0x10000
+800003f2:	d5670713          	addi	a4,a4,-682 # 90000144 <hw_x>
+800003f6:	10001897          	auipc	a7,0x10001
+800003fa:	dc688893          	addi	a7,a7,-570 # 900011bc <hw_y+0x78>
+800003fe:	0007a803          	lw	a6,0(a5)
+80000402:	43c8                	lw	a0,4(a5)
+80000404:	478c                	lw	a1,8(a5)
+80000406:	47d0                	lw	a2,12(a5)
+80000408:	4b94                	lw	a3,16(a5)
+8000040a:	01072023          	sw	a6,0(a4)
+8000040e:	c348                	sw	a0,4(a4)
+80000410:	c70c                	sw	a1,8(a4)
+80000412:	c750                	sw	a2,12(a4)
+80000414:	cb14                	sw	a3,16(a4)
+80000416:	07d1                	addi	a5,a5,20
+80000418:	0751                	addi	a4,a4,20
+8000041a:	ff1792e3          	bne	a5,a7,800003fe <main+0x33e>
 cnn_set_wbase():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:68
-800004ea:	6789                	lui	a5,0x2
-800004ec:	40000737          	lui	a4,0x40000
-800004f0:	08a78793          	addi	a5,a5,138 # 208a <__stack_size+0x188a>
-800004f4:	db5c                	sw	a5,52(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
+8000041e:	6789                	lui	a5,0x2
+80000420:	40000737          	lui	a4,0x40000
+80000424:	08a78793          	addi	a5,a5,138 # 208a <__stack_size+0x188a>
+80000428:	cb7c                	sw	a5,84(a4)
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:194
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:124
 
+    // ==================== F6 全连接 ====================
     cnn_set_wbase(W_BASE_F6);
     cnn_layer(1, 1, 120, 1, 84, 1, 0, QUANT_SHIFT, 1,
-800004f6:	4685                	li	a3,1
-800004f8:	4785                	li	a5,1
-800004fa:	05400713          	li	a4,84
-800004fe:	05400893          	li	a7,84
-80000502:	00002817          	auipc	a6,0x2
-80000506:	63680813          	addi	a6,a6,1590 # 80002b38 <f6_bias>
-8000050a:	07800613          	li	a2,120
-8000050e:	4585                	li	a1,1
-80000510:	4505                	li	a0,1
-80000512:	2581                	jal	80000b52 <cnn_layer.constprop.0>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:198
-              hw_x, f6_bias, hw_y, 84);
+8000042a:	00002817          	auipc	a6,0x2
+8000042e:	73280813          	addi	a6,a6,1842 # 80002b5c <f6_bias>
+80000432:	4785                	li	a5,1
+80000434:	05400713          	li	a4,84
+80000438:	05400893          	li	a7,84
+8000043c:	4685                	li	a3,1
+8000043e:	07800613          	li	a2,120
+80000442:	4585                	li	a1,1
+80000444:	4505                	li	a0,1
+80000446:	70c000ef          	jal	ra,80000b52 <cnn_layer.constprop.0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:127
+              hw_x, f6_bias, hw_y, F6_OUT_N);
 
-    for (int i = 0; i < 84; i++)
-        f6_out[i] = hw_y[i];
-80000514:	10002797          	auipc	a5,0x10002
-80000518:	e7c78793          	addi	a5,a5,-388 # 90002390 <hw_y>
-8000051c:	10001717          	auipc	a4,0x10001
-80000520:	df870713          	addi	a4,a4,-520 # 90001314 <f6_out>
-80000524:	10002697          	auipc	a3,0x10002
-80000528:	ebc68693          	addi	a3,a3,-324 # 900023e0 <hw_y+0x50>
-8000052c:	0007a803          	lw	a6,0(a5)
-80000530:	43c8                	lw	a0,4(a5)
-80000532:	478c                	lw	a1,8(a5)
-80000534:	47d0                	lw	a2,12(a5)
-80000536:	01072023          	sw	a6,0(a4)
-8000053a:	c348                	sw	a0,4(a4)
-8000053c:	c70c                	sw	a1,8(a4)
-8000053e:	c750                	sw	a2,12(a4)
-80000540:	07c1                	addi	a5,a5,16
-80000542:	0741                	addi	a4,a4,16
-80000544:	fed794e3          	bne	a5,a3,8000052c <main+0x46c>
-80000548:	439c                	lw	a5,0(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:199
-    printf("F6 done\n");
-8000054a:	00002517          	auipc	a0,0x2
-8000054e:	f8650513          	addi	a0,a0,-122 # 800024d0 <_read_r+0x264>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:198
-        f6_out[i] = hw_y[i];
-80000552:	c31c                	sw	a5,0(a4)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:199
-    printf("F6 done\n");
-80000554:	3ad000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:203
+    for (int i = 0; i < F6_OUT_N; i++) hw_x[i] = hw_y[i];
+8000044a:	10001797          	auipc	a5,0x10001
+8000044e:	cfa78793          	addi	a5,a5,-774 # 90001144 <hw_y>
+80000452:	10000717          	auipc	a4,0x10000
+80000456:	cf270713          	addi	a4,a4,-782 # 90000144 <hw_x>
+8000045a:	10001817          	auipc	a6,0x10001
+8000045e:	d3a80813          	addi	a6,a6,-710 # 90001194 <hw_y+0x50>
+80000462:	4388                	lw	a0,0(a5)
+80000464:	43cc                	lw	a1,4(a5)
+80000466:	4790                	lw	a2,8(a5)
+80000468:	47d4                	lw	a3,12(a5)
+8000046a:	c308                	sw	a0,0(a4)
+8000046c:	c34c                	sw	a1,4(a4)
+8000046e:	c710                	sw	a2,8(a4)
+80000470:	c754                	sw	a3,12(a4)
+80000472:	07c1                	addi	a5,a5,16
+80000474:	0741                	addi	a4,a4,16
+80000476:	ff0796e3          	bne	a5,a6,80000462 <main+0x3a2>
+8000047a:	439c                	lw	a5,0(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:131
 
-    // ==================== OUT ====================
-    for (int i = 0; i < 84; i++)
-        hw_x[i] = f6_out[i];
-80000558:	10001797          	auipc	a5,0x10001
-8000055c:	dbc78793          	addi	a5,a5,-580 # 90001314 <f6_out>
-80000560:	10001717          	auipc	a4,0x10001
-80000564:	e3070713          	addi	a4,a4,-464 # 90001390 <hw_x>
-80000568:	10001697          	auipc	a3,0x10001
-8000056c:	dfc68693          	addi	a3,a3,-516 # 90001364 <f6_out+0x50>
-80000570:	0007a803          	lw	a6,0(a5)
-80000574:	43c8                	lw	a0,4(a5)
-80000576:	478c                	lw	a1,8(a5)
-80000578:	47d0                	lw	a2,12(a5)
-8000057a:	01072023          	sw	a6,0(a4)
-8000057e:	c348                	sw	a0,4(a4)
-80000580:	c70c                	sw	a1,8(a4)
-80000582:	c750                	sw	a2,12(a4)
-80000584:	07c1                	addi	a5,a5,16
-80000586:	0741                	addi	a4,a4,16
-80000588:	fed794e3          	bne	a5,a3,80000570 <main+0x4b0>
-8000058c:	439c                	lw	a5,0(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:206
-
+    // ==================== OUT 全连接 ====================
     cnn_set_wbase(W_BASE_OUT);
     cnn_layer(1, 1, 84, 1, 10, 1, 0, QUANT_SHIFT, 0,
-8000058e:	00002817          	auipc	a6,0x2
-80000592:	6fa80813          	addi	a6,a6,1786 # 80002c88 <out_bias>
-80000596:	48a9                	li	a7,10
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:203
-        hw_x[i] = f6_out[i];
-80000598:	c31c                	sw	a5,0(a4)
+8000047c:	48a9                	li	a7,10
+8000047e:	4685                	li	a3,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:127
+    for (int i = 0; i < F6_OUT_N; i++) hw_x[i] = hw_y[i];
+80000480:	c31c                	sw	a5,0(a4)
 cnn_set_wbase():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:68
-8000059a:	678d                	lui	a5,0x3
-8000059c:	40000737          	lui	a4,0x40000
-800005a0:	a6278793          	addi	a5,a5,-1438 # 2a62 <__stack_size+0x2262>
-800005a4:	db5c                	sw	a5,52(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:79
+80000482:	678d                	lui	a5,0x3
+80000484:	40000737          	lui	a4,0x40000
+80000488:	a6278793          	addi	a5,a5,-1438 # 2a62 <__stack_size+0x2262>
+8000048c:	cb7c                	sw	a5,84(a4)
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:206
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:131
     cnn_layer(1, 1, 84, 1, 10, 1, 0, QUANT_SHIFT, 0,
-800005a6:	4685                	li	a3,1
-800005a8:	4781                	li	a5,0
-800005aa:	4729                	li	a4,10
-800005ac:	05400613          	li	a2,84
-800005b0:	4585                	li	a1,1
-800005b2:	4505                	li	a0,1
-800005b4:	2b79                	jal	80000b52 <cnn_layer.constprop.0>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:209
+8000048e:	00003817          	auipc	a6,0x3
+80000492:	81e80813          	addi	a6,a6,-2018 # 80002cac <out_bias>
+80000496:	4781                	li	a5,0
+80000498:	4729                	li	a4,10
+8000049a:	05400613          	li	a2,84
+8000049e:	4585                	li	a1,1
+800004a0:	4505                	li	a0,1
+800004a2:	2d45                	jal	80000b52 <cnn_layer.constprop.0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:134
               hw_x, out_bias, hw_y, 10);
 
     for (int i = 0; i < 10; i++)
-800005b6:	10001917          	auipc	s2,0x10001
-800005ba:	db290913          	addi	s2,s2,-590 # 90001368 <final_out>
-800005be:	10001717          	auipc	a4,0x10001
-800005c2:	dd270713          	addi	a4,a4,-558 # 90001390 <hw_x>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:206
+800004a4:	8bc18a93          	addi	s5,gp,-1860 # 9000011c <final_out>
+800004a8:	8e418693          	addi	a3,gp,-1820 # 90000144 <hw_x>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:131
     cnn_layer(1, 1, 84, 1, 10, 1, 0, QUANT_SHIFT, 0,
-800005c6:	884a                	mv	a6,s2
-800005c8:	87ca                	mv	a5,s2
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:210 (discriminator 3)
+800004ac:	88d6                	mv	a7,s5
+800004ae:	87d6                	mv	a5,s5
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:135 (discriminator 3)
         final_out[i] = (int32_t)hw_y[i];
-800005ca:	00040683          	lb	a3,0(s0)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:209 (discriminator 3)
+800004b0:	000b0703          	lb	a4,0(s6)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:134 (discriminator 3)
     for (int i = 0; i < 10; i++)
-800005ce:	0791                	addi	a5,a5,4
-800005d0:	0405                	addi	s0,s0,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:210 (discriminator 3)
+800004b4:	0791                	addi	a5,a5,4
+800004b6:	0b05                	addi	s6,s6,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:135 (discriminator 3)
         final_out[i] = (int32_t)hw_y[i];
-800005d2:	fed7ae23          	sw	a3,-4(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:209 (discriminator 3)
+800004b8:	fee7ae23          	sw	a4,-4(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:134 (discriminator 3)
     for (int i = 0; i < 10; i++)
-800005d6:	fef71ae3          	bne	a4,a5,800005ca <main+0x50a>
+800004bc:	fed79ae3          	bne	a5,a3,800004b0 <main+0x3f0>
 get_cycle():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:55
-800005da:	b00027f3          	csrr	a5,mcycle
+800004c0:	b00027f3          	csrr	a5,mcycle
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:214
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:138
 
-    // 计时结束
     uint32_t t_end = get_cycle();
     uint32_t cycles = t_end - t_start;
-800005de:	409784b3          	sub	s1,a5,s1
+800004c4:	41478a33          	sub	s4,a5,s4
 csr_read_mulcnt():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:16
     asm volatile ("csrr %0, 0xCC0" : "=r"(v));
-800005e2:	cc002b73          	csrr	s6,0xcc0
+800004c8:	cc0027f3          	csrr	a5,0xcc0
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:140
+
+    uint32_t mulcnt   = csr_read_mulcnt()   - mul_0;
+800004cc:	413789b3          	sub	s3,a5,s3
 csr_read_loadcnt():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:22
     asm volatile ("csrr %0, 0xCC1" : "=r"(v));
-800005e6:	cc102af3          	csrr	s5,0xcc1
+800004d0:	cc1027f3          	csrr	a5,0xcc1
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:141
+    uint32_t loadcnt  = csr_read_loadcnt()  - load_0;
+800004d4:	41278933          	sub	s2,a5,s2
 csr_read_storecnt():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:28
     asm volatile ("csrr %0, 0xCC2" : "=r"(v));
-800005ea:	cc202a73          	csrr	s4,0xcc2
+800004d8:	cc2027f3          	csrr	a5,0xcc2
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:142
+    uint32_t storecnt = csr_read_storecnt() - store_0;
+800004dc:	409784b3          	sub	s1,a5,s1
 csr_read_stallcnt():
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/csr.h:34
     asm volatile ("csrr %0, 0xCC3" : "=r"(v));
-800005ee:	cc3029f3          	csrr	s3,0xcc3
-800005f2:	10001717          	auipc	a4,0x10001
-800005f6:	d7670713          	addi	a4,a4,-650 # 90001368 <final_out>
-argmax():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:102
-    int best = 0;
-800005fa:	4581                	li	a1,0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:103
-    for (int i = 1; i < n; i++)
-800005fc:	4785                	li	a5,1
-800005fe:	4601                	li	a2,0
-80000600:	4529                	li	a0,10
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:104
-        if (arr[i] > arr[best]) best = i;
-80000602:	00c806b3          	add	a3,a6,a2
-80000606:	00472883          	lw	a7,4(a4)
-8000060a:	4294                	lw	a3,0(a3)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:103
-    for (int i = 1; i < n; i++)
-8000060c:	0711                	addi	a4,a4,4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:104
-        if (arr[i] > arr[best]) best = i;
-8000060e:	0116d563          	bge	a3,a7,80000618 <main+0x558>
-80000612:	85be                	mv	a1,a5
-80000614:	00279613          	slli	a2,a5,0x2
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:103
-    for (int i = 1; i < n; i++)
-80000618:	0785                	addi	a5,a5,1
-8000061a:	fea794e3          	bne	a5,a0,80000602 <main+0x542>
+800004e0:	cc302b73          	csrr	s6,0xcc3
 main():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:224
-    uint32_t stallcnt = csr_read_stallcnt();
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:143
+    uint32_t stallcnt = csr_read_stallcnt() - stall_0;
+800004e4:	8bc18693          	addi	a3,gp,-1860 # 9000011c <final_out>
+800004e8:	408b0b33          	sub	s6,s6,s0
+argmax():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:53
+    int best = 0;
+800004ec:	4581                	li	a1,0
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:54
+    for (int i = 1; i < n; i++)
+800004ee:	4785                	li	a5,1
+800004f0:	4501                	li	a0,0
+800004f2:	4829                	li	a6,10
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:55
+        if (arr[i] > arr[best]) best = i;
+800004f4:	00a88733          	add	a4,a7,a0
+800004f8:	42d0                	lw	a2,4(a3)
+800004fa:	4318                	lw	a4,0(a4)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:54
+    for (int i = 1; i < n; i++)
+800004fc:	0691                	addi	a3,a3,4
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:55
+        if (arr[i] > arr[best]) best = i;
+800004fe:	00c75563          	bge	a4,a2,80000508 <main+0x448>
+80000502:	85be                	mv	a1,a5
+80000504:	00279513          	slli	a0,a5,0x2
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:54
+    for (int i = 1; i < n; i++)
+80000508:	0785                	addi	a5,a5,1
+8000050a:	ff0795e3          	bne	a5,a6,800004f4 <main+0x434>
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:147
 
-    // ==================== 结果 ====================
     int pred = argmax(final_out, OUT_NUM);
 
     printf("\nPredicted class: %d\n", pred);
-8000061e:	00002517          	auipc	a0,0x2
-80000622:	eba50513          	addi	a0,a0,-326 # 800024d8 <_read_r+0x26c>
-80000626:	1c7000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:225
+8000050e:	00002517          	auipc	a0,0x2
+80000512:	f3a50513          	addi	a0,a0,-198 # 80002448 <_read_r+0x1dc>
+80000516:	2d7000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:148
     printf("Final output scores:\n");
-8000062a:	00002517          	auipc	a0,0x2
-8000062e:	ec650513          	addi	a0,a0,-314 # 800024f0 <_read_r+0x284>
-80000632:	2cf000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:226
+8000051a:	00002517          	auipc	a0,0x2
+8000051e:	f4650513          	addi	a0,a0,-186 # 80002460 <_read_r+0x1f4>
+80000522:	3df000ef          	jal	ra,80001100 <puts>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:149
     for (int i = 0; i < OUT_NUM; i++)
-80000636:	4401                	li	s0,0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:227
+80000526:	4401                	li	s0,0
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:150
         printf("  class[%d] = %d\n", i, (int)final_out[i]);
-80000638:	00002c17          	auipc	s8,0x2
-8000063c:	ed0c0c13          	addi	s8,s8,-304 # 80002508 <_read_r+0x29c>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:226
+80000528:	00002c17          	auipc	s8,0x2
+8000052c:	f50c0c13          	addi	s8,s8,-176 # 80002478 <_read_r+0x20c>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:149
     for (int i = 0; i < OUT_NUM; i++)
-80000640:	4ba9                	li	s7,10
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:227 (discriminator 3)
+80000530:	4ba9                	li	s7,10
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:150 (discriminator 3)
         printf("  class[%d] = %d\n", i, (int)final_out[i]);
-80000642:	00092603          	lw	a2,0(s2)
-80000646:	85a2                	mv	a1,s0
-80000648:	8562                	mv	a0,s8
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:226 (discriminator 3)
+80000532:	000aa603          	lw	a2,0(s5)
+80000536:	85a2                	mv	a1,s0
+80000538:	8562                	mv	a0,s8
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:149 (discriminator 3)
     for (int i = 0; i < OUT_NUM; i++)
-8000064a:	0405                	addi	s0,s0,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:227 (discriminator 3)
+8000053a:	0405                	addi	s0,s0,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:150 (discriminator 3)
         printf("  class[%d] = %d\n", i, (int)final_out[i]);
-8000064c:	1a1000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:226 (discriminator 3)
+8000053c:	2b1000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:149 (discriminator 3)
     for (int i = 0; i < OUT_NUM; i++)
-80000650:	0911                	addi	s2,s2,4
-80000652:	ff7418e3          	bne	s0,s7,80000642 <main+0x582>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:229
+80000540:	0a91                	addi	s5,s5,4
+80000542:	ff7418e3          	bne	s0,s7,80000532 <main+0x472>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:152
 
     printf("\n===== Benchmark Result =====\n");
-80000656:	00002517          	auipc	a0,0x2
-8000065a:	ec650513          	addi	a0,a0,-314 # 8000251c <_read_r+0x2b0>
-8000065e:	2a3000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:230
+80000546:	00002517          	auipc	a0,0x2
+8000054a:	f4650513          	addi	a0,a0,-186 # 8000248c <_read_r+0x220>
+8000054e:	3b3000ef          	jal	ra,80001100 <puts>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:153
     printf("Total cycles: %u\n", cycles);
-80000662:	85a6                	mv	a1,s1
-80000664:	00002517          	auipc	a0,0x2
-80000668:	ed850513          	addi	a0,a0,-296 # 8000253c <_read_r+0x2d0>
-8000066c:	181000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:231
+80000552:	85d2                	mv	a1,s4
+80000554:	00002517          	auipc	a0,0x2
+80000558:	f5850513          	addi	a0,a0,-168 # 800024ac <_read_r+0x240>
+8000055c:	291000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:154
+    printf("PMU MAC=%u WLOAD=%u XLOAD=%u BUBBLE=%u TOTAL=%u AXIWR=%u\n",
+80000560:	40000537          	lui	a0,0x40000
+80000564:	5d0c                	lw	a1,56(a0)
+80000566:	5d50                	lw	a2,60(a0)
+80000568:	4134                	lw	a3,64(a0)
+8000056a:	4178                	lw	a4,68(a0)
+8000056c:	453c                	lw	a5,72(a0)
+8000056e:	04c52803          	lw	a6,76(a0) # 4000004c <__stack_size+0x3ffff84c>
+80000572:	00002517          	auipc	a0,0x2
+80000576:	f4e50513          	addi	a0,a0,-178 # 800024c0 <_read_r+0x254>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:165
+           (unsigned)CNN_RD(CNN_PMU_AXIWR));
     printf("Total mul num: %u\n", mulcnt);
-80000670:	85da                	mv	a1,s6
-80000672:	00002517          	auipc	a0,0x2
-80000676:	ede50513          	addi	a0,a0,-290 # 80002550 <_read_r+0x2e4>
-8000067a:	173000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:232
     printf("Total load num: %u\n", loadcnt);
-8000067e:	85d6                	mv	a1,s5
-80000680:	00002517          	auipc	a0,0x2
-80000684:	ee450513          	addi	a0,a0,-284 # 80002564 <_read_r+0x2f8>
-80000688:	165000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:233
     printf("Total store num: %u\n", storecnt);
-8000068c:	85d2                	mv	a1,s4
-8000068e:	00002517          	auipc	a0,0x2
-80000692:	eea50513          	addi	a0,a0,-278 # 80002578 <_read_r+0x30c>
-80000696:	157000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:234
     printf("Total stall num: %u\n", stallcnt);
-8000069a:	85ce                	mv	a1,s3
-8000069c:	00002517          	auipc	a0,0x2
-800006a0:	ef450513          	addi	a0,a0,-268 # 80002590 <_read_r+0x324>
-800006a4:	149000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:235
     printf("CPU Frequency: %u Hz\n", (uint32_t)SystemCoreClock);
-800006a8:	10000417          	auipc	s0,0x10000
-800006ac:	9bc40413          	addi	s0,s0,-1604 # 90000064 <SystemCoreClock>
-800006b0:	400c                	lw	a1,0(s0)
-800006b2:	00002517          	auipc	a0,0x2
-800006b6:	ef650513          	addi	a0,a0,-266 # 800025a8 <_read_r+0x33c>
-800006ba:	133000ef          	jal	ra,80000fec <iprintf>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:237
+8000057a:	10000417          	auipc	s0,0x10000
+8000057e:	aea40413          	addi	s0,s0,-1302 # 90000064 <SystemCoreClock>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:154
+    printf("PMU MAC=%u WLOAD=%u XLOAD=%u BUBBLE=%u TOTAL=%u AXIWR=%u\n",
+80000582:	26b000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:161
+    printf("Total mul num: %u\n", mulcnt);
+80000586:	85ce                	mv	a1,s3
+80000588:	00002517          	auipc	a0,0x2
+8000058c:	f7450513          	addi	a0,a0,-140 # 800024fc <_read_r+0x290>
+80000590:	25d000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:162
+    printf("Total load num: %u\n", loadcnt);
+80000594:	85ca                	mv	a1,s2
+80000596:	00002517          	auipc	a0,0x2
+8000059a:	f7a50513          	addi	a0,a0,-134 # 80002510 <_read_r+0x2a4>
+8000059e:	24f000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:163
+    printf("Total store num: %u\n", storecnt);
+800005a2:	85a6                	mv	a1,s1
+800005a4:	00002517          	auipc	a0,0x2
+800005a8:	f8050513          	addi	a0,a0,-128 # 80002524 <_read_r+0x2b8>
+800005ac:	241000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:164
+    printf("Total stall num: %u\n", stallcnt);
+800005b0:	85da                	mv	a1,s6
+800005b2:	00002517          	auipc	a0,0x2
+800005b6:	f8a50513          	addi	a0,a0,-118 # 8000253c <_read_r+0x2d0>
+800005ba:	233000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:165
+    printf("CPU Frequency: %u Hz\n", (uint32_t)SystemCoreClock);
+800005be:	400c                	lw	a1,0(s0)
+800005c0:	00002517          	auipc	a0,0x2
+800005c4:	f9450513          	addi	a0,a0,-108 # 80002554 <_read_r+0x2e8>
+800005c8:	225000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:167
 
     if (SystemCoreClock > 0) {
-800006be:	4010                	lw	a2,0(s0)
-800006c0:	ea01                	bnez	a2,800006d0 <main+0x610>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:242
+800005cc:	4010                	lw	a2,0(s0)
+800005ce:	10061163          	bnez	a2,800006d0 <main+0x610>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:171
         uint32_t ms = (uint32_t)((uint64_t)cycles * 1000ULL / SystemCoreClock);
         printf("Total time: %u ms\n", ms);
     }
-
     printf("===== Benchmark Done =====\n\n");
-800006c2:	00002517          	auipc	a0,0x2
-800006c6:	f1250513          	addi	a0,a0,-238 # 800025d4 <_read_r+0x368>
-800006ca:	237000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:244 (discriminator 2)
+800005d2:	00002517          	auipc	a0,0x2
+800005d6:	fae50513          	addi	a0,a0,-82 # 80002580 <_read_r+0x314>
+800005da:	327000ef          	jal	ra,80001100 <puts>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:174
+
+    // ==================== 池化自检 ====================
+    printf("===== Pooling Selftest =====\n");
+800005de:	00002517          	auipc	a0,0x2
+800005e2:	fbe50513          	addi	a0,a0,-66 # 8000259c <_read_r+0x330>
+800005e6:	31b000ef          	jal	ra,80001100 <puts>
+cnn_clear_ptrs():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:85
+    CNN_WR(CNN_CTRL, CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
+800005ea:	400007b7          	lui	a5,0x40000
+800005ee:	4731                	li	a4,12
+800005f0:	c398                	sw	a4,0(a5)
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:187
+            31,-32, 33, 34,-35, 36
+        };
+        static const int8_t pool_exp[9] = { -2, 10, 11, 19, 22, 24, 31, 34, 36 };
+        int pool_ok = 1;
+        cnn_clear_ptrs();
+        CNN_WR(CNN_CFG0, cnn_cfg0(6, 6, 1, 2));
+800005f2:	02010737          	lui	a4,0x2010
+800005f6:	60670713          	addi	a4,a4,1542 # 2010606 <__stack_size+0x200fe06>
+800005fa:	cbd8                	sw	a4,20(a5)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:188
+        CNN_WR(CNN_CFG1, cnn_cfg1(1, 2, 0, 0, 0) | (1u << 20));
+800005fc:	00100737          	lui	a4,0x100
+80000600:	20170713          	addi	a4,a4,513 # 100201 <__stack_size+0xffa01>
+80000604:	cf98                	sw	a4,24(a5)
+cnn_load_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000606:	00002617          	auipc	a2,0x2
+8000060a:	6fe60613          	addi	a2,a2,1790 # 80002d04 <__clz_tab>
+8000060e:	00002797          	auipc	a5,0x2
+80000612:	6d378793          	addi	a5,a5,1747 # 80002ce1 <pool_in.1+0x1>
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:188
+80000616:	576d                	li	a4,-5
+cnn_load_input():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+80000618:	400006b7          	lui	a3,0x40000
+8000061c:	a021                	j	80000624 <main+0x564>
+8000061e:	00078703          	lb	a4,0(a5)
+80000622:	0785                	addi	a5,a5,1
+80000624:	c6d8                	sw	a4,12(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
+    for (int i = 0; i < n; i++)
+80000626:	fef61ce3          	bne	a2,a5,8000061e <main+0x55e>
+cnn_run():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:112
+    CNN_WR(CNN_CTRL, CNN_CTRL_START);
+8000062a:	4785                	li	a5,1
+8000062c:	c29c                	sw	a5,0(a3)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:113
+    while ((CNN_RD(CNN_STATUS) & CNN_STATUS_DONE) == 0);
+8000062e:	40000737          	lui	a4,0x40000
+80000632:	435c                	lw	a5,4(a4)
+80000634:	8b89                	andi	a5,a5,2
+80000636:	dff5                	beqz	a5,80000632 <main+0x572>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
+    CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
+80000638:	00072023          	sw	zero,0(a4) # 40000000 <__stack_size+0x3ffff800>
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
+        cnn_load_input(pool_in, 36);
+        cnn_run();
+        for (int i = 0; i < 9; i++) {
+8000063c:	00002497          	auipc	s1,0x2
+80000640:	69848493          	addi	s1,s1,1688 # 80002cd4 <pool_exp.0>
+80000644:	4401                	li	s0,0
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:185
+        int pool_ok = 1;
+80000646:	4b05                	li	s6,1
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+80000648:	40000937          	lui	s2,0x40000
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:193
+            int v = (int)cnn_read_output(i);
+            printf("  pool[%d] = %d (expect %d)%s\n", i, v, (int)pool_exp[i],
+8000064c:	00002a97          	auipc	s5,0x2
+80000650:	fb8a8a93          	addi	s5,s5,-72 # 80002604 <_read_r+0x398>
+80000654:	00002997          	auipc	s3,0x2
+80000658:	f9098993          	addi	s3,s3,-112 # 800025e4 <_read_r+0x378>
+8000065c:	00002b97          	auipc	s7,0x2
+80000660:	cd0b8b93          	addi	s7,s7,-816 # 8000232c <_read_r+0xc0>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
+        for (int i = 0; i < 9; i++) {
+80000664:	4a25                	li	s4,9
+80000666:	a801                	j	80000676 <main+0x5b6>
+80000668:	0405                	addi	s0,s0,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:193
+            printf("  pool[%d] = %d (expect %d)%s\n", i, v, (int)pool_exp[i],
+8000066a:	183000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:195
+                   (v == (int)pool_exp[i]) ? "" : "  <-- MISMATCH");
+            if (v != (int)pool_exp[i]) pool_ok = 0;
+8000066e:	4b01                	li	s6,0
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
+        for (int i = 0; i < 9; i++) {
+80000670:	0485                	addi	s1,s1,1
+80000672:	03440763          	beq	s0,s4,800006a0 <main+0x5e0>
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
+80000676:	00892e23          	sw	s0,28(s2) # 4000001c <__stack_size+0x3ffff81c>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+    return (int8_t)CNN_RD(CNN_ODATA);
+8000067a:	02092603          	lw	a2,32(s2)
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:193
+            printf("  pool[%d] = %d (expect %d)%s\n", i, v, (int)pool_exp[i],
+8000067e:	00048683          	lb	a3,0(s1)
+80000682:	8756                	mv	a4,s5
+cnn_read_output():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
+80000684:	0662                	slli	a2,a2,0x18
+80000686:	8661                	srai	a2,a2,0x18
+main():
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:193
+80000688:	85a2                	mv	a1,s0
+8000068a:	854e                	mv	a0,s3
+8000068c:	fcc69ee3          	bne	a3,a2,80000668 <main+0x5a8>
+80000690:	875e                	mv	a4,s7
+80000692:	8636                	mv	a2,a3
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
+        for (int i = 0; i < 9; i++) {
+80000694:	0405                	addi	s0,s0,1
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:193
+            printf("  pool[%d] = %d (expect %d)%s\n", i, v, (int)pool_exp[i],
+80000696:	157000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:191
+        for (int i = 0; i < 9; i++) {
+8000069a:	0485                	addi	s1,s1,1
+8000069c:	fd441de3          	bne	s0,s4,80000676 <main+0x5b6>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:197
+        }
+        printf("POOL SELFTEST: %s\n", pool_ok ? "PASS" : "FAIL");
+800006a0:	00002597          	auipc	a1,0x2
+800006a4:	cc058593          	addi	a1,a1,-832 # 80002360 <_read_r+0xf4>
+800006a8:	000b0f63          	beqz	s6,800006c6 <main+0x606>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:197 (discriminator 4)
+800006ac:	00002517          	auipc	a0,0x2
+800006b0:	f1050513          	addi	a0,a0,-240 # 800025bc <_read_r+0x350>
+800006b4:	139000ef          	jal	ra,80000fec <iprintf>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:199 (discriminator 4)
+    }
+    printf("===== Done =====\n\n");
+800006b8:	00002517          	auipc	a0,0x2
+800006bc:	f1850513          	addi	a0,a0,-232 # 800025d0 <_read_r+0x364>
+800006c0:	241000ef          	jal	ra,80001100 <puts>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:201 (discriminator 2)
 
     while (1);
-800006ce:	a001                	j	800006ce <main+0x60e>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:238
+800006c4:	a001                	j	800006c4 <main+0x604>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:197
+        printf("POOL SELFTEST: %s\n", pool_ok ? "PASS" : "FAIL");
+800006c6:	00002597          	auipc	a1,0x2
+800006ca:	ca258593          	addi	a1,a1,-862 # 80002368 <_read_r+0xfc>
+800006ce:	bff9                	j	800006ac <main+0x5ec>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:168
         uint32_t ms = (uint32_t)((uint64_t)cycles * 1000ULL / SystemCoreClock);
 800006d0:	3e800513          	li	a0,1000
-800006d4:	02a4b5b3          	mulhu	a1,s1,a0
+800006d4:	02aa35b3          	mulhu	a1,s4,a0
 800006d8:	4681                	li	a3,0
-800006da:	02a48533          	mul	a0,s1,a0
+800006da:	02aa0533          	mul	a0,s4,a0
 800006de:	2b01                	jal	80000bee <__udivdi3>
 800006e0:	85aa                	mv	a1,a0
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:239
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:169
         printf("Total time: %u ms\n", ms);
 800006e2:	00002517          	auipc	a0,0x2
-800006e6:	ede50513          	addi	a0,a0,-290 # 800025c0 <_read_r+0x354>
+800006e6:	e8a50513          	addi	a0,a0,-374 # 8000256c <_read_r+0x300>
 800006ea:	103000ef          	jal	ra,80000fec <iprintf>
-800006ee:	bfd1                	j	800006c2 <main+0x602>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:119
-        printf("ERROR: CNN VERSION != 0x00010000, bridge not working!\n");
+800006ee:	b5d5                	j	800005d2 <main+0x512>
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:68
+        printf("ERROR: CNN VERSION != 0x00010000\n");
 800006f0:	00002517          	auipc	a0,0x2
-800006f4:	d7050513          	addi	a0,a0,-656 # 80002460 <_read_r+0x1f4>
+800006f4:	d3450513          	addi	a0,a0,-716 # 80002424 <_read_r+0x1b8>
 800006f8:	209000ef          	jal	ra,80001100 <puts>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:120 (discriminator 1)
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/main.c:69 (discriminator 1)
         while (1);
 800006fc:	a001                	j	800006fc <main+0x63c>
 
@@ -1520,8 +1627,8 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source
 8000074c:	10000717          	auipc	a4,0x10000
 80000750:	91470713          	addi	a4,a4,-1772 # 90000060 <curbrk.0>
 80000754:	431c                	lw	a5,0(a4)
-80000756:	10003697          	auipc	a3,0x10003
-8000075a:	43a68693          	addi	a3,a3,1082 # 90003b90 <_end>
+80000756:	10002697          	auipc	a3,0x10002
+8000075a:	d8a68693          	addi	a3,a3,-630 # 900024e0 <_end>
 8000075e:	953e                	add	a0,a0,a5
 80000760:	00d56b63          	bltu	a0,a3,80000776 <_sbrk+0x2a>
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/Stubs/sbrk.c:13 (discriminator 1)
@@ -2368,7 +2475,7 @@ D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source
 80000adc:	00000717          	auipc	a4,0x0
 80000ae0:	eaa70713          	addi	a4,a4,-342 # 80000986 <system_default_interrupt_handler>
 80000ae4:	87818793          	addi	a5,gp,-1928 # 900000d8 <SystemExtInterruptHandlers>
-80000ae8:	8bc18693          	addi	a3,gp,-1860 # 9000011c <c1_out>
+80000ae8:	8bc18693          	addi	a3,gp,-1860 # 9000011c <final_out>
 80000aec:	c398                	sw	a4,0(a5)
 D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../hbird_sdk/SoC/hbirdv2/Common/Source/system_hbirdv2.c:215
     for (i = 0; i < __PLIC_INTNUM; i++) {
@@ -2490,149 +2597,140 @@ _fini():
 
 80000b52 <cnn_layer.constprop.0>:
 cnn_layer():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:124
-                             const int8_t *x, const int32_t *b,
-                             int8_t *y, int out_n)
-{
-    cnn_clear_ptrs();
-    cnn_config(in_h, in_w, in_c, k, oc, stride, pad, shift, relu);
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:135
     cnn_load_input(x, in_h * in_w * in_c);
 80000b52:	02b50333          	mul	t1,a0,a1
 cnn_cfg0():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:49
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:60
     return (h & 0xFF) | ((w & 0xFF) << 8) | ((c & 0xFF) << 16) | ((k & 0xFF) << 24);
 80000b56:	01061e13          	slli	t3,a2,0x10
 80000b5a:	06e2                	slli	a3,a3,0x18
 cnn_clear_ptrs():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:74
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:85
     CNN_WR(CNN_CTRL, CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
 80000b5c:	40000eb7          	lui	t4,0x40000
 cnn_cfg0():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:49
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:60
     return (h & 0xFF) | ((w & 0xFF) << 8) | ((c & 0xFF) << 16) | ((k & 0xFF) << 24);
 80000b60:	00de6e33          	or	t3,t3,a3
 cnn_clear_ptrs():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:74
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:85
     CNN_WR(CNN_CTRL, CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
 80000b64:	46b1                	li	a3,12
 80000b66:	00dea023          	sw	a3,0(t4) # 40000000 <__stack_size+0x3ffff800>
 cnn_cfg0():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:49
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:60
     return (h & 0xFF) | ((w & 0xFF) << 8) | ((c & 0xFF) << 16) | ((k & 0xFF) << 24);
 80000b6a:	05a2                	slli	a1,a1,0x8
 80000b6c:	00ae6e33          	or	t3,t3,a0
 cnn_cfg1():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:55
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:66
          | ((shift & 0x1Fu) << 14) | ((relu & 1u) << 19);
 80000b70:	07ce                	slli	a5,a5,0x13
 cnn_layer():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:124
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:135
     cnn_load_input(x, in_h * in_w * in_c);
 80000b72:	02c30633          	mul	a2,t1,a2
 cnn_cfg1():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:55
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:66
          | ((shift & 0x1Fu) << 14) | ((relu & 1u) << 19);
 80000b76:	000206b7          	lui	a3,0x20
 cnn_cfg0():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:49
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:60
     return (h & 0xFF) | ((w & 0xFF) << 8) | ((c & 0xFF) << 16) | ((k & 0xFF) << 24);
 80000b7a:	00be6e33          	or	t3,t3,a1
 cnn_cfg1():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:55
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:66
          | ((shift & 0x1Fu) << 14) | ((relu & 1u) << 19);
 80000b7e:	8fd9                	or	a5,a5,a4
 80000b80:	10068693          	addi	a3,a3,256 # 20100 <__stack_size+0x1f900>
 80000b84:	8edd                	or	a3,a3,a5
 cnn_config():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:81
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:92
     CNN_WR(CNN_CFG0, cnn_cfg0(h, w, c, k));
 80000b86:	01ceaa23          	sw	t3,20(t4)
 cnn_cfg1():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:54
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:65
     return (oc & 0xFF) | ((stride & 3u) << 8) | ((pad & 0xFu) << 10)
-80000b8a:	10001797          	auipc	a5,0x10001
-80000b8e:	80678793          	addi	a5,a5,-2042 # 90001390 <hw_x>
+80000b8a:	0ffff797          	auipc	a5,0xffff
+80000b8e:	5ba78793          	addi	a5,a5,1466 # 90000144 <hw_x>
 cnn_config():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:82
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:93
     CNN_WR(CNN_CFG1, cnn_cfg1(oc, stride, pad, shift, relu));
 80000b92:	00deac23          	sw	a3,24(t4)
 cnn_load_input():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:88
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
         CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
 80000b96:	400005b7          	lui	a1,0x40000
 80000b9a:	963e                	add	a2,a2,a5
 80000b9c:	00078683          	lb	a3,0(a5)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:87
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
     for (int i = 0; i < n; i++)
 80000ba0:	0785                	addi	a5,a5,1
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:88
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:99
         CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
 80000ba2:	c5d4                	sw	a3,12(a1)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:87
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:98
     for (int i = 0; i < n; i++)
 80000ba4:	fef61ce3          	bne	a2,a5,80000b9c <cnn_layer.constprop.0+0x4a>
 80000ba8:	070a                	slli	a4,a4,0x2
 80000baa:	9742                	add	a4,a4,a6
 cnn_load_bias():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:96
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:107
         CNN_WR(CNN_BIAS, (uint32_t)b[i]);
 80000bac:	400006b7          	lui	a3,0x40000
 80000bb0:	00082783          	lw	a5,0(a6)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:95
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:106
     for (int i = 0; i < n; i++)
 80000bb4:	0811                	addi	a6,a6,4
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:96
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:107
         CNN_WR(CNN_BIAS, (uint32_t)b[i]);
 80000bb6:	ca9c                	sw	a5,16(a3)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:95
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:106
     for (int i = 0; i < n; i++)
 80000bb8:	fee81ce3          	bne	a6,a4,80000bb0 <cnn_layer.constprop.0+0x5e>
 cnn_run():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:101
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:112
     CNN_WR(CNN_CTRL, CNN_CTRL_START);
 80000bbc:	4785                	li	a5,1
 80000bbe:	c29c                	sw	a5,0(a3)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:102
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:113
     while ((CNN_RD(CNN_STATUS) & CNN_STATUS_DONE) == 0);
 80000bc0:	40000737          	lui	a4,0x40000
 80000bc4:	435c                	lw	a5,4(a4)
 80000bc6:	8b89                	andi	a5,a5,2
 80000bc8:	dff5                	beqz	a5,80000bc4 <cnn_layer.constprop.0+0x72>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:103
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:114
     CNN_WR(CNN_CTRL, 0);   /* 必须拉低 start，否则下一轮启动不了 */
 80000bca:	00072023          	sw	zero,0(a4) # 40000000 <__stack_size+0x3ffff800>
 cnn_layer():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:128
-    /* cnn_load_weight 删除 */
-    cnn_load_bias(b, oc);
-    cnn_run();
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:139
     for (int i = 0; i < out_n; i++)
 80000bce:	4781                	li	a5,0
-80000bd0:	10001717          	auipc	a4,0x10001
-80000bd4:	7c070713          	addi	a4,a4,1984 # 90002390 <hw_y>
+80000bd0:	10000717          	auipc	a4,0x10000
+80000bd4:	57470713          	addi	a4,a4,1396 # 90001144 <hw_y>
 cnn_read_output():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:108
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:119
     CNN_WR(CNN_OINDEX, (uint32_t)idx);
 80000bd8:	400006b7          	lui	a3,0x40000
 80000bdc:	cedc                	sw	a5,28(a3)
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:109
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
     return (int8_t)CNN_RD(CNN_ODATA);
 80000bde:	5290                	lw	a2,32(a3)
 cnn_layer():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:128
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:139
     for (int i = 0; i < out_n; i++)
 80000be0:	0785                	addi	a5,a5,1
 80000be2:	0705                	addi	a4,a4,1
 cnn_read_output():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:109
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:120
     return (int8_t)CNN_RD(CNN_ODATA);
 80000be4:	fec70fa3          	sb	a2,-1(a4)
 cnn_layer():
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:128
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:139
     for (int i = 0; i < out_n; i++)
 80000be8:	ff179ae3          	bne	a5,a7,80000bdc <cnn_layer.constprop.0+0x8a>
-D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:130
-        y[i] = cnn_read_output(i);
+D:\fpgafile\e203_cnn\sdk\LeNet_oneP\Debug/../application/../include/cnn.h:141
 }
 80000bec:	8082                	ret
 
@@ -2652,7 +2750,7 @@ __udivmoddi4():
 80000bf8:	20069663          	bnez	a3,80000e04 <__udivdi3+0x216>
 /home/hqfang/workspace/software/riscv-gnu-toolchain/riscv-gcc/libgcc/libgcc2.c:1066
 80000bfc:	00002697          	auipc	a3,0x2
-80000c00:	0b468693          	addi	a3,a3,180 # 80002cb0 <__clz_tab>
+80000c00:	10868693          	addi	a3,a3,264 # 80002d04 <__clz_tab>
 80000c04:	0ac5ff63          	bgeu	a1,a2,80000cc2 <__udivdi3+0xd4>
 /home/hqfang/workspace/software/riscv-gnu-toolchain/riscv-gcc/libgcc/libgcc2.c:1070
 80000c08:	6741                	lui	a4,0x10
@@ -2849,7 +2947,7 @@ __udivmoddi4():
 80000e16:	058e                	slli	a1,a1,0x3
 80000e18:	00b6d533          	srl	a0,a3,a1
 80000e1c:	00002717          	auipc	a4,0x2
-80000e20:	e9470713          	addi	a4,a4,-364 # 80002cb0 <__clz_tab>
+80000e20:	ee870713          	addi	a4,a4,-280 # 80002d04 <__clz_tab>
 80000e24:	972a                	add	a4,a4,a0
 80000e26:	00074703          	lbu	a4,0(a4)
 80000e2a:	02000513          	li	a0,32
@@ -2986,9 +3084,9 @@ __libc_fini_array():
 80000f5a:	c422                	sw	s0,8(sp)
 80000f5c:	c226                	sw	s1,4(sp)
 80000f5e:	00002417          	auipc	s0,0x2
-80000f62:	f4640413          	addi	s0,s0,-186 # 80002ea4 <__fsymtab_end>
+80000f62:	f9a40413          	addi	s0,s0,-102 # 80002ef8 <__fsymtab_end>
 80000f66:	00002497          	auipc	s1,0x2
-80000f6a:	f3e48493          	addi	s1,s1,-194 # 80002ea4 <__fsymtab_end>
+80000f6a:	f9248493          	addi	s1,s1,-110 # 80002ef8 <__fsymtab_end>
 80000f6e:	8c05                	sub	s0,s0,s1
 80000f70:	c606                	sw	ra,12(sp)
 80000f72:	8409                	srai	s0,s0,0x2
@@ -3011,9 +3109,9 @@ __libc_init_array():
 80000f90:	c422                	sw	s0,8(sp)
 80000f92:	c226                	sw	s1,4(sp)
 80000f94:	00002417          	auipc	s0,0x2
-80000f98:	f1040413          	addi	s0,s0,-240 # 80002ea4 <__fsymtab_end>
+80000f98:	f6440413          	addi	s0,s0,-156 # 80002ef8 <__fsymtab_end>
 80000f9c:	00002497          	auipc	s1,0x2
-80000fa0:	f0848493          	addi	s1,s1,-248 # 80002ea4 <__fsymtab_end>
+80000fa0:	f5c48493          	addi	s1,s1,-164 # 80002ef8 <__fsymtab_end>
 80000fa4:	8c81                	sub	s1,s1,s0
 80000fa6:	c04a                	sw	s2,0(sp)
 80000fa8:	c606                	sw	ra,12(sp)
@@ -3021,9 +3119,9 @@ __libc_init_array():
 80000fac:	4901                	li	s2,0
 80000fae:	02991563          	bne	s2,s1,80000fd8 <__libc_init_array+0x4a>
 80000fb2:	00002417          	auipc	s0,0x2
-80000fb6:	ef240413          	addi	s0,s0,-270 # 80002ea4 <__fsymtab_end>
+80000fb6:	f4640413          	addi	s0,s0,-186 # 80002ef8 <__fsymtab_end>
 80000fba:	00002497          	auipc	s1,0x2
-80000fbe:	eea48493          	addi	s1,s1,-278 # 80002ea4 <__fsymtab_end>
+80000fbe:	f3e48493          	addi	s1,s1,-194 # 80002ef8 <__fsymtab_end>
 80000fc2:	8c81                	sub	s1,s1,s0
 80000fc4:	8489                	srai	s1,s1,0x2
 80000fc6:	4901                	li	s2,0
@@ -3096,7 +3194,7 @@ _puts_r():
 80001046:	8526                	mv	a0,s1
 80001048:	238d                	jal	800015aa <__sinit>
 8000104a:	00002797          	auipc	a5,0x2
-8000104e:	d8678793          	addi	a5,a5,-634 # 80002dd0 <__sf_fake_stdin>
+8000104e:	dda78793          	addi	a5,a5,-550 # 80002e24 <__sf_fake_stdin>
 80001052:	02f41c63          	bne	s0,a5,8000108a <_puts_r+0x64>
 80001056:	40c0                	lw	s0,4(s1)
 80001058:	00c45783          	lhu	a5,12(s0)
@@ -3121,12 +3219,12 @@ _puts_r():
 80001086:	4529                	li	a0,10
 80001088:	a035                	j	800010b4 <_puts_r+0x8e>
 8000108a:	00002797          	auipc	a5,0x2
-8000108e:	d6678793          	addi	a5,a5,-666 # 80002df0 <__sf_fake_stdout>
+8000108e:	dba78793          	addi	a5,a5,-582 # 80002e44 <__sf_fake_stdout>
 80001092:	00f41463          	bne	s0,a5,8000109a <_puts_r+0x74>
 80001096:	4480                	lw	s0,8(s1)
 80001098:	b7c1                	j	80001058 <_puts_r+0x32>
 8000109a:	00002797          	auipc	a5,0x2
-8000109e:	d1678793          	addi	a5,a5,-746 # 80002db0 <__sf_fake_stderr>
+8000109e:	d6a78793          	addi	a5,a5,-662 # 80002e04 <__sf_fake_stderr>
 800010a2:	faf41be3          	bne	s0,a5,80001058 <_puts_r+0x32>
 800010a6:	44c0                	lw	s0,12(s1)
 800010a8:	bf45                	j	80001058 <_puts_r+0x32>
@@ -3192,7 +3290,7 @@ __swbuf_r():
 80001122:	e391                	bnez	a5,80001126 <__swbuf_r+0x1a>
 80001124:	2159                	jal	800015aa <__sinit>
 80001126:	00002797          	auipc	a5,0x2
-8000112a:	caa78793          	addi	a5,a5,-854 # 80002dd0 <__sf_fake_stdin>
+8000112a:	cfe78793          	addi	a5,a5,-770 # 80002e24 <__sf_fake_stdin>
 8000112e:	06f41963          	bne	s0,a5,800011a0 <__swbuf_r+0x94>
 80001132:	40c0                	lw	s0,4(s1)
 80001134:	4c1c                	lw	a5,24(s0)
@@ -3241,12 +3339,12 @@ __swbuf_r():
 8000119c:	6105                	addi	sp,sp,32
 8000119e:	8082                	ret
 800011a0:	00002797          	auipc	a5,0x2
-800011a4:	c5078793          	addi	a5,a5,-944 # 80002df0 <__sf_fake_stdout>
+800011a4:	ca478793          	addi	a5,a5,-860 # 80002e44 <__sf_fake_stdout>
 800011a8:	00f41463          	bne	s0,a5,800011b0 <__swbuf_r+0xa4>
 800011ac:	4480                	lw	s0,8(s1)
 800011ae:	b759                	j	80001134 <__swbuf_r+0x28>
 800011b0:	00002797          	auipc	a5,0x2
-800011b4:	c0078793          	addi	a5,a5,-1024 # 80002db0 <__sf_fake_stderr>
+800011b4:	c5478793          	addi	a5,a5,-940 # 80002e04 <__sf_fake_stderr>
 800011b8:	f6f41ee3          	bne	s0,a5,80001134 <__swbuf_r+0x28>
 800011bc:	44c0                	lw	s0,12(s1)
 800011be:	bf9d                	j	80001134 <__swbuf_r+0x28>
@@ -3273,7 +3371,7 @@ __swsetup_r():
 800011e4:	8526                	mv	a0,s1
 800011e6:	26d1                	jal	800015aa <__sinit>
 800011e8:	00002797          	auipc	a5,0x2
-800011ec:	be878793          	addi	a5,a5,-1048 # 80002dd0 <__sf_fake_stdin>
+800011ec:	c3c78793          	addi	a5,a5,-964 # 80002e24 <__sf_fake_stdin>
 800011f0:	02f41763          	bne	s0,a5,8000121e <__swsetup_r+0x52>
 800011f4:	40c0                	lw	s0,4(s1)
 800011f6:	00c41783          	lh	a5,12(s0)
@@ -3290,12 +3388,12 @@ __swsetup_r():
 8000121a:	557d                	li	a0,-1
 8000121c:	a871                	j	800012b8 <__swsetup_r+0xec>
 8000121e:	00002797          	auipc	a5,0x2
-80001222:	bd278793          	addi	a5,a5,-1070 # 80002df0 <__sf_fake_stdout>
+80001222:	c2678793          	addi	a5,a5,-986 # 80002e44 <__sf_fake_stdout>
 80001226:	00f41463          	bne	s0,a5,8000122e <__swsetup_r+0x62>
 8000122a:	4480                	lw	s0,8(s1)
 8000122c:	b7e9                	j	800011f6 <__swsetup_r+0x2a>
 8000122e:	00002797          	auipc	a5,0x2
-80001232:	b8278793          	addi	a5,a5,-1150 # 80002db0 <__sf_fake_stderr>
+80001232:	bd678793          	addi	a5,a5,-1066 # 80002e04 <__sf_fake_stderr>
 80001236:	fcf410e3          	bne	s0,a5,800011f6 <__swsetup_r+0x2a>
 8000123a:	44c0                	lw	s0,12(s1)
 8000123c:	bf6d                	j	800011f6 <__swsetup_r+0x2a>
@@ -3359,8 +3457,8 @@ __register_exitproc():
 800012d4:	81818513          	addi	a0,gp,-2024 # 90000078 <_global_atexit>
 800012d8:	411c                	lw	a5,0(a0)
 800012da:	ef91                	bnez	a5,800012f6 <__register_exitproc+0x24>
-800012dc:	10003717          	auipc	a4,0x10003
-800012e0:	82470713          	addi	a4,a4,-2012 # 90003b00 <_global_atexit0>
+800012dc:	10001717          	auipc	a4,0x10001
+800012e0:	17870713          	addi	a4,a4,376 # 90002454 <_global_atexit0>
 800012e4:	c118                	sw	a4,0(a0)
 800012e6:	00000513          	li	a0,0
 800012ea:	87ba                	mv	a5,a4
@@ -3540,7 +3638,7 @@ _fflush_r():
 800014a4:	2219                	jal	800015aa <__sinit>
 800014a6:	45b2                	lw	a1,12(sp)
 800014a8:	00002797          	auipc	a5,0x2
-800014ac:	92878793          	addi	a5,a5,-1752 # 80002dd0 <__sf_fake_stdin>
+800014ac:	97c78793          	addi	a5,a5,-1668 # 80002e24 <__sf_fake_stdin>
 800014b0:	00f59b63          	bne	a1,a5,800014c6 <_fflush_r+0x36>
 800014b4:	404c                	lw	a1,4(s0)
 800014b6:	00c59783          	lh	a5,12(a1)
@@ -3551,12 +3649,12 @@ _fflush_r():
 800014c2:	6105                	addi	sp,sp,32
 800014c4:	b559                	j	8000134a <__sflush_r>
 800014c6:	00002797          	auipc	a5,0x2
-800014ca:	92a78793          	addi	a5,a5,-1750 # 80002df0 <__sf_fake_stdout>
+800014ca:	97e78793          	addi	a5,a5,-1666 # 80002e44 <__sf_fake_stdout>
 800014ce:	00f59463          	bne	a1,a5,800014d6 <_fflush_r+0x46>
 800014d2:	440c                	lw	a1,8(s0)
 800014d4:	b7cd                	j	800014b6 <_fflush_r+0x26>
 800014d6:	00002797          	auipc	a5,0x2
-800014da:	8da78793          	addi	a5,a5,-1830 # 80002db0 <__sf_fake_stderr>
+800014da:	92e78793          	addi	a5,a5,-1746 # 80002e04 <__sf_fake_stderr>
 800014de:	fcf59ce3          	bne	a1,a5,800014b6 <_fflush_r+0x26>
 800014e2:	444c                	lw	a1,12(s0)
 800014e4:	bfc9                	j	800014b6 <_fflush_r+0x26>
@@ -4182,7 +4280,7 @@ _vfiprintf_r():
 80001aae:	e391                	bnez	a5,80001ab2 <_vfiprintf_r+0x28>
 80001ab0:	3ced                	jal	800015aa <__sinit>
 80001ab2:	00001797          	auipc	a5,0x1
-80001ab6:	31e78793          	addi	a5,a5,798 # 80002dd0 <__sf_fake_stdin>
+80001ab6:	37278793          	addi	a5,a5,882 # 80002e24 <__sf_fake_stdin>
 80001aba:	0cf49b63          	bne	s1,a5,80001b90 <_vfiprintf_r+0x106>
 80001abe:	0049a483          	lw	s1,4(s3)
 80001ac2:	00c4d783          	lhu	a5,12(s1)
@@ -4198,7 +4296,7 @@ _vfiprintf_r():
 80001ae0:	c622                	sw	s0,12(sp)
 80001ae2:	02500b93          	li	s7,37
 80001ae6:	00001a97          	auipc	s5,0x1
-80001aea:	32aa8a93          	addi	s5,s5,810 # 80002e10 <__sf_fake_stdout+0x20>
+80001aea:	37ea8a93          	addi	s5,s5,894 # 80002e64 <__sf_fake_stdout+0x20>
 80001aee:	4c05                	li	s8,1
 80001af0:	4b29                	li	s6,10
 80001af2:	844a                	mv	s0,s2
@@ -4257,12 +4355,12 @@ _vfiprintf_r():
 80001b8c:	ce3e                	sw	a5,28(sp)
 80001b8e:	a885                	j	80001bfe <_vfiprintf_r+0x174>
 80001b90:	00001797          	auipc	a5,0x1
-80001b94:	26078793          	addi	a5,a5,608 # 80002df0 <__sf_fake_stdout>
+80001b94:	2b478793          	addi	a5,a5,692 # 80002e44 <__sf_fake_stdout>
 80001b98:	00f49563          	bne	s1,a5,80001ba2 <_vfiprintf_r+0x118>
 80001b9c:	0089a483          	lw	s1,8(s3)
 80001ba0:	b70d                	j	80001ac2 <_vfiprintf_r+0x38>
 80001ba2:	00001797          	auipc	a5,0x1
-80001ba6:	20e78793          	addi	a5,a5,526 # 80002db0 <__sf_fake_stderr>
+80001ba6:	26278793          	addi	a5,a5,610 # 80002e04 <__sf_fake_stderr>
 80001baa:	f0f49ce3          	bne	s1,a5,80001ac2 <_vfiprintf_r+0x38>
 80001bae:	00c9a483          	lw	s1,12(s3)
 80001bb2:	bf01                	j	80001ac2 <_vfiprintf_r+0x38>
@@ -4337,11 +4435,11 @@ _vfiprintf_r():
 80001c64:	00044583          	lbu	a1,0(s0)
 80001c68:	460d                	li	a2,3
 80001c6a:	00001517          	auipc	a0,0x1
-80001c6e:	1ae50513          	addi	a0,a0,430 # 80002e18 <__sf_fake_stdout+0x28>
+80001c6e:	20250513          	addi	a0,a0,514 # 80002e6c <__sf_fake_stdout+0x28>
 80001c72:	2485                	jal	80001ed2 <memchr>
 80001c74:	cd11                	beqz	a0,80001c90 <_vfiprintf_r+0x206>
 80001c76:	00001797          	auipc	a5,0x1
-80001c7a:	1a278793          	addi	a5,a5,418 # 80002e18 <__sf_fake_stdout+0x28>
+80001c7a:	1f678793          	addi	a5,a5,502 # 80002e6c <__sf_fake_stdout+0x28>
 80001c7e:	8d1d                	sub	a0,a0,a5
 80001c80:	04000793          	li	a5,64
 80001c84:	00a797b3          	sll	a5,a5,a0
@@ -4352,7 +4450,7 @@ _vfiprintf_r():
 80001c90:	00044583          	lbu	a1,0(s0)
 80001c94:	4619                	li	a2,6
 80001c96:	00001517          	auipc	a0,0x1
-80001c9a:	18650513          	addi	a0,a0,390 # 80002e1c <__sf_fake_stdout+0x2c>
+80001c9a:	1da50513          	addi	a0,a0,474 # 80002e70 <__sf_fake_stdout+0x2c>
 80001c9e:	00140913          	addi	s2,s0,1
 80001ca2:	02b10423          	sb	a1,40(sp)
 80001ca6:	2435                	jal	80001ed2 <memchr>
@@ -4774,7 +4872,7 @@ _printf_i():
 8000204c:	4655                	li	a2,21
 8000204e:	fef666e3          	bltu	a2,a5,8000203a <_printf_i+0x3e>
 80002052:	00001617          	auipc	a2,0x1
-80002056:	dfa60613          	addi	a2,a2,-518 # 80002e4c <__sf_fake_stdout+0x5c>
+80002056:	e4e60613          	addi	a2,a2,-434 # 80002ea0 <__sf_fake_stdout+0x5c>
 8000205a:	078a                	slli	a5,a5,0x2
 8000205c:	97b2                	add	a5,a5,a2
 8000205e:	439c                	lw	a5,0(a5)
@@ -4800,7 +4898,7 @@ _printf_i():
 80002094:	40f007b3          	neg	a5,a5
 80002098:	04e401a3          	sb	a4,67(s0)
 8000209c:	00001617          	auipc	a2,0x1
-800020a0:	d8860613          	addi	a2,a2,-632 # 80002e24 <__sf_fake_stdout+0x34>
+800020a0:	ddc60613          	addi	a2,a2,-548 # 80002e78 <__sf_fake_stdout+0x34>
 800020a4:	4829                	li	a6,10
 800020a6:	a0a1                	j	800020ee <_printf_i+0xf2>
 800020a8:	0407f613          	andi	a2,a5,64
@@ -4824,7 +4922,7 @@ _printf_i():
 800020d4:	0007d783          	lhu	a5,0(a5)
 800020d8:	06f00713          	li	a4,111
 800020dc:	00001617          	auipc	a2,0x1
-800020e0:	d4860613          	addi	a2,a2,-696 # 80002e24 <__sf_fake_stdout+0x34>
+800020e0:	d9c60613          	addi	a2,a2,-612 # 80002e78 <__sf_fake_stdout+0x34>
 800020e4:	0ee80463          	beq	a6,a4,800021cc <_printf_i+0x1d0>
 800020e8:	4829                	li	a6,10
 800020ea:	040401a3          	sb	zero,67(s0)
@@ -4880,7 +4978,7 @@ _printf_i():
 80002168:	8082                	ret
 8000216a:	050582a3          	sb	a6,69(a1)
 8000216e:	00001617          	auipc	a2,0x1
-80002172:	cb660613          	addi	a2,a2,-842 # 80002e24 <__sf_fake_stdout+0x34>
+80002172:	d0a60613          	addi	a2,a2,-758 # 80002e78 <__sf_fake_stdout+0x34>
 80002176:	400c                	lw	a1,0(s0)
 80002178:	4308                	lw	a0,0(a4)
 8000217a:	0805f813          	andi	a6,a1,128
@@ -4904,7 +5002,7 @@ _printf_i():
 800021aa:	07800793          	li	a5,120
 800021ae:	04f402a3          	sb	a5,69(s0)
 800021b2:	00001617          	auipc	a2,0x1
-800021b6:	c8660613          	addi	a2,a2,-890 # 80002e38 <__sf_fake_stdout+0x48>
+800021b6:	cda60613          	addi	a2,a2,-806 # 80002e8c <__sf_fake_stdout+0x48>
 800021ba:	bf75                	j	80002176 <_printf_i+0x17a>
 800021bc:	0405f813          	andi	a6,a1,64
 800021c0:	c308                	sw	a0,0(a4)

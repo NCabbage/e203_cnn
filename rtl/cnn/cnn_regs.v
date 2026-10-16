@@ -1,5 +1,5 @@
 // ===========================================================================
-// cnn_regs.v  --  CNN 寄存器组（权重预加载 BRAM + PMU 合并版）
+// cnn_regs.v  --  CNN 寄存器组（权重预加载 BRAM + PMU + Pooling）
 //
 // 寄存器映射（基址 0x4000_0000）：
 //   0x00 CTRL     W  [0]start [2]clr_iptr [3]clr_bptr
@@ -8,7 +8,7 @@
 //   0x0C IDATA    W  输入激活
 //   0x10 BIAS     W  偏置
 //   0x14 CFG0     W  H/W/C/K
-//   0x18 CFG1     W  OC/STRIDE/PAD/SHIFT/RELU
+//   0x18 CFG1     W  OC/STRIDE/PAD/SHIFT/RELU/POOL[20]
 //   0x1C OINDEX   W
 //   0x20 ODATA    R
 //   0x24 WPTR     R  保留，恒 0
@@ -76,7 +76,7 @@ module cnn_regs #(
     reg [3:0] cfg_pad;
     reg [4:0] cfg_shift;
     reg       cfg_relu;
-reg       cfg_pool;          // CFG1[20]
+    reg       cfg_pool;          // CFG1[20]
 
     // ------------------------------------------------ 指针与控制
     reg [11:0] iptr;
@@ -156,7 +156,7 @@ reg       cfg_pool;          // CFG1[20]
             cfg_pad   <= wr_data[13:10];
             cfg_shift <= wr_data[18:14];
             cfg_relu  <= wr_data[19];
-cfg_pool  <= wr_data[20];
+            cfg_pool  <= wr_data[20];
         end
     end
 
@@ -165,9 +165,7 @@ cfg_pool  <= wr_data[20];
     wire signed [7:0] cnn_y;
     wire [11:0] cnn_ycount;
 
-    cnn_top #(
-        .W_TOTAL_WORDS (11060)
-    ) u_cnn (
+    cnn_top u_cnn (
         .clk        (clk        ),
         .rst_n      (rst_n      ),
         .cfg_h      (cfg_h      ),

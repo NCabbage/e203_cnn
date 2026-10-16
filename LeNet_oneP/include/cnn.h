@@ -8,8 +8,6 @@
 #ifndef CNN_H_
 #define CNN_H_
 
-#ifndef __CNN_H__
-#define __CNN_H__
 #include <stdint.h>
 
 /* ---- 寄存器地址 ---- */
@@ -142,6 +140,17 @@ static inline void cnn_layer(int in_h, int in_w, int in_c, int k,
         y[i] = cnn_read_output(i);
 }
 
-#endif /* __CNN_H__ */
+static inline void cnn_pool(int in_h, int in_w, int in_c,
+                            const int8_t *x, int8_t *y, int out_n)
+{
+    cnn_clear_ptrs();
+    CNN_WR(CNN_CFG0, cnn_cfg0(in_h, in_w, in_c, 2));                  // K=2
+    CNN_WR(CNN_CFG1, cnn_cfg1(in_c, 2, 0, 0, 0) | (1u << 20));        // stride=2, pool=1
+    cnn_load_input(x, in_h * in_w * in_c);
+    cnn_run();
+    for (int i = 0; i < out_n; i++)
+        y[i] = cnn_read_output(i);
+}
+
 
 #endif /* CNN_H_ */
