@@ -213,6 +213,57 @@ def make_pool_case():
     return True
 
 
+def make_fc_case():
+    """t9_fc: 全连接 = 1x1 卷积（H=W=1, K=1, C=输入维, OC=类别数）
+
+    验证 cnn_top 用 K=1 退化路径就能跑全连接层，数值与 golden_fc.fc_int8 一致。
+    """
+    from golden_fc import fc_int8
+    C, OC = 8, 4
+    xv = np.array([  5, -10,  15, -20,  25, -30,  35, -40], np.int8)
+    # 确定性权重，便于 main.c 里的上板自检用同一公式重建
+    wv = np.array([[(c * 3 + oc * 5) % 17 - 8 for oc in range(OC)] for c in range(C)], np.int64).astype(np.int8)
+    bv = np.array([3, -5, 7, 0], np.int64)
+    SHIFT = 4          # 累加上界 8*180=1440，>>4 = 90，不饱和
+
+    y_fc = fc_int8(xv, wv, bv, shift=SHIFT, relu=False)      # [OC]
+    # 1x1 卷积形式
+    x = xv.reshape(1, 1, C)
+    w = wv.reshape(1, 1, C, OC)
+    y_conv = conv2d_int8(x, w, bv, stride=1, pad=0, shift=SHIFT, relu=False)
+    assert np.array_equal(y_fc.reshape(1, 1, OC), y_conv), "FC != 1x1 conv!"
+
+    dump_case("t9_fc", x, w, bv, y_conv, 1, 0, SHIFT, 0,
+              "FC as 1x1 conv: C=8 -> OC=4, SHIFT=4 (H=W=1 K=1)", pool=0)
+    print("       FC(8->4) 与 1x1 conv 结果一致: " + str(y_fc.tolist()))
+    return True
+
+
+def make_sobel_case():
+    """t10_sobel: Sobel 边缘检测 = 3x3 卷积 + 双输出通道（Gx / Gy）"""
+    H = W = 8
+    img = np.zeros((H, W), np.int8)
+    img[2:6, 2:6] = 30          # 中间一个方块 -> 四周有边缘
+    img[0:2, 6:8] = -30         # 右上角一块负区域
+    x = img[:, :, None]
+
+    gx = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]], np.int64)
+    gy = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]], np.int64)
+    w = np.zeros((3, 3, 1, 2), np.int8)
+    w[:, :, 0, 0] = gx.astype(np.int8)     # oc0 = Gx
+    w[:, :, 0, 1] = gy.astype(np.int8)     # oc1 = Gy
+    b = np.zeros(2, np.int64)
+
+    y = conv2d_int8(x, w, b, stride=1, pad=0, shift=0, relu=False)   # [6,6,2]
+    dump_case("t10_sobel", x, w, b, y, 1, 0, 0, 0,
+              "Sobel 3x3 dual-kernel: Gx(oc0) / Gy(oc1), 8x8x1 -> 6x6x2",
+              pool=0)
+    gxm = int(np.abs(y[..., 0]).max())
+    gym = int(np.abs(y[..., 1]).max())
+    print(f"       Sobel 输出幅度: |Gx|max={gxm}  |Gy|max={gym}")
+    return True
+
+
 def make_big_case():
     rng = np.random.default_rng(SEED + 1)
     # 28x28 灰度（模拟 MNIST 一张图），3x3 卷积 + pad1，4 个输出通道
@@ -240,6 +291,8 @@ def main():
         dump_case(name, x, w, b, y, st, pd, sh, rl, note)
 
     make_pool_case()   # t8_pool: 2x2 max pooling
+    make_fc_case()     # t9_fc: 全连接 = 1x1 卷积
+    make_sobel_case()  # t10_sobel: Sobel 双核边缘检测
 
     with open(os.path.join(OUT_ROOT, "manifest.txt"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write("INT8 卷积测试向量清单\n")

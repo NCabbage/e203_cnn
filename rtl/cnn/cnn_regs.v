@@ -165,7 +165,9 @@ module cnn_regs #(
     wire signed [7:0] cnn_y;
     wire [11:0] cnn_ycount;
 
-    cnn_top u_cnn (
+    cnn_top #(
+        .W_TOTAL_WORDS (11066)
+    ) u_cnn (
         .clk        (clk        ),
         .rst_n      (rst_n      ),
         .cfg_h      (cfg_h      ),

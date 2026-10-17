@@ -10,7 +10,8 @@
 #define W_BASE_C5      650u   // num_tap_groups=64
 #define W_BASE_F6     8330u   // num_tap_groups=30
 #define W_BASE_OUT   10850u   // num_tap_groups=21
+#define W_BASE_SOBEL 11060u   // num_tap_groups=3, OC=2 (oc0=Gx, oc1=Gy), K=3 C=1
 
-#define W_TOTAL_WORDS_TAP 11060u
+#define W_TOTAL_WORDS_TAP 11066u
 
 #endif

@@ -26,7 +26,13 @@
 //   - 每个输出点只需 1 拍
 //===========================================================================
 
-module cnn_top (
+module cnn_top #(
+    parameter X_DEPTH       = 4096,
+    parameter Y_DEPTH       = 4096,
+    parameter B_DEPTH       = 256,
+    parameter PAR           = 4,
+    parameter W_TOTAL_WORDS = 11066   // LeNet(11060) + Sobel(6)，见 wbase_tap.h
+)(
     input  wire               clk,
     input  wire               rst_n,
 

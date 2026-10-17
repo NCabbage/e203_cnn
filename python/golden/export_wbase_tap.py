@@ -34,7 +34,8 @@ LAYERS = [
     ("F6",  "f6_weight_hw",  1*1*120,  84, 8330),
     ("OUT", "out_weight_hw", 1*1*84,   10, 10850),
 ]
-TOTAL_WORDS = 11060
+TOTAL_WORDS = 11066      # 11060(LeNet) + 6(Sobel Gx/Gy)
+SOBEL_BASE = 11060
 
 
 def pack_layer(w, tap_total, oc, groups, base, words):
@@ -50,6 +51,23 @@ def pack_layer(w, tap_total, oc, groups, base, words):
             words[base + o * groups + g] = word
 
 
+def pack_sobel(words):
+    """Sobel Gx/Gy 双核，追加在 LeNet 权重之后。
+    K=3, C=1, OC=2；oc0 = Gx, oc1 = Gy；tap = kh*3 + kw。"""
+    gx = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]
+    gy = [[-1, -2, -1], [0, 0, 0], [1, 2, 1]]
+    for oc, kern in enumerate((gx, gy)):
+        flat = [kern[kh][kw] for kh in range(3) for kw in range(3)]
+        for g in range(3):
+            word = 0
+            for lane in range(4):
+                tap = g * 4 + lane
+                val = flat[tap] if tap < 9 else 0
+                word |= (val & 0xFF) << (8 * lane)
+            words[SOBEL_BASE + oc * 3 + g] = word
+    print(f"SOBEL base={SOBEL_BASE:5d} groups=3 oc=2 words=6 end={SOBEL_BASE + 6:5d}")
+
+
 def main():
     arrays = parse_c_arrays(WEIGHTS_H)
     words = [0] * TOTAL_WORDS
@@ -59,6 +77,8 @@ def main():
             raise SystemExit(f"missing weight array: {key}")
         pack_layer(arrays[key], tap_total, oc, groups, base, words)
         print(f"{name:4s} base={base:5d} groups={groups:3d} oc={oc:3d} words={groups*oc:5d} end={base+groups*oc:5d}")
+
+    pack_sobel(words)
 
     with OUT_HEX.open("w", encoding="ascii") as f:
         for w in words:
