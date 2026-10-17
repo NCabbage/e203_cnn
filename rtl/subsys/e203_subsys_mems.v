@@ -81,7 +81,15 @@ module e203_subsys_mems(
 
   input  clk,
   input  bus_rst_n,
-  input  rst_n
+  input  rst_n,
+
+  // nice_start_r : NICE wrapper -> cnn_regs   （本模块输入）
+  // cnn_done / cnn_cycles : cnn_regs -> NICE wrapper （必须是输出：
+  //   写成 input 会让父层网络无驱动，综合时被接成常数 0，NICE 永远等不到 done）
+  input  wire        nice_start_r,
+  output wire        cnn_done,
+  output wire [31:0] cnn_cycles
+
   );
 
 
@@ -571,7 +579,11 @@ cnn_regs # (
   .wr_mask 	  (o_ctrl_wr_mask ),
   .rd_addr		(o_ctrl_rd_addr ),
 
-  .rd_data		(i_ctrl_rd_data )
+  .rd_data		(i_ctrl_rd_data ),
+
+  .nice_start_r   (nice_start_r   ),
+  .cnn_done_out   (cnn_done       ),
+  .cnn_cycles_out (cnn_cycles     )
 
 );
 

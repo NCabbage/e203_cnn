@@ -39,7 +39,11 @@ module cnn_regs #(
     input  wire [(DW/8)-1:0]   wr_mask,
 
     input  wire [AW-1:0]       rd_addr,
-    output reg  [DW-1:0]       rd_data
+    output reg  [DW-1:0]       rd_data,
+
+    input  wire                nice_start_r,
+    output wire                cnn_done_out,
+    output wire [31:0]         cnn_cycles_out
 );
 
     // ------------------------------------------------ 地址
@@ -82,9 +86,9 @@ module cnn_regs #(
     reg [11:0] iptr;
     reg [7:0]  bptr;
     reg [11:0] oidx;
-    reg        cnn_start;
+    reg ctrl_start_r;
     reg [15:0] w_base;
-
+    reg nice_mode_r;
     // ------------------------------------------------ PMU
     reg  [31:0] pmu_axi_wr;
     reg         pmu_en;
@@ -112,8 +116,8 @@ module cnn_regs #(
     end
 
     always @(posedge clk or negedge rst_n) begin
-        if (!rst_n)                    cnn_start <= 1'b0;
-        else if (wr && (wa == A_CTRL)) cnn_start <= wr_data[0];
+        if (!rst_n)                    ctrl_start_r <= 1'b0;
+        else if (wr && (wa == A_CTRL)) ctrl_start_r <= wr_data[0];
     end
 
     always @(posedge clk or negedge rst_n) begin
@@ -141,6 +145,16 @@ module cnn_regs #(
     end
 
     always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)                    nice_mode_r <= 1'b1;
+        else if (wr && (wa == A_CTRL)) nice_mode_r <= wr_data[31];
+    end
+
+    wire cnn_start = nice_mode_r ? nice_start_r : ctrl_start_r;
+
+    // cnn_done_out / cnn_cycles_out 的 assign 放到下方“CNN 内核”段、
+    // cnn_done 声明之后（先引用后声明会生成 implicit net，综合出多驱动 + GND）
+
+    always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             cfg_h <= 8'd0; cfg_w <= 8'd0; cfg_c <= 8'd0; cfg_k <= 8'd0;
             cfg_oc <= 8'd0; cfg_stride <= 2'd0; cfg_pad <= 4'd0;
@@ -162,6 +176,9 @@ module cnn_regs #(
 
     // ------------------------------------------------ CNN 内核
     wire        cnn_busy, cnn_done;
+
+    assign cnn_done_out   = cnn_done;
+    assign cnn_cycles_out = pmu_total_cycles;
     wire signed [7:0] cnn_y;
     wire [11:0] cnn_ycount;
 

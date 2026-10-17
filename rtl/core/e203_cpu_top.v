@@ -231,7 +231,10 @@ module e203_cpu_top(
   input  clk,
 
   // The low-level active reset signal, treated as async
-  input  rst_n
+  input  rst_n,
+  output nice_start_r,
+  input  cnn_done,
+  input  [31:0] cnn_cycles
   );
 
   `ifdef E203_HAS_ITCM //{
@@ -546,7 +549,13 @@ module e203_cpu_top(
   `ifndef E203_HAS_LOCKSTEP//{
   `endif//}
     .rst_n         (rst_n),
-    .clk           (clk  ) 
+    .clk           (clk  ),
+
+    // NICE <-> CNN 紧耦合：这一层（cpu_top -> cpu）也必须接，
+    // 否则 cpu_top 的 output 没有驱动、cnn_done 到不了 wrapper
+    .nice_start_r  (nice_start_r),
+    .cnn_done      (cnn_done    ),
+    .cnn_cycles    (cnn_cycles  )
 
   );
 

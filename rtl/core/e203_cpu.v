@@ -283,7 +283,12 @@ module e203_cpu #(
   input  test_mode,
 
   input  clk,
-  input  rst_n
+  input  rst_n,
+
+    // 新增的 CNN 控制线
+  output nice_start_r,
+  input  cnn_done,
+  input  [31:0] cnn_cycles
   );
 
   wire core_cgstop;
@@ -484,36 +489,46 @@ module e203_cpu #(
    /* output*/ wire  [`E203_XLEN-1:0]  nice_icb_rsp_rdata      ;
    /* output*/ wire  nice_icb_rsp_err                          ; 
 
-   e203_subsys_nice_core u_e203_nice_core  (
-    
-    .nice_clk             (clk_aon),
-    .nice_rst_n	          (rst_aon),
-    .nice_active	         (),
-    .nice_mem_holdup	  (nice_mem_holdup),
-    
-    .nice_req_valid       (nice_req_valid),
-    .nice_req_ready       (nice_req_ready),
-    .nice_req_inst        (nice_req_inst),
-    .nice_req_rs1         (nice_req_rs1),
-    .nice_req_rs2         (nice_req_rs2),
-    
-    .nice_rsp_valid       (nice_rsp_multicyc_valid),
-    .nice_rsp_ready       (nice_rsp_multicyc_ready),
-    .nice_rsp_rdat        (nice_rsp_multicyc_dat),
-    .nice_rsp_err    	  (nice_rsp_multicyc_err),
-    
-    .nice_icb_cmd_valid   (nice_icb_cmd_valid),
-    .nice_icb_cmd_ready   (nice_icb_cmd_ready),
-    .nice_icb_cmd_addr    (nice_icb_cmd_addr),
-    .nice_icb_cmd_read    (nice_icb_cmd_read),
-    .nice_icb_cmd_wdata   (nice_icb_cmd_wdata),
-    .nice_icb_cmd_size    (nice_icb_cmd_size),
-    
-    .nice_icb_rsp_valid   (nice_icb_rsp_valid),
-    .nice_icb_rsp_ready   (nice_icb_rsp_ready),
-    .nice_icb_rsp_rdata   (nice_icb_rsp_rdata),
-    .nice_icb_rsp_err     (nice_icb_rsp_err)	
+   cnn_nice_wrapper u_cnn_nice_wrapper (
+    // 必须用 clk_aon / rst_aon（= clk，永不门控，且与 cnn_regs 的 hfclk 同源）。
+    // clk_core_exu 是 exu_clk_en = core_cgstop | core_exu_active 的动态门控时钟，
+    // EXU 一停下来它就不跳，而 NICE 设备恰恰要在 CPU 停住时继续跑 → 潜在死锁。
+    .clk             (clk_aon),
+    .rst_n           (rst_aon),
 
+    // 请求通道
+    .nice_req_valid  (nice_req_valid),
+    .nice_req_ready  (nice_req_ready),
+    .nice_req_inst   (nice_req_inst),
+    .nice_req_rs1    (nice_req_rs1),
+    .nice_req_rs2    (nice_req_rs2),
+
+    // 响应通道
+    .nice_rsp_valid  (nice_rsp_multicyc_valid),
+    .nice_rsp_ready  (nice_rsp_multicyc_ready),
+    .nice_rsp_rdat   (nice_rsp_multicyc_dat),
+    .nice_rsp_err    (nice_rsp_multicyc_err),
+
+    // 存储通道 (本版本不用，但必须连上)
+    .nice_icb_cmd_valid  (nice_icb_cmd_valid),
+    .nice_icb_cmd_ready  (nice_icb_cmd_ready),
+    .nice_icb_cmd_addr   (nice_icb_cmd_addr),
+    .nice_icb_cmd_read   (nice_icb_cmd_read),
+    .nice_icb_cmd_wdata  (nice_icb_cmd_wdata),
+    .nice_icb_cmd_size   (nice_icb_cmd_size),
+    .nice_icb_rsp_valid  (nice_icb_rsp_valid),
+    .nice_icb_rsp_ready  (nice_icb_rsp_ready),
+    .nice_icb_rsp_rdata  (nice_icb_rsp_rdata),
+    .nice_icb_rsp_err    (nice_icb_rsp_err),
+
+    // 状态信号
+    .nice_active         (),
+    .nice_mem_holdup     (nice_mem_holdup),
+
+    // 对接你新加的顶层端口
+    .nice_start_r        (nice_start_r),
+    .cnn_done            (cnn_done),
+    .cnn_cycles          (cnn_cycles)
    );
   `endif//}
 

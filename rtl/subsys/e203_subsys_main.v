@@ -464,6 +464,12 @@ module e203_subsys_main(
 
   wire core_wfi;
 
+  // NICE <-> CNN 紧耦合握手线：必须显式声明，
+  // 否则 implicit net 只有 1 bit 且无驱动（cnn_done 会变成常数 0）
+  wire        nice_start_r;
+  wire        cnn_done;
+  wire [31:0] cnn_cycles;
+
 
 
   e203_cpu_top u_e203_cpu_top(
@@ -613,7 +619,11 @@ module e203_subsys_main(
 
     .test_mode     (test_mode), 
     .clk           (hfclk  ),
-    .rst_n         (core_rst_n) 
+    .rst_n         (core_rst_n),
+
+    .nice_start_r    (nice_start_r),
+    .cnn_done        (cnn_done    ),
+    .cnn_cycles      (cnn_cycles  )
   );
 
   wire  qspi0_irq; 
@@ -884,7 +894,11 @@ e203_subsys_mems u_e203_subsys_mems(
 
     .clk           (hfclk  ),
     .bus_rst_n     (bus_rst_n), 
-    .rst_n         (per_rst_n) 
+    .rst_n         (per_rst_n),
+
+    .nice_start_r (nice_start_r),
+    .cnn_done     (cnn_done),
+    .cnn_cycles   (cnn_cycles)
   );
 
 
