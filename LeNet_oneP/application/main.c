@@ -256,6 +256,64 @@ int main(void)
     }
     printf("===== Sobel Done =====\n\n");
 
+    // ---- Sobel 边缘检测自检（K=3, C=1, OC=2；权重在 ROM 的 W_BASE_SOBEL 段）----
+    printf("===== Sobel Edge Selftest (K=3, OC=2) =====\n");
+    {
+        static const int8_t sob_in[64] = {
+             0,  0,  0,  0,  0,  0,-30,-30,
+             0,  0,  0,  0,  0,  0,-30,-30,
+             0,  0, 30, 30, 30, 30,  0,  0,
+             0,  0, 30, 30, 30, 30,  0,  0,
+             0,  0, 30, 30, 30, 30,  0,  0,
+             0,  0, 30, 30, 30, 30,  0,  0,
+             0,  0,  0,  0,  0,  0,  0,  0,
+             0,  0,  0,  0,  0,  0,  0,  0
+        };
+        static const int32_t sob_b[2] = { 0, 0 };
+        int8_t gx[36], gy[36];
+        int nz = 0, gx_mid0 = 1, gy_mid0 = 1, r, c;
+
+        cnn_clear_ptrs();
+        cnn_set_wbase(W_BASE_SOBEL);
+        cnn_config(8, 8, 1, 3, 2, 1, 0, 0, 0);   /* H=8 W=8 C=1 K=3 OC=2 S=1 SHIFT=0 RELU=0 */
+        cnn_load_input(sob_in, 64);
+        cnn_load_bias(sob_b, 2);
+        cnn_run();
+
+        for (r = 0; r < 36; r++) {
+            gx[r] = cnn_read_output((uint32_t)(r * 2 + 0));   /* oc0 = Gx */
+            gy[r] = cnn_read_output((uint32_t)(r * 2 + 1));   /* oc1 = Gy */
+        }
+
+        printf("  Gx (vertical edges, 6x6):\n");
+        for (r = 0; r < 6; r++) {
+            printf("   ");
+            for (c = 0; c < 6; c++) printf("%5d", (int)gx[r * 6 + c]);
+            printf("\n");
+        }
+        printf("  Gy (horizontal edges, 6x6):\n");
+        for (r = 0; r < 6; r++) {
+            printf("   ");
+            for (c = 0; c < 6; c++) printf("%5d", (int)gy[r * 6 + c]);
+            printf("\n");
+        }
+
+        for (r = 0; r < 36; r++) {
+            if (gx[r] != 0) nz++;
+            if (gy[r] != 0) nz++;
+        }
+        for (r = 0; r < 6; r++)                 /* 方块内部：Gx 中两列应为 0 */
+            if (gx[r * 6 + 2] != 0 || gx[r * 6 + 3] != 0) gx_mid0 = 0;
+        for (c = 0; c < 6; c++)                 /* 方块内部：Gy 中两行应为 0 */
+            if (gy[2 * 6 + c] != 0 || gy[3 * 6 + c] != 0) gy_mid0 = 0;
+
+        printf("  nonzero = %d (expect 48)  Gx-mid-cols-zero = %d  Gy-mid-rows-zero = %d\n",
+               nz, gx_mid0, gy_mid0);
+        printf("SOBEL SELFTEST: %s\n",
+               (nz == 48 && gx_mid0 && gy_mid0) ? "PASS" : "FAIL");
+    }
+    printf("===== Sobel Done =====\n\n");
+
     while (1);
     return 0;
 }
