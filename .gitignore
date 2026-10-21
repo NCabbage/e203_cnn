@@ -9,11 +9,6 @@ prj/
 *.v~
 xdc/
 tb/
-sdk/
-ip/
 hex/
 build_prj.tcl
-py/
-gold/
-vitis/
 data/

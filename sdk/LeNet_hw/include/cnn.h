@@ -1,0 +1,166 @@
+/*
+ * cnn.h
+ *
+ *  Created on: 2026年10月3日
+ *      Author: lenovo
+ */
+
+#ifndef CNN_H_
+#define CNN_H_
+
+#include <stdint.h>
+
+/* ---- 寄存器地址 ---- */
+#define CNN_BASE     0x40000000UL
+#define CNN_CTRL     (CNN_BASE + 0x00)
+#define CNN_STATUS   (CNN_BASE + 0x04)
+#define CNN_WDATA    (CNN_BASE + 0x08)   /* 保留但不再使用 */
+#define CNN_IDATA    (CNN_BASE + 0x0C)
+#define CNN_BIAS     (CNN_BASE + 0x10)
+#define CNN_CFG0     (CNN_BASE + 0x14)
+#define CNN_CFG1     (CNN_BASE + 0x18)
+#define CNN_OINDEX   (CNN_BASE + 0x1C)
+#define CNN_ODATA    (CNN_BASE + 0x20)
+#define CNN_WPTR     (CNN_BASE + 0x24)   /* 保留，读恒 0 */
+#define CNN_IPTR     (CNN_BASE + 0x28)
+#define CNN_YCOUNT   (CNN_BASE + 0x2C)
+#define CNN_VERSION  (CNN_BASE + 0x30)
+#define CNN_WBASE    (CNN_BASE + 0x54)   /* 新增：每层权重起始字地址，避开 PMU 0x34-0x50 */
+
+/* ---- PMU 寄存器（加速器侧性能监测，0x34-0x50） ---- */
+#define CNN_PMU_CTRL     (CNN_BASE + 0x34)   /* bit0=enable, bit1=clear */
+#define CNN_PMU_MAC      (CNN_BASE + 0x38)
+#define CNN_PMU_WLOAD    (CNN_BASE + 0x3C)
+#define CNN_PMU_XLOAD    (CNN_BASE + 0x40)
+#define CNN_PMU_BUBBLE   (CNN_BASE + 0x44)
+#define CNN_PMU_TOTAL    (CNN_BASE + 0x48)
+#define CNN_PMU_AXIWR    (CNN_BASE + 0x4C)
+#define CNN_PMU_VERSION  (CNN_BASE + 0x50)
+
+#define CNN_PMU_CTRL_EN     (1u << 0)
+#define CNN_PMU_CTRL_CLEAR  (1u << 1)
+
+/* ---- CTRL 位定义 ---- */
+#define CNN_CTRL_START     (1u<<0)
+#define CNN_CTRL_CLR_WPTR  (1u<<1)       /* 保留，无实际作用 */
+#define CNN_CTRL_CLR_IPTR  (1u<<2)
+#define CNN_CTRL_CLR_BPTR  (1u<<3)
+
+/* ---- STATUS 位定义 ---- */
+#define CNN_STATUS_BUSY    (1u<<0)
+#define CNN_STATUS_DONE    (1u<<1)
+
+/* ---- 读写宏 ---- */
+#define CNN_RD(a)   (*(volatile uint32_t *)(a))
+#define CNN_WR(a,v) do { (*(volatile uint32_t *)(a)) = (uint32_t)(v); } while (0)
+
+#define CNN_CTRL_NICE_MODE  (1u << 31)  /* 必须保持 bit31=1，否则退回 MMIO */
+
+/* ---- NICE 自定义指令封装 (Custom3: 0x7B) ---- */
+__STATIC_FORCEINLINE void cnn_start(void) {
+    asm volatile (".insn r 0x7B, 1, 0, x0, x0, x0");
+}
+
+__STATIC_FORCEINLINE uint32_t cnn_wait(void) {
+    uint32_t cycles;
+    asm volatile (".insn r 0x7B, 2, 0, %0, x0, x0" : "=r"(cycles));
+    return cycles;
+}
+/* ---- 配置组装 ---- */
+static inline uint32_t cnn_cfg0(uint32_t h, uint32_t w, uint32_t c, uint32_t k)
+{
+    return (h & 0xFF) | ((w & 0xFF) << 8) | ((c & 0xFF) << 16) | ((k & 0xFF) << 24);
+}
+static inline uint32_t cnn_cfg1(uint32_t oc, uint32_t stride, uint32_t pad,
+                                uint32_t shift, uint32_t relu)
+{
+    return (oc & 0xFF) | ((stride & 3u) << 8) | ((pad & 0xFu) << 10)
+         | ((shift & 0x1Fu) << 14) | ((relu & 1u) << 19);
+}
+
+/* ---- 基本操作 ---- */
+static inline int cnn_init(void)
+{
+    return (CNN_RD(CNN_VERSION) == 0x00010000u) ? 0 : -1;
+}
+
+/* 设置当前层的权重基地址（单位：32bit 字）
+ * 每层启动前调用一次，值从 wbase_tap.h 的 W_BASE_xxx 抄 */
+static inline void cnn_set_wbase(uint32_t base)
+{
+    CNN_WR(CNN_WBASE, base & 0xFFFFu);
+}
+
+static inline void cnn_clear_ptrs(void)
+{
+    /* 必须带上 NICE_MODE，保证 cnn_regs 里的 nice_mode_r 不被写成 0 */
+    CNN_WR(CNN_CTRL, CNN_CTRL_NICE_MODE | CNN_CTRL_CLR_IPTR | CNN_CTRL_CLR_BPTR);
+}
+static inline void cnn_config(uint32_t h, uint32_t w, uint32_t c, uint32_t k,
+                              uint32_t oc, uint32_t stride, uint32_t pad,
+                              uint32_t shift, uint32_t relu)
+{
+    CNN_WR(CNN_CFG0, cnn_cfg0(h, w, c, k));
+    CNN_WR(CNN_CFG1, cnn_cfg1(oc, stride, pad, shift, relu));
+}
+
+static inline void cnn_load_input(const int8_t *x, int n)
+{
+    for (int i = 0; i < n; i++)
+        CNN_WR(CNN_IDATA, (uint32_t)(int32_t)x[i]);
+}
+
+/* cnn_load_weight 已删除：权重预加载到 BRAM，不再由 CPU 写 */
+
+static inline void cnn_load_bias(const int32_t *b, int n)
+{
+    for (int i = 0; i < n; i++)
+        CNN_WR(CNN_BIAS, (uint32_t)b[i]);
+}
+
+static inline void cnn_run(void)
+{
+    cnn_start();  // 硬件会自动拉高 start，并在 wait 完成时自动拉低
+    cnn_wait();   // 阻塞等待 CNN 算完，此时不再占用系统总线轮询
+}
+
+static inline int8_t cnn_read_output(int idx)
+{
+    CNN_WR(CNN_OINDEX, (uint32_t)idx);
+    return (int8_t)CNN_RD(CNN_ODATA);
+}
+
+/* ---- 一层完整流程 ----
+ * 与原来相比：
+ *   - 去掉 w 参数（权重已在 BRAM）
+ *   - 调用前需要用 cnn_set_wbase(W_BASE_xxx) 设定层基地址
+ */
+static inline void cnn_layer(int in_h, int in_w, int in_c, int k,
+                             int oc, int stride, int pad, int shift, int relu,
+                             const int8_t *x, const int32_t *b,
+                             int8_t *y, int out_n)
+{
+    cnn_clear_ptrs();
+    cnn_config(in_h, in_w, in_c, k, oc, stride, pad, shift, relu);
+    cnn_load_input(x, in_h * in_w * in_c);
+    /* cnn_load_weight 删除 */
+    cnn_load_bias(b, oc);
+    cnn_run();
+    for (int i = 0; i < out_n; i++)
+        y[i] = cnn_read_output(i);
+}
+
+static inline void cnn_pool(int in_h, int in_w, int in_c,
+                            const int8_t *x, int8_t *y, int out_n)
+{
+    cnn_clear_ptrs();
+    CNN_WR(CNN_CFG0, cnn_cfg0(in_h, in_w, in_c, 2));                  // K=2
+    CNN_WR(CNN_CFG1, cnn_cfg1(in_c, 2, 0, 0, 0) | (1u << 20));        // stride=2, pool=1
+    cnn_load_input(x, in_h * in_w * in_c);
+    cnn_run();
+    for (int i = 0; i < out_n; i++)
+        y[i] = cnn_read_output(i);
+}
+
+
+#endif /* CNN_H_ */
