@@ -11,7 +11,7 @@
 | 开发板 | PYNQ-Z2，`xc7z020clg400-1` |
 | Vivado | 2025.2 |
 | CPU / 加速器 | E203 RV32IMAC + INT8 CNN 加速器 |
-| 串口 | FTDI Dual RS232，COM9；默认 115200 8N1。1000 张可靠模式验证在 57600 下完成，最终兼容版在 115200 下另做 20/20 回归 |
+| 串口 | FTDI Dual RS232，COM9；`LeNet_oneP` 自检 115200，`LeNet_hw` 批量服务器 57600 8N1 |
 | JTAG | OpenOCD，E203 IDCODE `0x1e200a6d` |
 | 仓库基线 | `bc883a4282e73ed041b4d7fe078fc892fa44b5ae` |
 
@@ -32,21 +32,22 @@
 
 ## 本次复现修正的问题
 
-1. ROM IP 原为 A 侧 2019.1 工具、`xc7z020clg400-2` 生成，在 -1 板工程中处于 locked 状态。必须 `upgrade_ip` 到当前 Vivado 版本并让 IP 跟随当前工程器件。
+1. 仓库 ROM IP 已统一为 Vivado 2025.2、BMG rev12；构建脚本仍会检查版本和 PART，并在新工程中强制重新生成。
 2. 仅替换 COE 后直接综合会复用旧 IP DCP。构建流程必须先 `generate_target all -force`，再单独综合 `rom_all_tap_synth_1`，最后综合顶层。
 3. ROM 不能直接用 golden 模型的 11066 字整体覆盖。正确布局是：原 LeNet 权重 11060 字保持不变，仅追加 Sobel 的 6 字。`python/golden/assemble_rom_tap_sobel.py` 负责该拼接。
 4. ROM 化后 `PMU_WLOAD` 应为 0；`rtl/cnn/cnn_top.v` 已恢复该语义。
-5. 原始 `RUN + 784 字节裸流` 在本板长批次中会偶发丢字节并卡在 UART 接收。批量固件保留原 `RUN` 兼容 A 侧脚本，同时增加 `BEG/DATA/END` 可靠协议；每 128 字节回 ACK，主机超时重传。
+5. 原始 `RUN + 784 字节裸流` 在 PYNQ-Z2 长批次中会偶发丢字节并卡在 UART 接收。批量固件保留 `RUN`，正式批测使用 `BEG/DATA/END` 可靠协议；每 128 字节回 ACK，主机超时重传。
 
-## A 侧移植说明
+## 基线与其他板卡适配
 
-A 侧征服者 7020 与 PYNQ-Z2 的主要差异仍是 FPGA 器件和物理约束，RTL 功能接口不变。
+本仓库现在以 **Vivado 2025.2 + PYNQ-Z2（`xc7z020clg400-1`）** 为唯一验收基线。RTL 功能结论可以复用，但时序、资源、引脚约束、IP 生成产物和实测数据必须按其他目标板重新验证，不得直接沿用 PYNQ-Z2 的结果。
 
-1. 保留 A 侧工程器件 `xc7z020clg400-2`，执行 IP 升级时让 ROM IP 跟随 A 侧工程 PART，不要把本机 `-1` 的生成产物直接搬到 A 侧。
-2. 运行 `python/golden/assemble_rom_tap_sobel.py`，确认 ROM 总字数为 11066，最后 6 字为 `fe0100ff,00ff0200,00000001,00fffeff,02010000,00000001`。
-3. ROM IP 强制重新生成并先综合 IP，再综合顶层；只改 COE 而不重建 IP 会继续使用旧权重。
-4. 原 `py/uart_test.py` 的 `RUN label + 784 字节` 协议保持可用；长批次建议改用 `py/uart_batch_mnist.py` 的 ACK 重传模式。
-5. 上板结果必须按各自板卡重新采集，不跨板引用实测周期、时序和串口数据。
+移植到其他 Zynq-7020 板时：
+
+1. 以 PYNQ-Z2 工程为源基线，替换目标板 XDC 和时钟/复位约束。
+2. 运行 `board/pynqz2/repro_build.tcl`，让 ROM IP 的 PART 跟随目标工程并强制重新生成。
+3. 确认 ROM 总字数为 11066，最后 6 字为 `fe0100ff,00ff0200,00000001,00fffeff,02010000,00000001`。
+4. 重新执行综合、实现和上板自检；不得跨板引用周期数、时序和 UART 实测结果。
 
 ## 仓库内复现入口
 
@@ -58,12 +59,13 @@ $env:E203_BIT = "D:\path\to\aic_rv32.bit"
 vivado -mode batch -source board/pynqz2/program_bit.tcl
 ```
 
-软件侧：先编译 `sdk/LeNet_hw`，用 OpenOCD 下载 ELF；随后运行 `py/uart_batch_mnist.py --port COM9 --baud 115200 --count 1000`。脚本会自动下载 MNIST 原始测试集到 `dataset/mnist`。
+软件侧：先编译 `sdk/LeNet_hw`，用 OpenOCD 下载 ELF；随后运行 `py/uart_batch_mnist.py --port COM9 --count 1000`。脚本会自动下载 MNIST 原始测试集到 `dataset/mnist`。
 
 ## 证据文件
 
 - `batch_result.csv`：本次 1000 张逐样本结果
 - `batch_1000.log`：本次 1000 张完整串口日志
 - `board_selftest.log`：Pool/Sobel/PRED 上板自检日志
-- `batch_compat_20.log`：115200 下双协议兼容回归 20/20
+- `batch_compat_20.log`：P0 协议修正后的 20/20 回归日志
 - `../../sim/run/run_all.ps1`：仿真一键回归入口
+

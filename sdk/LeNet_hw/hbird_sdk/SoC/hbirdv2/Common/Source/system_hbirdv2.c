@@ -466,7 +466,7 @@ void _premain_init(void)
     SystemCoreClock = get_cpu_freq();
 #if ! defined(SIMULATION_SPIKE) && ! defined(SIMULATION_XLSPIKE)
     gpio_iof_config(GPIOA, IOF_UART_MASK);
-    uart_init(SOC_DEBUG_UART, 115200);
+    uart_init(SOC_DEBUG_UART, 57600);
 #endif
     /* Display banner after UART initialized */
     SystemBannerPrint();

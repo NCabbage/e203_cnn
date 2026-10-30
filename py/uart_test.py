@@ -5,7 +5,7 @@ from torchvision import datasets, transforms
 
 # ============ 配置 ============
 SERIAL_PORT = 'COM9'      # 改成你的串口号
-BAUD = 115200
+BAUD = 57600
 N_TEST = 1000              # 测多少张
 
 # ============ 加载 MNIST ============

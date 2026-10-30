@@ -38,7 +38,7 @@ def read_line(ser, deadline, echo=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", default="COM9")
-    ap.add_argument("--baud", type=int, default=115200)
+    ap.add_argument("--baud", type=int, default=57600)
     ap.add_argument("--count", type=int, default=1000)
     ap.add_argument("--start", type=int, default=0)
     ap.add_argument("--skip-version", action="store_true")
