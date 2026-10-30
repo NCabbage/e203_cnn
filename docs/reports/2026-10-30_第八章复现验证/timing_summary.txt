@@ -1,0 +1,3 @@
+WNS  = 0.000000 ns
+WHS  = -0.025547 ns
+Slack path: u_e203_lsu_splt_stage/dp_gt_0.dat_dfflr -> u_e203_exu_csr/badaddr_dfflr

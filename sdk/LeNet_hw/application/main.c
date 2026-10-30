@@ -149,6 +149,28 @@ static int run_one_inference(void)
     return argmax(final_out, OUT_NUM);
 }
 
+static int hex_nibble(char c)
+{
+    if (c >= '0' && c <= '9') return c - '0';
+    if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+    if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+    return -1;
+}
+
+static uint8_t img_buf[INPUT_H * INPUT_W];
+
+static void run_loaded_image(int label)
+{
+    for (int i = 0; i < INPUT_H * INPUT_W; i++)
+        input_img[i / INPUT_W][i % INPUT_W] =
+            (int8_t)(img_buf[i] * 100 / 255);
+
+    uint32_t t0 = get_cycle();
+    int pred = run_one_inference();
+    uint32_t t1 = get_cycle();
+    printf("PRED %d %d %u\n", pred, label, (unsigned)(t1 - t0));
+}
+
 // ============ 主函数：批处理服务器 ============
 int main(void)
 {
@@ -164,34 +186,43 @@ int main(void)
     printf("CNN VERSION OK\n");
     printf("Waiting for PC commands...\n");
 
-    static uint8_t img_buf[INPUT_H * INPUT_W];
-    char cmd[32];
+    char cmd[1024];
+    int current_label = 0;
 
     while (1) {
         uart_rx_line(cmd, sizeof(cmd));
 
         if (strncmp(cmd, "RUN", 3) == 0) {
-            int label = 0;
-            if (cmd[3] == ' ')
-                label = atoi(cmd + 4);
-
+            current_label = (cmd[3] == ' ') ? atoi(cmd + 4) : 0;
             printf("READY\n");
-
-            // 接收 784 字节原始图像
             uart_rx_bytes(img_buf, INPUT_H * INPUT_W);
-
-            // 转成 int8（和训练脚本缩放一致）
-            for (int i = 0; i < INPUT_H * INPUT_W; i++)
-                input_img[i / INPUT_W][i % INPUT_W] =
-                    (int8_t)(img_buf[i] * 100 / 255);
-
-            // 计时跑推理
-            uint32_t t0 = get_cycle();
-            int pred = run_one_inference();
-            uint32_t t1 = get_cycle();
-
-            // 回传结果
-            printf("PRED %d %d %u\n", pred, label, (unsigned)(t1 - t0));
+            run_loaded_image(current_label);
+        }
+        else if (strncmp(cmd, "BEG", 3) == 0) {
+            current_label = (cmd[3] == ' ') ? atoi(cmd + 4) : 0;
+            printf("READY\n");
+        }
+        else if (strncmp(cmd, "DATA", 4) == 0) {
+            char *p = cmd + 4;
+            int off = 0, n = 0;
+            while (*p == ' ') p++;
+            while (*p >= '0' && *p <= '9') {
+                off = off * 10 + (*p - '0');
+                p++;
+            }
+            while (*p == ' ') p++;
+            while (p[0] && p[1] && (off + n) < (INPUT_H * INPUT_W)) {
+                int hi = hex_nibble(p[0]);
+                int lo = hex_nibble(p[1]);
+                if (hi < 0 || lo < 0) break;
+                img_buf[off + n] = (uint8_t)((hi << 4) | lo);
+                n++;
+                p += 2;
+            }
+            printf("ACK %d %d\n", off, n);
+        }
+        else if (strncmp(cmd, "END", 3) == 0) {
+            run_loaded_image(current_label);
         }
         else if (strncmp(cmd, "EXIT", 4) == 0) {
             printf("BYE\n");

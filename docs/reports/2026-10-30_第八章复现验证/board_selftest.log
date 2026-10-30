@@ -1,0 +1,86 @@
+HummingBird SDK Build Time: Oct 30 2026, 14:29:39
+Download Mode: ILM
+CPU Frequency 15939338 Hz
+
+===== LeNet-5 INT8 HW Inference (HW Pooling) =====
+Quant shift: 8
+Test image: MNIST real digit 3
+Pooling: 2x2 MAX hardware, multi-channel
+CNN VERSION OK
+Init done.
+
+Predicted class: 3
+Final output scores:
+  class[0] = -128
+  class[1] = -128
+  class[2] = -128
+  class[3] = 127
+  class[4] = -128
+  class[5] = 54
+  class[6] = -128
+  class[7] = -128
+  class[8] = 127
+  class[9] = -26
+
+===== Benchmark Result =====
+Total cycles: 353521
+PMU MAC=74634 WLOAD=0 XLOAD=6588 BUBBLE=4480 TOTAL=86269 AXIWR=12678
+Total mul num: 10
+Total load num: 22733
+Total store num: 20737
+Total stall num: 199506
+CPU Frequency: 15939338 Hz
+Total time: 22 ms
+===== Benchmark Done =====
+
+===== Pooling Selftest =====
+  pool[0] = -2 (expect -2)
+  pool[1] = 10 (expect 10)
+  pool[2] = 11 (expect 11)
+  pool[3] = 19 (expect 19)
+  pool[4] = 22 (expect 22)
+  pool[5] = 24 (expect 24)
+  pool[6] = 31 (expect 31)
+  pool[7] = 34 (expect 34)
+  pool[8] = 36 (expect 36)
+POOL SELFTEST: PASS
+===== Done =====
+
+===== Sobel Edge Selftest (K=3, OC=2) =====
+  Gx (vertical edges, 6x6):
+      30   30    0    0 -120 -120
+      90   90    0    0 -120 -120
+     120  120    0    0 -120 -120
+     120  120    0    0 -120 -120
+      90   90    0    0  -90  -90
+      30   30    0    0  -30  -30
+  Gy (horizontal edges, 6x6):
+      30   90  120  120  120  120
+      30   90  120  120  120  120
+       0    0    0    0    0    0
+       0    0    0    0    0    0
+     -30  -90 -120 -120  -90  -30
+     -30  -90 -120 -120  -90  -30
+  nonzero = 48 (expect 48)  Gx-mid-cols-zero = 1  Gy-mid-rows-zero = 1
+SOBEL SELFTEST: PASS
+===== Sobel Done =====
+
+===== Sobel Edge Selftest (K=3, OC=2) =====
+  Gx (vertical edges, 6x6):
+      30   30    0    0 -120 -120
+      90   90    0    0 -120 -120
+     120  120    0    0 -120 -120
+     120  120    0    0 -120 -120
+      90   90    0    0  -90  -90
+      30   30    0    0  -30  -30
+  Gy (horizontal edges, 6x6):
+      30   90  120  120  120  120
+      30   90  120  120  120  120
+       0    0    0    0    0    0
+       0    0    0    0    0    0
+     -30  -90 -120 -120  -90  -30
+     -30  -90 -120 -120  -90  -30
+  nonzero = 48 (expect 48)  Gx-mid-cols-zero = 1  Gy-mid-rows-zero = 1
+SOBEL SELFTEST: PASS
+===== Sobel Done =====
+

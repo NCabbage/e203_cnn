@@ -1,0 +1,11 @@
+9 PASS / 0 FAIL
+
+t1_tiny     PASS 22 cycles
+t2_stride2  PASS 22 cycles
+t3_saturate PASS 22 cycles
+t4_multi    PASS 128 cycles
+t5_requant  PASS 226 cycles
+t6_edge     PASS 22 cycles
+t8_pool     PASS 29 cycles
+t9_fc       PASS 18 cycles
+t10_sobel   PASS 362 cycles

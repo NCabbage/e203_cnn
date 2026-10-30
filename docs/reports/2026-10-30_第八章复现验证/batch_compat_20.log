@@ -1,0 +1,71 @@
+MNIST loaded: 20 images [0:20] from D:\HuaweiMoveData\Users\xiaoyu zheng\Desktop\e203_cnn_work\dataset\mnist
+Skipping boot banner; waiting 2s for E203 command loop...
+[1] SEND RUN label=7
+[1] IMAGE ACKED
+[1] PRED=7 cycles=310073
+[2] SEND RUN label=2
+[2] IMAGE ACKED
+[2] PRED=2 cycles=309989
+[3] SEND RUN label=1
+[3] IMAGE ACKED
+[3] PRED=1 cycles=310133
+[4] SEND RUN label=0
+[4] IMAGE ACKED
+[4] PRED=0 cycles=309974
+[5] SEND RUN label=4
+[5] IMAGE ACKED
+[5] PRED=4 cycles=310025
+[6] SEND RUN label=1
+[6] IMAGE ACKED
+[6] PRED=1 cycles=310142
+[7] SEND RUN label=4
+[7] IMAGE ACKED
+[7] PRED=4 cycles=309995
+[8] SEND RUN label=9
+[8] IMAGE ACKED
+[8] PRED=9 cycles=310079
+[9] SEND RUN label=5
+[9] IMAGE ACKED
+[9] PRED=5 cycles=309972
+[10] SEND RUN label=9
+[10] IMAGE ACKED
+[10] PRED=9 cycles=310034
+[  10/20] correct=10 accuracy=100.00%
+[11] SEND RUN label=0
+[11] IMAGE ACKED
+[11] PRED=0 cycles=309981
+[12] SEND RUN label=6
+[12] IMAGE ACKED
+[12] PRED=6 cycles=309927
+[13] SEND RUN label=9
+[13] IMAGE ACKED
+[13] PRED=9 cycles=310023
+[14] SEND RUN label=0
+[14] IMAGE ACKED
+[14] PRED=0 cycles=310001
+[15] SEND RUN label=1
+[15] IMAGE ACKED
+[15] PRED=1 cycles=310139
+[16] SEND RUN label=5
+[16] IMAGE ACKED
+[16] PRED=5 cycles=309960
+[17] SEND RUN label=9
+[17] IMAGE ACKED
+[17] PRED=9 cycles=309992
+[18] SEND RUN label=7
+[18] IMAGE ACKED
+[18] PRED=7 cycles=310077
+[19] SEND RUN label=3
+[19] IMAGE ACKED
+[19] PRED=3 cycles=309974
+[20] SEND RUN label=4
+[20] IMAGE ACKED
+[20] PRED=4 cycles=310065
+[  20/20] correct=20 accuracy=100.00%
+
+===== Batch Result =====
+Total:      20
+Correct:    20
+Accuracy:   100.00%
+Avg cycles: 310028
+CSV:        D:\HuaweiMoveData\Users\xiaoyu zheng\Desktop\e203_cnn_work\report\batch_compat115200b_20_20261030.csv

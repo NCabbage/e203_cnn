@@ -333,8 +333,7 @@ module cnn_top #(
         end else if (pmu_en) begin
             if (state == S_MAC && !mac_first)
                 pmu_mac_cycles <= pmu_mac_cycles + 32'd1;
-            if (state == S_MAC && !mac_first)
-                pmu_wload_cycles <= pmu_wload_cycles + 32'd1;
+            // 权重固化到 ROM 后不再有动态装载，WLOAD 保持 0
             if (x_wen)
                 pmu_xload_cycles <= pmu_xload_cycles + 32'd1;
             if ((state == S_MAC) && !mac_first && (lane_valid != 4'b1111))

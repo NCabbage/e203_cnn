@@ -1,0 +1,210 @@
+MNIST loaded: 1000 images [0:1000] from D:\HuaweiMoveData\Users\xiaoyu zheng\Desktop\e203_cnn_work\dataset\mnist
+Skipping boot banner; E203 already loaded and waiting for RUN.
+[1] SEND RUN label=7
+[1] IMAGE ACKED
+[1] PRED=7 cycles=308613
+[2] SEND RUN label=2
+[2] IMAGE ACKED
+[2] PRED=2 cycles=308652
+[3] SEND RUN label=1
+[3] IMAGE ACKED
+[3] PRED=1 cycles=308549
+[4] SEND RUN label=0
+[4] IMAGE ACKED
+[4] PRED=0 cycles=308680
+[5] SEND RUN label=4
+[5] IMAGE ACKED
+[5] PRED=4 cycles=308646
+[6] SEND RUN label=1
+[6] IMAGE ACKED
+[6] PRED=1 cycles=308556
+[7] SEND RUN label=4
+[7] IMAGE ACKED
+[7] PRED=4 cycles=308653
+[8] SEND RUN label=9
+[8] IMAGE ACKED
+[8] PRED=9 cycles=308639
+[9] SEND RUN label=5
+[9] IMAGE ACKED
+[9] PRED=5 cycles=308672
+[10] SEND RUN label=9
+[10] IMAGE ACKED
+[10] PRED=9 cycles=308668
+[  10/1000] correct=10 accuracy=100.00%
+[11] SEND RUN label=0
+[11] IMAGE ACKED
+[11] PRED=0 cycles=308696
+[12] SEND RUN label=6
+[12] IMAGE ACKED
+[12] PRED=6 cycles=308684
+[13] SEND RUN label=9
+[13] IMAGE ACKED
+[13] PRED=9 cycles=308636
+[14] SEND RUN label=0
+[14] IMAGE ACKED
+[14] PRED=0 cycles=308672
+[15] SEND RUN label=1
+[15] IMAGE ACKED
+[15] PRED=1 cycles=308555
+[16] SEND RUN label=5
+[16] IMAGE ACKED
+[16] PRED=5 cycles=308695
+[17] SEND RUN label=9
+[17] IMAGE ACKED
+[17] PRED=9 cycles=308648
+[18] SEND RUN label=7
+[18] IMAGE ACKED
+[18] PRED=7 cycles=308638
+[19] SEND RUN label=3
+[19] IMAGE ACKED
+[19] PRED=3 cycles=308712
+[20] SEND RUN label=4
+[20] IMAGE ACKED
+[20] PRED=4 cycles=308642
+[  20/1000] correct=20 accuracy=100.00%
+[  30/1000] correct=30 accuracy=100.00%
+[  40/1000] correct=40 accuracy=100.00%
+[  50/1000] correct=50 accuracy=100.00%
+[  60/1000] correct=60 accuracy=100.00%
+[  70/1000] correct=70 accuracy=100.00%
+[  80/1000] correct=80 accuracy=100.00%
+[  90/1000] correct=90 accuracy=100.00%
+[100] SEND RUN label=9
+[100] IMAGE ACKED
+[100] PRED=9 cycles=308683
+[ 100/1000] correct=100 accuracy=100.00%
+[ 110/1000] correct=110 accuracy=100.00%
+[ 120/1000] correct=120 accuracy=100.00%
+[ 130/1000] correct=130 accuracy=100.00%
+[ 140/1000] correct=140 accuracy=100.00%
+[ 150/1000] correct=150 accuracy=100.00%
+[ 160/1000] correct=160 accuracy=100.00%
+[ 170/1000] correct=170 accuracy=100.00%
+[ 180/1000] correct=180 accuracy=100.00%
+[ 190/1000] correct=190 accuracy=100.00%
+[200] SEND RUN label=2
+[200] IMAGE ACKED
+[200] PRED=2 cycles=308671
+[ 200/1000] correct=200 accuracy=100.00%
+[ 210/1000] correct=210 accuracy=100.00%
+[ 220/1000] correct=220 accuracy=100.00%
+[ 230/1000] correct=230 accuracy=100.00%
+[ 240/1000] correct=240 accuracy=100.00%
+[ 250/1000] correct=250 accuracy=100.00%
+[ 260/1000] correct=259 accuracy=99.62%
+[ 270/1000] correct=269 accuracy=99.63%
+[ 280/1000] correct=279 accuracy=99.64%
+[ 290/1000] correct=289 accuracy=99.66%
+[300] SEND RUN label=8
+[300] IMAGE ACKED
+[300] PRED=8 cycles=308663
+[ 300/1000] correct=298 accuracy=99.33%
+[ 310/1000] correct=308 accuracy=99.35%
+[ 320/1000] correct=318 accuracy=99.38%
+[ 330/1000] correct=328 accuracy=99.39%
+[ 340/1000] correct=338 accuracy=99.41%
+[ 350/1000] correct=348 accuracy=99.43%
+[ 360/1000] correct=358 accuracy=99.44%
+[ 370/1000] correct=368 accuracy=99.46%
+[ 380/1000] correct=378 accuracy=99.47%
+[ 390/1000] correct=388 accuracy=99.49%
+[400] SEND RUN label=4
+[400] IMAGE ACKED
+[400] PRED=4 cycles=308648
+[ 400/1000] correct=398 accuracy=99.50%
+[ 410/1000] correct=408 accuracy=99.51%
+[ 420/1000] correct=418 accuracy=99.52%
+[ 430/1000] correct=428 accuracy=99.53%
+[ 440/1000] correct=438 accuracy=99.55%
+[ 450/1000] correct=446 accuracy=99.11%
+[ 460/1000] correct=456 accuracy=99.13%
+[ 470/1000] correct=466 accuracy=99.15%
+[ 480/1000] correct=476 accuracy=99.17%
+[ 490/1000] correct=486 accuracy=99.18%
+[500] SEND RUN label=6
+[500] IMAGE ACKED
+[500] PRED=6 cycles=308589
+[ 500/1000] correct=495 accuracy=99.00%
+[ 510/1000] correct=505 accuracy=99.02%
+[ 520/1000] correct=515 accuracy=99.04%
+[ 530/1000] correct=525 accuracy=99.06%
+[ 540/1000] correct=535 accuracy=99.07%
+[ 550/1000] correct=545 accuracy=99.09%
+[ 560/1000] correct=555 accuracy=99.11%
+[ 570/1000] correct=565 accuracy=99.12%
+[ 580/1000] correct=575 accuracy=99.14%
+[ 590/1000] correct=584 accuracy=98.98%
+[600] SEND RUN label=9
+[600] IMAGE ACKED
+[600] PRED=9 cycles=308661
+[ 600/1000] correct=594 accuracy=99.00%
+[ 610/1000] correct=604 accuracy=99.02%
+[ 620/1000] correct=614 accuracy=99.03%
+[ 630/1000] correct=623 accuracy=98.89%
+[ 640/1000] correct=633 accuracy=98.91%
+[ 650/1000] correct=643 accuracy=98.92%
+[ 660/1000] correct=652 accuracy=98.79%
+[ 670/1000] correct=662 accuracy=98.81%
+[ 680/1000] correct=672 accuracy=98.82%
+[ 690/1000] correct=681 accuracy=98.70%
+[700] SEND RUN label=3
+[700] IMAGE ACKED
+[700] PRED=3 cycles=308619
+[ 700/1000] correct=691 accuracy=98.71%
+[ 710/1000] correct=701 accuracy=98.73%
+[ 720/1000] correct=711 accuracy=98.75%
+[ 730/1000] correct=720 accuracy=98.63%
+[ 740/1000] correct=730 accuracy=98.65%
+[ 750/1000] correct=740 accuracy=98.67%
+[ 760/1000] correct=750 accuracy=98.68%
+[ 770/1000] correct=760 accuracy=98.70%
+[ 780/1000] correct=770 accuracy=98.72%
+[ 790/1000] correct=780 accuracy=98.73%
+[800] SEND RUN label=2
+[800] IMAGE ACKED
+[800] PRED=2 cycles=308661
+[ 800/1000] correct=790 accuracy=98.75%
+[ 810/1000] correct=800 accuracy=98.77%
+[ 820/1000] correct=810 accuracy=98.78%
+[ 830/1000] correct=820 accuracy=98.80%
+[ 840/1000] correct=830 accuracy=98.81%
+[ 850/1000] correct=840 accuracy=98.82%
+[ 860/1000] correct=850 accuracy=98.84%
+[ 870/1000] correct=860 accuracy=98.85%
+[ 880/1000] correct=870 accuracy=98.86%
+[ 890/1000] correct=880 accuracy=98.88%
+[900] SEND RUN label=8
+[900] IMAGE ACKED
+[900] PRED=8 cycles=308706
+[ 900/1000] correct=890 accuracy=98.89%
+[ 910/1000] correct=900 accuracy=98.90%
+[ 920/1000] correct=910 accuracy=98.91%
+[ 930/1000] correct=920 accuracy=98.92%
+[ 940/1000] correct=930 accuracy=98.94%
+[ 950/1000] correct=939 accuracy=98.84%
+[ 960/1000] correct=949 accuracy=98.85%
+[ 970/1000] correct=959 accuracy=98.87%
+[ 980/1000] correct=969 accuracy=98.88%
+[ 990/1000] correct=979 accuracy=98.89%
+[1000] SEND RUN label=9
+[1000] IMAGE ACKED
+[1000] PRED=9 cycles=308650
+[1000/1000] correct=989 accuracy=98.90%
+
+===== Batch Result =====
+Total:      1000
+Correct:    989
+Accuracy:   98.90%
+Avg cycles: 308644
+CSV:        D:\HuaweiMoveData\Users\xiaoyu zheng\Desktop\e203_cnn_work\report\batch_result_repro_20261030.csv
+MISCLASSIFIED idx=259 label=6 pred=0
+MISCLASSIFIED idx=290 label=8 pred=9
+MISCLASSIFIED idx=445 label=6 pred=0
+MISCLASSIFIED idx=449 label=3 pred=5
+MISCLASSIFIED idx=495 label=8 pred=0
+MISCLASSIFIED idx=582 label=8 pred=2
+MISCLASSIFIED idx=625 label=6 pred=4
+MISCLASSIFIED idx=659 label=2 pred=1
+MISCLASSIFIED idx=684 label=7 pred=3
+MISCLASSIFIED idx=720 label=5 pred=8
+MISCLASSIFIED idx=947 label=8 pred=9
